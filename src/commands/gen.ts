@@ -1,5 +1,10 @@
 import {Command, Flags} from '@oclif/core';
-import * as nunjucks from 'nunjucks';
+
+import * as fs from 'fs';
+import * as path from 'path';
+import {RenderService} from '../services/render.service';
+import {ServerConfig, TypeConfig} from '../util/types';
+import {TYPE_CONFIG_BASEPATH, SERVER_CONFIG_BASEPATH} from '../constants/paths';
 
 export default class Gen extends Command {
   static description = 'generate fluentbit configuration'
@@ -9,20 +14,26 @@ export default class Gen extends Command {
   ]
 
   static flags = {
-    // flag with a value (-n, --name=VALUE)
-    name: Flags.string({char: 'n', description: 'name to print'}),
+    server: Flags.string({char: 's', required: true, description: 'server to render the config for'}),
   }
 
   public async run(): Promise<void> {
-    const {} = await this.parse(Gen);
+    const {flags} = await this.parse(Gen);
 
-    nunjucks.configure('templates', {
-      autoescape: true,
-    });
-    console.log(nunjucks.render('fluent-bit.conf.njk', {
-      FLUENT_HOME: 'bar',
-    }));
+    RenderService.init();
+    RenderService.writeBase({});
 
-    // Do something
+    const serverConfigStr = fs.readFileSync(path.resolve(SERVER_CONFIG_BASEPATH, `${flags.server}.json`), 'utf8');
+    const serverConfig: ServerConfig = JSON.parse(serverConfigStr);
+    console.log(serverConfig.context);
+
+    for (const app of serverConfig.apps) {
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      const typeConfigStr = fs.readFileSync(path.resolve(TYPE_CONFIG_BASEPATH, `${app.type}.json`), 'utf8');
+      const typeConfig: TypeConfig = JSON.parse(typeConfigStr);
+
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      RenderService.writeType({...typeConfig.context, ...app.context}, app.type, app.id);
+    }
   }
 }
