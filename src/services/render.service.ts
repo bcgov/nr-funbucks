@@ -2,8 +2,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as nunjucks from 'nunjucks';
 
-import {CONFIG_BASEPATH, OUTPUT_BASEPATH, TEMPLATES_BASEPATH} from '../constants/paths';
-import {BaseConfig} from '../util/types';
+import {CONFIG_BASEPATH, OUTPUT_BASEPATH, TEMPLATE_CONFIG_BASEPATH} from '../constants/paths';
+import {BaseConfig, FbFile, ServerAppConfig, TypeConfig} from '../util/types';
 
 
 const baseConfigStr = fs.readFileSync(path.resolve(CONFIG_BASEPATH, `base.json`), 'utf8');
@@ -14,10 +14,14 @@ export class RenderService {
     [type: string]: number
   } = {};
   public static init() {
-    nunjucks.configure(TEMPLATES_BASEPATH, {
+    nunjucks.configure(TEMPLATE_CONFIG_BASEPATH, {
       autoescape: true,
     });
     this.clean();
+  }
+
+  public static fileToOutputPath(file: FbFile): string {
+    return file.name !== undefined ? file.name : file.tmpl.substring(0, file.tmpl.length - 4);
   }
 
   public static clean() {
@@ -30,32 +34,34 @@ export class RenderService {
       ...baseConfig.context,
       ...baseContext,
     };
-    this.writeRenderedTemplate('filters.conf.njk', 'filters.conf', context);
-    this.writeRenderedTemplate('filters.lua.njk', 'filters.lua', context);
-    this.writeRenderedTemplate('fluent-bit.conf.njk', 'fluent-bit.conf', context);
-    this.writeRenderedTemplate('outputs.conf.njk', 'outputs.conf', context);
-    this.writeRenderedTemplate('parsers.conf.njk', 'parsers.conf', context);
+    for (const file of baseConfig.files) {
+      this.writeRenderedTemplate(file.tmpl, this.fileToOutputPath(file), context);
+    }
+  }
+
+  public static writeApp(app: ServerAppConfig) {
+    const typeConfigPath = path.resolve(TEMPLATE_CONFIG_BASEPATH, app.type, `${app.type}.json`);
+    const typeConfigStr = fs.readFileSync(typeConfigPath, 'utf8');
+    const type: TypeConfig = JSON.parse(typeConfigStr);
+
+    RenderService.writeType(app, type);
   }
 
   public static writeType(
-    baseContext: object,
-    type: string,
-    id: string | undefined = undefined) {
-    this.typeCnt[type] = this.typeCnt[type] ? this.typeCnt[type] + 1 : 1;
-    const typeTag = id ? id : `${type}_${this.typeCnt[type]}`;
+    app: ServerAppConfig,
+    type: TypeConfig) {
+    const context = {...type.context, ...app.context};
+    this.typeCnt[app.type] = this.typeCnt[app.type] ? this.typeCnt[app.type] + 1 : 1;
+    const typeTag = app.id ? app.id : `${app.type}_${this.typeCnt[app.type]}`;
 
-    for (const filePath of ['filter/filters.conf.njk', 'input/inputs.conf.njk', 'parser/parsers.conf.njk']) {
-      if (!fs.existsSync(path.resolve(TEMPLATES_BASEPATH, type, filePath))) {
-        // skip if does not exist
-        continue;
-      }
+    for (const file of type.files) {
       this.writeRenderedTemplate(
-        `${type}/${filePath}`,
-        `${typeTag}/${filePath}`,
+        `${app.type}/${file.tmpl}`,
+        `${typeTag}/${this.fileToOutputPath(file)}`,
         {
           typeTag,
           ...baseConfig.context,
-          ...baseContext,
+          ...context,
         });
     }
   }

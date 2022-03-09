@@ -1,5 +1,13 @@
+
+export interface FbFile {
+  name?: string;
+  tmpl: string;
+  type: string;
+}
+
 export interface TypeConfig {
   context: object;
+  files: FbFile[]
 }
 
 export interface ServerAppConfig {
@@ -16,4 +24,5 @@ export interface ServerConfig {
 
 export interface BaseConfig {
   context: object;
+  files: FbFile[];
 }
