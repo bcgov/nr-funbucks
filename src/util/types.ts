@@ -2,7 +2,7 @@
 export interface FbFile {
   name?: string;
   tmpl: string;
-  type: string;
+  type: 'script' | 'filter' | 'parser';
 }
 
 export interface TypeConfig {
@@ -24,5 +24,6 @@ export interface ServerConfig {
 
 export interface BaseConfig {
   context: object;
+  localContextOverride: object;
   files: FbFile[];
 }

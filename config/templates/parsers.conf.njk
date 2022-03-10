@@ -1,1 +1,3 @@
-@INCLUDE */parser/*.conf
+{% for parser in files_parser -%}
+@INCLUDE {{parser}}
+{% endfor %}

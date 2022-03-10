@@ -11,7 +11,7 @@
 [FILTER]
     Name lua
     Match_Regex ^(?!metrics).*
-    script ${FLUENT_HOME}/conf/filters.lua
+    script ${FLUENT_CONF_HOME}/filters.lua
     time_as_table True
     call append_event_created
 
@@ -21,7 +21,7 @@
 [FILTER]
     Name lua
     Match *
-    script ${FLUENT_HOME}/conf/filters.lua
+    script ${FLUENT_CONF_HOME}/filters.lua
     time_as_table True
     call add_host_metadata
 

@@ -1,7 +1,6 @@
 {
-  "address": "syncronicity.bcgov",
+  "address": "localhost",
   "apps": [
-    {"id": "jenkins-deploy", "type": "deploy", "context": {}},
     {"id": "metrics", "type": "metrics_collector", "context": {}}
   ],
   "context": {}

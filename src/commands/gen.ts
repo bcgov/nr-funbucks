@@ -15,20 +15,24 @@ export default class Gen extends Command {
 
   static flags = {
     server: Flags.string({char: 's', required: true, description: 'server to render the config for'}),
+    local: Flags.boolean({char: 'l', description: 'render for local lambda usage'}),
+    app: Flags.string({char: 'a', description: 'app to limit rendering to'}),
   }
 
   public async run(): Promise<void> {
     const {flags} = await this.parse(Gen);
+    const service = new RenderService();
 
-    RenderService.init();
-    RenderService.writeBase({});
+    await service.init(flags.local);
 
     const serverConfigStr = fs.readFileSync(path.resolve(SERVER_CONFIG_BASEPATH, `${flags.server}.json`), 'utf8');
     const serverConfig: ServerConfig = JSON.parse(serverConfigStr);
-    console.log(serverConfig.context);
 
     for (const app of serverConfig.apps) {
-      RenderService.writeApp(app);
+      if (flags.app === undefined || flags.app === app.id) {
+        service.writeApp(app);
+      }
     }
+    service.writeBase();
   }
 }
