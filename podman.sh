@@ -32,7 +32,7 @@ podman run --rm \
 	-v "/tmp/workspace:/config" \
 	-e FLUENT_VERSION=1.8.13 \
 	-e FLUENT_LABEL_ENV=undefined \
-  -e FLUENT_CONF_HOME=/config \
+  	-e FLUENT_CONF_HOME=/config \
 	-e HOST_* \
 	--network=host \
 	--security-opt label=disable \
