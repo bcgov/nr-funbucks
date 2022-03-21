@@ -73,6 +73,70 @@
         "app": "wfdm",
         "component": "wfdm-document-management-api"
       }
+    },
+    {
+      "id": "wfwx-danger-summary-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-danger-summary-war"
+      }
+    },
+    {
+      "id": "wfwx-data-initialization-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-data-initialization-api"
+      }
+    },
+    {
+      "id": "wfwx-datawriter-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-datawriter-war"
+      }
+    },
+    {
+      "id": "wfwx-fireweather-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-fireweather-api"
+      }
+    },
+    {
+      "id": "wfwx-info-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-info-war"
+      }
+    },
+    {
+      "id": "wfwx-legacy-datasync-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-legacy-datasync-war"
+      }
+    },
+    {
+      "id": "wfwx-web-map-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-web-map-war"
+      }
+    },
+    {
+      "id": "wfwx-web-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-web-war"
+      }
     }
   ],
   "context": {
