@@ -21,8 +21,8 @@
     type          regex
     flush_timeout 1000
     key_content message
-    rule      "start_state"   {{startTomcatParserRegex}}  "cont"
-    rule      "cont"          {{contTomcatParserRegex}}    "cont"
+    rule      "start_state"   "{{startTomcatParserRegex|safe}}"  "cont"
+    rule      "cont"          "{{contTomcatParserRegex|safe}}"    "cont"
 
 # App (generic) multiline core parser
 #
@@ -31,5 +31,5 @@
     type          regex
     flush_timeout 1000
     key_content message
-    rule      "start_state"   {{startAppParserRegex}}  "cont"
-    rule      "cont"          {{contAppParserRegex}}    "cont"
+    rule      "start_state"   "{{startAppParserRegex|safe}}"  "cont"
+    rule      "cont"          "{{contAppParserRegex|safe}}"    "cont"

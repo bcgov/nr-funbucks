@@ -5,10 +5,10 @@
     "!logs_path_localhost": "{{ localLogsPathPrefix | default('/apps_ux/logs') }}/{{ app | upper }}/{{ component | lower }}/localhost.*.log",
     "!logs_path_catalina": "{{ localLogsPathPrefix | default('/apps_ux/logs') }}/{{ app | upper }}/{{ component | lower }}/catalina.*.log",
     "!logs_path_app": "{{ localLogsPathPrefix | default('/apps_ux/logs') }}/{{ app | upper }}/{{ component | lower }}/{{ component | lower }}.log",
-    "!startTomcatParserRegex": "{{ startTomcatParserRegex | default(\"/^\\d{2}-\\w{3}-\\d{4}\\s\\d{2}:\\d{2}:\\d{2}.\\d{3}.*$/\") }}",
-    "!contTomcatParserRegex": "{{ contTomcatParserRegex | default(\"/^[ \t+].*|Caused by.*/\") }}",
-    "!startAppParserRegex": "{{ startAppParserRegex | default(\"/^\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}(.\\d{3}?).*$/\") }}",
-    "!contAppParserRegex": "{{ contAppParserRegex | default(\"/^[ \t+a-zA-Z{}\/\\[\\]].*\") }}"
+    "!startTomcatParserRegex": "{{ startTomcatParserRegex | default('/^\\\\d{2}-\\\\w{3}-\\\\d{4}\\\\s\\\\d{2}:\\\\d{2}:\\\\d{2}.\\\\d{3}.*$/') }}",
+    "!contTomcatParserRegex": "{{ contTomcatParserRegex | default('/^[ \\\\t+].*|Caused by.*/') }}",
+    "!startAppParserRegex": "{{ startAppParserRegex | default('/^\\\\d{4}-\\\\d{2}-\\\\d{2}\\\\s\\\\d{2}:\\\\d{2}:\\\\d{2}(.\\\\d{3}?).*$/') }}",
+    "!contAppParserRegex": "{{ contAppParserRegex | default('/^[ \\\\t+a-zA-Z{}\\\\/\\\\[\\\\]].*') }}"
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},
