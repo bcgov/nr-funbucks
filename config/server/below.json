@@ -497,6 +497,7 @@
     }
   ],
   "context": {
-    "environment": "wfint"
+    "environment": "wfint",
+    "!contAppParserRegex": "/^[ \t+a-zA-Z{}\/\\[\\]].*|^\\d{8}.*|^[a-zA-Z0-9]+\"|^\\d\\..*/"
   }
 }
