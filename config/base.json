@@ -1,26 +1,28 @@
 {
   "context": {
     "appPathJq": "/sw_ux/bin/jq",
-    "fluentLogLevel": "error",
-    "fluentLogFile": "/apps_ux/agents/main/logs/agent.log",
-    "inputDbFile": "/apps_ux/agents/main/db/fluent-bit-logs.db",
+    "fluentLogLevel": "info",
+    "!fluentLogFile": "/apps_ux/logs/agents/fluent-bit/fluent-bit.{{agentCount}}.log",
+    "inputDbFile": "/apps_data/agents/fluent-bit/fluent-bit-logs.db",
     "inputTailMemBufLimit": "5MB",
     "inputTailIgnoreOlder": "7d",
     "output_kinesis": true,
-    "output_stdout": true,
+    "output_stdout": false,
     "shimDisableMultilineKey": true
   },
   "localContextOverride": {
     "appPathJq": "jq",
-    "fluentLogFile": "/tmp/agent.log",
+    "!fluentLogFile": "/tmp/agent.log",
     "localLogsPathPrefix": "/data",
     "inputDbFile": "/tmp/fluent-bit-logs.db",
     "output_kinesis": false,
+    "output_stdout": true,
     "output_local_lambda": true
   },
   "files": [
     { "tmpl": "filters.conf.njk" },
     { "tmpl": "fluent-bit.conf.njk" },
+    { "tmpl": "generic_json_parsers.conf.njk" },
     { "tmpl": "host_metadata.lua" },
     { "tmpl": "outputs.conf.njk" },
     { "tmpl": "parsers.conf.njk" },

@@ -1,9 +1,8 @@
 {
-  "address": "syncronicity.bcgov",
-  "proxy": "http://forwardproxy.nrs.bcgov:23128",
+  "address": "coincidence.bcgov",
+  "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "fluentBitRelease": "1.8.15",
   "apps": [
-    {"id": "jenkins-deploy", "type": "deploy", "context": {}},
     {"id": "cpu", "type": "metric_host_cpu", "context": { "inputIntervalSec": 10 }},
     {"id": "disk", "type": "metric_host_disk", "context": {}},
     {"id": "disk_named", "type": "metric_host_disk_named", "context": {}},
@@ -11,16 +10,14 @@
     {"id": "process", "type": "metric_process", "context": {}},
     {"id": "metrics_isss", "type": "metric_s6_process", "context": {
       "app": "jenkins",
-      "component": "jenkins_isss",
-      "inputIntervalSec": 10
+      "component": "jenkins_isss"
     }},
     {"id": "metrics_smt", "type": "metric_s6_process", "context": {
       "app": "jenkins",
-      "component": "jenkins_smt",
-      "inputIntervalSec": 10
+      "component": "jenkins_smt"
     }}
   ],
   "context": {
-    "environment": "production"
+    "environment": "test"
   }
 }
