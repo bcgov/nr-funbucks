@@ -6,7 +6,6 @@
     Add agent.version ${FLUENT_VERSION}
     Add agent.name ${AGENT_NAME}{% endif %}
     Add ecs.version 1.12.0
-    Rename level log.level
     Rename event_sequence event.sequence
 
 {% for typeTag in measureTypes.historic -%}
