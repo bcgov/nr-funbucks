@@ -421,7 +421,7 @@
       "app": "TUS",
       "component": "tus",
       "healthCheckEnabled": true,
-      "healthCheckPort": "80"
+      "healthCheckPort": "tomcat"
     }},
     {
       "id": "tusws",
