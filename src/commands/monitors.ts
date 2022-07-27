@@ -15,8 +15,11 @@ type Monitor = {
   name: string;
   server: string;
   agent: string;
+  // eslint-disable-next-line camelcase
   query_level_trigger_id: string;
+  // eslint-disable-next-line camelcase
   teams_channel_action_id: string;
+  // eslint-disable-next-line camelcase
   automation_queue_action_id: string;
 };
 
