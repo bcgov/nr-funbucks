@@ -8,7 +8,8 @@
     "inputTailIgnoreOlder": "7d",
     "output_kinesis": true,
     "output_stdout": false,
-    "shimDisableMultilineKey": true
+    "shimDisableMultilineKey": true,
+    "outputAwsKinesisRetryLimit": 3
   },
   "localContextOverride": {
     "appPathJq": "jq",
