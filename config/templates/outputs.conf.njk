@@ -1,4 +1,4 @@
-{% if output_kinesis -%}
+{% if outputAwsKinesisEnabled -%}
 [OUTPUT]
     Name  kinesis_streams
     Match *
@@ -7,13 +7,13 @@
     role_arn ${AWS_KINESIS_ROLE_ARN}
     Retry_Limit {{outputAwsKinesisRetryLimit}}
 {% endif -%}
-{% if output_stdout %}
+{% if outputStdoutEnabled %}
 [OUTPUT]
     Name  stdout
     Match *
     Format json_lines
 {% endif -%}
-{% if output_local_lambda %}
+{% if outputLocalLambdaEnabled %}
 [OUTPUT]
     Name http
     Match *

@@ -6,19 +6,19 @@
     "inputDbFile": "/apps_data/agents/fluent-bit/fluent-bit-logs.db",
     "inputTailMemBufLimit": "5MB",
     "inputTailIgnoreOlder": "7d",
-    "output_kinesis": true,
-    "output_stdout": false,
-    "shimDisableMultilineKey": true,
-    "outputAwsKinesisRetryLimit": 3
+    "outputAwsKinesisRetryLimit": 3,
+    "outputAwsKinesisEnabled": true,
+    "outputStdoutEnabled": false,
+    "shimDisableMultilineKey": true
   },
   "localContextOverride": {
     "appPathJq": "jq",
     "!fluentLogFile": "/tmp/agent.log",
     "localLogsPathPrefix": "/data",
     "inputDbFile": "/tmp/fluent-bit-logs.db",
-    "output_kinesis": false,
-    "output_stdout": true,
-    "output_local_lambda": true
+    "outputAwsKinesisEnabled": false,
+    "outputLocalLambdaEnabled": true,
+    "outputStdoutEnabled": true
   },
   "files": [
     { "tmpl": "filters.conf.njk" },
