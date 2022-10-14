@@ -3,6 +3,9 @@
 svStatArray=($(/sw_ux/s6/bin/s6-svstat -o up,pid {{serviceDirectory}}))
 up=${svStatArray[0]}
 pid=${svStatArray[1]}
+{% if childProcess %}
+pid=$(pgrep -P $pid)
+{% endif %}
 procStatArray=($(cat /proc/${pid}/stat))
 topStat=($(top -b -n 2 -d 1 -p ${pid} | tail -1 | sed 's/\s\s*/\n/g'))
 topStat[8]=$(echo "scale=6; ${topStat[8]} / 100" | bc)
