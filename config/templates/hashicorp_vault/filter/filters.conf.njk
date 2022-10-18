@@ -1,0 +1,74 @@
+{% import "../../macros/lua.njk" as lua %}
+[FILTER]
+    Name modify
+    Match {{typeTag}}.audit
+    Add event.dataset vault.audit
+{{ lua.renderLua(typeTag + '.audit', typeTag + '/lua/audit.lua', 'remove_nested_fields') }}
+{{ lua.renderLua(typeTag + '.audit', typeTag + '/lua/audit.lua', 'forwarded_for_to_source_ip') }}
+[FILTER]
+    Name modify
+    Match {{typeTag}}.log
+    Add event.dataset application.log
+    Rename @message message
+    Rename @level log.level
+    Rename @module log.logger
+    Rename error error.message
+    Rename lease_id event.id
+    Remove path
+    Remove node
+    Remove term
+    Remove peer
+    Remove Address
+    Remove follower
+    Remove leader
+    Remove leader_addr
+    Remove retry
+    Remove follower_server_id
+    Remove bytes
+    Remove command
+    Remove listener_address
+    Remove last-leader
+    Remove tally
+    Remove next
+    Remove servers
+    Remove last-index
+    Remove previous-index
+    Remove server-id
+    Remove plugin-directory
+    Remove to
+    Remove needed
+    Remove candidate
+    Remove ours
+    Remove cluster_listen_address
+    Remove existing
+    Remove target
+    Remove ALPN
+    Remove type
+    Remove index
+    Remove config
+    Remove from
+    Remove reconcile_interval
+    Remove http_proxy
+    Remove https_proxy
+    Remove no_proxy
+    Remove time
+    Remove namespace
+    Remove leader-addr
+    Remove leader-address
+    Remove leader-id
+    Remove last-candidate-term
+    Remove last-term
+    Remove last-leader-addr
+[FILTER]
+    Name modify
+    Match *
+    Add event.kind event
+    Add event.category web
+    Add service.name knox
+    Add service.type hashicorp_vault
+    Add service.environment {% if outputLocalLambdaEnabled %}development{% endif %}{% if not outputLocalLambdaEnabled %}{% raw %}{{ .Values.global.environment }}{% endraw %}{% endif %}
+[FILTER]
+    Name    lua
+    Match   {{typeTag}}.audit
+    script  {{typeTag}}/lua/audit.lua
+    call    cb_json
