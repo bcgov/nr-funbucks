@@ -18,7 +18,7 @@
     "oc": {
       "configmap": {
         "metadata": {
-          "name": "{{ template \"vault.fullname\" . }}-fluentbit",
+          "name": "fluentbit-config",
           "labels": {
             "helm.sh/chart": "{{ include \"vault.chart\" . }}",
             "app.kubernetes.io/name": "{{ include \"vault.name\" . }}",

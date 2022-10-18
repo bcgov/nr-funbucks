@@ -11,6 +11,7 @@ import {ServerConfig} from '../util/types';
 
 interface Outpath {
   file: string;
+  key: string;
   confPath: string;
 }
 
@@ -33,6 +34,7 @@ export class RepackageService {
     const files = (await this.getFiles(OUTPUT_BASEPATH))
       .map((file) => ({
         file,
+        key: file.substring(OUTPUT_BASEPATH.length + 1).replaceAll(/\//g, '_'),
         confPath: file.substring(OUTPUT_BASEPATH.length + 1)}),
       );
 
@@ -51,7 +53,7 @@ export class RepackageService {
           name: 'fluentbit-config',
           items: outpaths.map((outpath) => {
             return {
-              key: outpath.confPath,
+              key: outpath.key,
               path: outpath.confPath,
             };
           }),
@@ -80,7 +82,7 @@ export class RepackageService {
       },
       data: outpaths.map((outpath) => {
         return {
-          key: outpath.confPath,
+          key: outpath.key,
           value: fs.readFileSync(outpath.file, 'utf8'),
         };
       }).reduce((obj, val) => {
