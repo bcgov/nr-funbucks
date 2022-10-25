@@ -235,6 +235,10 @@ function path_to_service_target(tag, timestamp, record)
                 record["service.target.environment"] = pathEnvToStandardEnv[path_segment[3]]
                 code = 2
             end
+            if path_segment[4] ~= nil then
+                record["labels.target_project"] = path_segment[4]
+                code = 2
+            end
             if path_segment[5] ~= nil then
                 record["service.target.name"] = path_segment[5]
                 code = 2
