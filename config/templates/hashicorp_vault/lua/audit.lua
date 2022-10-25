@@ -224,23 +224,24 @@ function path_to_service_target(tag, timestamp, record)
     code = 0
     if new_record["request"] ~= nil and new_record["request"]["path"] ~= nil then
         local path = new_record["request"]["path"]
-        if string.sub(path, 0, 10) == "apps/data/" then
+        if string.sub(path, 0, 5) == "apps/" then
             local path_segment = {}
             for i in string.gmatch(path, "[^/]+") do
                 path_segment[#path_segment + 1] = i
             end
             local env = path_segment[3]
+            local project = path_segment[4]
             local service = path_segment[5]
-            if path_segment[3] ~= nil and pathEnvToStandardEnv[path_segment[3]] ~= nil then
-                record["service.target.environment"] = pathEnvToStandardEnv[path_segment[3]]
+            if env ~= nil and pathEnvToStandardEnv[env] ~= nil then
+                record["service.target.environment"] = pathEnvToStandardEnv[env]
                 code = 2
             end
-            if path_segment[4] ~= nil then
-                record["labels.target_project"] = path_segment[4]
+            if project ~= nil then
+                record["labels.target_project"] = project
                 code = 2
             end
-            if path_segment[5] ~= nil then
-                record["service.target.name"] = path_segment[5]
+            if service ~= nil then
+                record["service.target.name"] = service
                 code = 2
             end
         end
