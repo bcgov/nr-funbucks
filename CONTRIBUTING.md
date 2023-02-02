@@ -44,7 +44,7 @@ Document the process to work on funbucks for new server fluentbit configuration
         stash   https://bwa.nrs.gov.bc.ca/int/stash/scm/oneteam/oneteam-nr-funbucks.git (fetch)
         stash   https://bwa.nrs.gov.bc.ca/int/stash/scm/oneteam/oneteam-nr-funbucks.git (push)
 
-7. Sync Github repo to Bitbucket stash repo
+5. Sync Github repo to Bitbucket stash repo
 
     Command: git push stash main
 
