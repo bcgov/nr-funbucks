@@ -34,7 +34,7 @@
       "id": "wfint-jcrs",
       "type": "tomcat",
       "context": {
-        "app": "jaspersoft",
+        "app": "jasperserver",
         "component": "jaspersoft-bi",
         "environment": "wfint"
       }
