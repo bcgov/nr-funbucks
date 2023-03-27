@@ -34,7 +34,7 @@
       "id": "wfprd-jcrs",
       "type": "tomcat",
       "context": {
-        "app": "jaspersoft",
+        "app": "jasperserver",
         "component": "jaspersoft-bi",
         "environment": "wfprd"
       }
