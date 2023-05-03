@@ -23,7 +23,7 @@
     },
     {
       "id": "wfprd-fmeserver",
-      "type": "tomcat",
+      "type": "fme",
       "context": {
         "app": "fmeserver",
         "component": "fmeserver",
@@ -36,7 +36,8 @@
       "context": {
         "app": "jasperserver",
         "component": "jaspersoft-bi",
-        "environment": "wfprd"
+        "environment": "wfprd",
+        "!logs_path_app": "/apps_ux/logs/WFONE/wfjcrs-war/jasperserver_WFJCRS.log"
       }
     }
   ],

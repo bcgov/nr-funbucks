@@ -13,17 +13,17 @@
     {"id": "memory", "type": "metric_host_memory", "context": {}},
     {"id": "network", "type": "metric_host_network", "context": {}},
     {
-      "id": "wfprd-wso2",
+      "id": "wfdlv-wso2",
       "type": "wso2",
       "context": {
         "app": "wso2",
         "component": "api-manager",
-        "environment": "wfprd"
+        "environment": "wfdlv"
       }
     },
     {
       "id": "wfdlv-fmeserver",
-      "type": "tomcat",
+      "type": "fme",
       "context": {
         "app": "fmeserver",
         "component": "fmeserver",
@@ -36,7 +36,8 @@
       "context": {
         "app": "jasperserver",
         "component": "jaspersoft-bi",
-        "environment": "wfdlv"
+        "environment": "wfdlv",
+        "!logs_path_app": "/apps_ux/logs/WFONE/wfjcrs-war/jasperserver_WFJCRS.log"
       }
     }
   ],
