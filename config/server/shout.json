@@ -16,7 +16,7 @@
       "id": "isss-prd-rp",
       "type": "apache_reverse_proxy",
       "context": {
-        "environment": "isss-prd",
+        "environment": "production",
         "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrprd{% else %}/sw_ux/httpd01/logs/hot{% endif %}/*-access*.log"
       }
     }
