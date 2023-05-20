@@ -425,6 +425,7 @@
       "app": "ILCR",
       "component": "ilcr",
       "healthCheckEnabled": true,
+      "!healthCheckPath": "/ext/{{ component | lower }}/",
       "healthCheckPort": "tomcat"
     }},
     {
