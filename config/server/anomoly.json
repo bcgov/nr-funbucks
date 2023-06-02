@@ -125,6 +125,14 @@
       }
     },
     {
+      "id": "cirras-underwriting-api",
+      "type": "tomcat",
+      "context": {
+        "app": "CIRRAS",
+        "component": "cirras-underwriting-api	"
+      }
+    },
+    {
       "id": "cwm-cwms-api",
       "type": "tomcat",
       "context": {
