@@ -108,6 +108,38 @@
           "component": "cirras-policies-api"
         }
       },
+	  {
+	    "id": "cirras-land-management-api",
+	    "type": "tomcat",
+	    "context": {
+		  "app": "CIRRAS",
+		  "component": "cirras-land-management-api"
+	    }
+	  },
+	  {
+	    "id": "cirras-underwriting-api",
+	    "type": "tomcat",
+	    "context": {
+		  "app": "CIRRAS",
+		  "component": "cirras-underwriting-api"
+	    }
+	  },
+	  {
+	    "id": "cirras-underwriting-listener-api",
+	    "type": "tomcat",
+	    "context": {
+		  "app": "CIRRAS",
+		  "component": "cirras-underwriting-listener-api"
+	    }
+	  },
+	  {
+	    "id": "cirras-underwriting-war",
+	    "type": "tomcat",
+	    "context": {
+		  "app": "CIRRAS",
+		  "component": "cirras-underwriting-war"
+	    }
+	  },
       {
         "id": "cwm-mis-api",
         "type": "tomcat",
