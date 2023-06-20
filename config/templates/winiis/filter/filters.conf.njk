@@ -1,0 +1,23 @@
+# WINIIS access
+#
+# Windows IIS access logs 
+
+[FILTER]
+    Name grep
+    Match {{typeTag}}
+    Exclude message /^#.+$/
+    
+[FILTER]
+    Name modify
+    Match {{typeTag}}  
+    Add event.kind event
+    Add event.category web
+    Add event.dataset {{ eventDataset }}
+    Add labels.project {{ app | lower }}{% if organization_id %}
+    Add organization.id {{ organization_id }}{% endif %}{% if organization_name %}
+    Add organization.name {{ organization_name }}{% endif %}{% if environment %}
+    Add service.environment {{ environment }}{% endif %}
+    Add service.name windows-iis
+    Add service.type iis
+    Add @metadata.keyAsPath true
+    Rename message event.original
