@@ -21,7 +21,8 @@
       "type": "winiis",
       "context": {
         "app": "GWW",
-        "eventDataset": "iis.access.internal"
+        "eventDataset": "iis.access.internal",
+        "!logs_path_iis_access": "{{ localLogsPathPrefix | default('E:/Logfiles') }}/{{ app | upper }}/W3SVC10/*.log"
       }
     },
     {
@@ -29,7 +30,8 @@
       "type": "winiis",
       "context": {
         "app": "Public",
-        "eventDataset": "iis.access.internal"
+        "eventDataset": "iis.access.internal",
+        "!logs_path_iis_access": "{{ localLogsPathPrefix | default('E:/Logfiles') }}/{{ app | upper }}/W3SVC14/*.log"
       }
     }
   ],

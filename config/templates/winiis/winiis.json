@@ -2,7 +2,7 @@
   "measurementType": "historic",
   "context": {
     "eventDataset": "iis.access",
-    "!logs_path_iis_access": "{{ localLogsPathPrefix | default('E:/Logfiles') }}/{{ app | upper }}/W3SCVC*/*.log"
+    "!logs_path_iis_access": "{{ localLogsPathPrefix | default('E:/Logfiles') }}/{{ app | upper }}/W3SVC*/*.log"
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},
