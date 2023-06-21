@@ -22,7 +22,7 @@
       "context": {
         "app": "GWW",
         "eventDataset": "iis.access.internal",
-        "!logs_path_iis_access": "{{ localLogsPathPrefix | default('E:/Logfiles') }}/{{ app | upper }}/W3SVC10/*.log"
+        "!logs_path_iis_access": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/{{app}}/W3SVC10/{% else %}default('E:\\Logfiles')\\{{app}}\\W3SVC10\\{% endif %}u_ex*.log"
       }
     },
     {
@@ -31,7 +31,7 @@
       "context": {
         "app": "Public",
         "eventDataset": "iis.access.internal",
-        "!logs_path_iis_access": "{{ localLogsPathPrefix | default('E:/Logfiles') }}/{{ app }}/W3SVC14/*.log"
+        "!logs_path_iis_access": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/{{app}}/W3SVC14/{% else %}default('E:\\Logfiles')\\{{app}}\\W3SVC14\\{% endif %}u_ex*.log"
       }
     }
   ],
