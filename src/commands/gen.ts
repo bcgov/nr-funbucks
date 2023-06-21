@@ -18,9 +18,9 @@ export default class Gen extends Command {
   ];
 
   static flags = {
-    server: Flags.string({char: 's', required: true, description: 'server to render the config for'}),
-    local: Flags.boolean({char: 'l', description: 'render for local lambda usage'}),
-    app: Flags.string({char: 'a', description: 'app to limit rendering to'}),
+    server: Flags.string({char: 's', required: true, description: 'server configuration to render'}),
+    local: Flags.boolean({char: 'l', description: 'render for sending logs to local lambda'}),
+    app: Flags.string({char: 'a', description: 'limits output to only this application id'}),
     context: Flags.string({
       char: 'c',
       multiple: true,
@@ -29,7 +29,8 @@ export default class Gen extends Command {
     }),
     multiple: Flags.boolean({
       char: 'm',
-      description: 'render output in multiple agents if necessary',
+      // eslint-disable-next-line max-len
+      description: 'multiple configuration output mode. A single Fluent Bit has an upper bound to the number of filters it can handle. Do not combine with oc command.',
     }),
   };
 
