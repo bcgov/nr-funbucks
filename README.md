@@ -1,18 +1,14 @@
 Funbucks
 =================
 
-Funbucks is tool for generating Fluent Bit configurations that is powered using oclif.
-
-For testing configurations and development, it is not recommended that the tool be installed at this time. Please disregard the oclif generated documentation that describes installing globally.
+Funbucks is tool for generating Fluent Bit templated configurations for servers and Kubernetes (OpenShift) deployments.
 
 ## Required development tools
 
-* node (>v16 higher)
+* node (>v20 higher)
 * podman (latest)
 
-## How to generate a Fluentbit configuration
-
-The '-l' flag here sets log paths up for local testing.
+## How to generate a Fluent Bit configuration
 
 Example 1: Generate for a server
 
@@ -20,17 +16,32 @@ Example 1: Generate for a server
 $ ./bin/dev gen -l -s localhost
 ```
 
+The '-l' flag here ensures log paths are setup for local testing in a Podman container. It also sends the output to a local http server instead of the production location. This is useful for sending to a locally running version of the event-driven compute (AWS Lambda) that will process the output.
+
 Example 2: Generate for a server and a specific application
 
 ```
 $ ./bin/dev gen -l -s syncronicity -a metrics_isss
 ```
 
+The '-a' flag here limits the generated output to only this "application" id. This may be useful if you are dealing with a server with many applications on it.
+
 Example 3: Generate for a server (local testing and override some context variables)
 
 ```
 $ ./bin/dev gen -l -s localhost -c deploy_1:inputPath//metrics/\* -c outputAwsKinesisEnabled/true -c outputLocalLambdaEnabled/
 ```
+
+Finally, you can override the context sent to the template engine to try out values.
+
+
+Example 4: Generate for OpenShift
+
+```
+$ ./bin/dev gen -s knox
+$ ./bin/dev oc -s knox
+```
+The [output_pack](./output_pack/) folder will now contain a ConfigMap and Volume for pasting into a Kubernetes deployment config.
 
 ## Running a configuration against the local lambda (nr-apm-stack/event-stream-processing)
 
@@ -45,6 +56,46 @@ Mostly, it would be too noisy. Some input plugins are not supported by the conta
 
 For servers with a large number of applications, the generated configuration may contain too many filters and other objects for a single Fluentbit agent to handle. In this case, you would need to use the '-a' or application flag to limit the generation for the configuration to a specific application for local testing.
 
+## How to add or modify the configuration
+### Server configuration
+
+Location: [./config/server](./config/server)
+
+A server configuration file has information about the "server" and list all the applications on them. Some of the server configurations are OpenShift applications.
+
+| Key | Type | Reqd. | Kube | Description |
+| --- | --- | --- | --- | --- |
+| address | string | | No | The address of the server. Ignore for oc. |
+| proxy | string | | | Proxy server address |
+| logsProxyDisabled |boolean | Yes |  | Disables setting proxy information |
+| os | string | Yes | | Used to determine how to deploy. Values: linux, windows, openshift |
+| os_variant | string | | | Used to determine how to deploy.  Values: rhel7, rhel8 |
+| vault_cd_user_field | string | | No | CD user field in Vault |
+| vault_cd_pass_field | string | | No | CD password field in Vault |
+| vault_cd_path | string | | No | CD path in Vault |
+| apps | array | Yes | | Set of applications on this server |
+| apps[].id | string | Yes | | The unique id (within this file) used to render directories, tags, etc and specify using the -a option in the gen command. |
+| apps[].type | string | Yes | | The template 'type' that this application will be rendered as |
+| apps[].context | string | Yes | | Context values to set for this application |
+| context | object | Yes | | Context values to set for this server |
+
+### Template configuration
+
+Location: [./config/templates](./config/templates)
+
+The type templates is stored in a folder containing a json file with the same name as the folder.
+
+| Key | Type | Description |
+| --- | --- | --- |
+| measurementType | string | Determines if this is historic or instant. An instant measurement will have a timestamp generated for it. Must be: "historic" or "instant" |
+| semver | string | Optional. A semver (semantic version) clause to limit output to FluentBit agents that match it. |
+| os | string[] | Optional. A set of supported operating systems. This prevents output of a type on an unsupported operating system. |
+| context | string | Context values to set for this type |
+| files[].tmpl | string | Path to the template. The path is expected to be &lt;type&gt;/&lt;filename&gt;. If the filename ends in '.njk' it will be rendered as a Nunjucks template with the '.njk' dropped. |
+| files[].type | string | Values: filter, input, lua, parser, script. |
+
+# CLI Documentation
+
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
 [![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
@@ -52,6 +103,7 @@ For servers with a large number of applications, the generated configuration may
 [![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
 
 <!-- toc -->
+* [CLI Documentation](#cli-documentation)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
@@ -75,7 +127,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`nr-funbucks gen`](#nr-funbucks-gen)
-* [`nr-funbucks help [COMMAND]`](#nr-funbucks-help-command)
+* [`nr-funbucks help [COMMANDS]`](#nr-funbucks-help-commands)
 * [`nr-funbucks monitors`](#nr-funbucks-monitors)
 * [`nr-funbucks oc`](#nr-funbucks-oc)
 * [`nr-funbucks plugins`](#nr-funbucks-plugins)
@@ -97,11 +149,12 @@ USAGE
   $ nr-funbucks gen -s <value> [-l] [-a <value>] [-c <value>] [-m]
 
 FLAGS
-  -a, --app=<value>         app to limit rendering to
+  -a, --app=<value>         limits output to only this application id
   -c, --context=<value>...  [default: ] context override. Examples: appPathJq//tmp/jq, deploy_1:inputPath//tmp/file
-  -l, --local               render for local lambda usage
-  -m, --multiple            render output in multiple agents if necessary
-  -s, --server=<value>      (required) server to render the config for
+  -l, --local               render for sending logs to local lambda
+  -m, --multiple            multiple configuration output mode. A single Fluent Bit has an upper bound to the number of
+                            filters it can handle. Do not combine with oc command.
+  -s, --server=<value>      (required) server configuration to render
 
 DESCRIPTION
   generate fluentbit configuration
@@ -112,16 +165,16 @@ EXAMPLES
 
 _See code: [dist/commands/gen.ts](https://github.com/mbystedt/hello-world/blob/v1.0.0/dist/commands/gen.ts)_
 
-## `nr-funbucks help [COMMAND]`
+## `nr-funbucks help [COMMANDS]`
 
 Display help for nr-funbucks.
 
 ```
 USAGE
-  $ nr-funbucks help [COMMAND] [-n]
+  $ nr-funbucks help [COMMANDS] [-n]
 
 ARGUMENTS
-  COMMAND  Command to show help for.
+  COMMANDS  Command to show help for.
 
 FLAGS
   -n, --nested-commands  Include all nested commands in the output.
@@ -130,7 +183,7 @@ DESCRIPTION
   Display help for nr-funbucks.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.15/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.10/src/commands/help.ts)_
 
 ## `nr-funbucks monitors`
 
@@ -178,10 +231,13 @@ List installed plugins.
 
 ```
 USAGE
-  $ nr-funbucks plugins [--core]
+  $ nr-funbucks plugins [--json] [--core]
 
 FLAGS
   --core  Show core plugins.
+
+GLOBAL FLAGS
+  --json  Format output as json.
 
 DESCRIPTION
   List installed plugins.
@@ -190,7 +246,7 @@ EXAMPLES
   $ nr-funbucks plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.4/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.1.3/src/commands/plugins/index.ts)_
 
 ## `nr-funbucks plugins:install PLUGIN...`
 
@@ -244,6 +300,9 @@ ARGUMENTS
 FLAGS
   -h, --help     Show CLI help.
   -v, --verbose
+
+GLOBAL FLAGS
+  --json  Format output as json.
 
 DESCRIPTION
   Displays installation properties of a plugin.
