@@ -47,7 +47,7 @@ The [output_pack](./output_pack/) folder will now contain a ConfigMap and Volume
 
 1. Generate your server's configuration using the local (-l) flag and (-a) flag
 2. Place any documents in ./lambda/data. You will need to lay the files out relative to the log directory like they would be on the server. Check the generated files (inputs.conf) in ./output if you are confused.
-3. Ensure the local lambda is running. See: [https://github.com/BCDevOps/nr-apm-stack/blob/master/event-stream-processing/README.md](nr-apm-stack repository).
+3. Ensure the local lambda is running. See: [nr-apm-stack repository readme](https://github.com/BCDevOps/nr-apm-stack/blob/master/event-stream-processing/README.md)
 4. Run ```./lambda/podman-run.sh```
 
 ### Why should I use the -a flag for local testing?
@@ -65,19 +65,21 @@ A server configuration file has information about the "server" and list all the 
 
 | Key | Type | Reqd. | Kube | Description |
 | --- | --- | --- | --- | --- |
-| address | string | | No | The address of the server. Ignore for oc. |
-| proxy | string | | | Proxy server address |
-| logsProxyDisabled |boolean | Yes |  | Disables setting proxy information |
+| address | string | | "" | The address of the server. |
+| proxy | string | | "" | Proxy server address |
+| logsProxyDisabled | boolean | Yes | true | Disables setting proxy information |
 | os | string | Yes | | Used to determine how to deploy. Values: linux, windows, openshift |
-| os_variant | string | | | Used to determine how to deploy.  Values: rhel7, rhel8 |
-| vault_cd_user_field | string | | No | CD user field in Vault |
-| vault_cd_pass_field | string | | No | CD password field in Vault |
-| vault_cd_path | string | | No | CD path in Vault |
+| os_variant | string | | X | Used to determine how to deploy. Values: rhel7, rhel8 |
+| vault_cd_user_field | string | | X | CD user field in Vault |
+| vault_cd_pass_field | string | | X | CD password field in Vault |
+| vault_cd_path | string | | X | CD path in Vault |
 | apps | array | Yes | | Set of applications on this server |
 | apps[].id | string | Yes | | The unique id (within this file) used to render directories, tags, etc and specify using the -a option in the gen command. |
 | apps[].type | string | Yes | | The template 'type' that this application will be rendered as |
 | apps[].context | string | Yes | | Context values to set for this application |
 | context | object | Yes | | Context values to set for this server |
+
+The X in the Kube column indicates properties that can be safely dropped from the configuration file.
 
 ### Template configuration
 
@@ -279,7 +281,7 @@ ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin 
+  $ nr-funbucks plugins:install myplugin
 
   $ nr-funbucks plugins:install https://github.com/someuser/someplugin
 
@@ -342,7 +344,7 @@ ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin 
+  $ nr-funbucks plugins:install myplugin
 
   $ nr-funbucks plugins:install https://github.com/someuser/someplugin
 
