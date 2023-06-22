@@ -2,7 +2,7 @@
   "measurementType": "historic",
   "context": {
     "eventDataset": "iis.access",
-    "!logs_path_iis_access": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/{{app}}/W3SVC*/{% else %}{{default('E:\\Logfiles')}}\\{{app}}\\W3SVC*\\{% endif %}u_ex*.log"
+    "!logs_path_iis_access": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/{{app}}/W3SVC*/{% else %}E:\\Logfiles\\{{app}}\\W3SVC*\\{% endif %}u_ex*.log"
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},
