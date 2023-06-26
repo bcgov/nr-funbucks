@@ -1,7 +1,7 @@
 {
   "measurementType": "historic",
   "context": {
-    "!inputFile": "{{ '/tmp/fluent-bit-logs.db' if outputLocalLambdaEnabled else '/vault/audit/fluent-bit-logs.db' }}"
+    "!inputFile": "{{ '/tmp/fluent-bit-logs.db' if outputLocalLambdaEnabled else '/logs/db/fluent-bit-logs.db' }}"
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},

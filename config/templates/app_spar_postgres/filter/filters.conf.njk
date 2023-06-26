@@ -1,9 +1,5 @@
 {% import "../../macros/lua.njk" as lua %}
 {{ lua.renderAppendTimestamp(typeTag + '.*') }}
-[FILTER]
-    Name modify
-    Match {{typeTag}}.audit
-    Add event.dataset vault.audit
 
 [FILTER]
     Name modify
