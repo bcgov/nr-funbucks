@@ -15,9 +15,28 @@
         "component": "as-as-api",
         "tmplTomcatTestApplicationIndex": "nrm-test-aw-<%=YYYY.MM=%>"
       }
+    },
+    {
+      "id": "gww",
+      "type": "winiis",
+      "context": {
+        "app": "GWW",
+        "eventDataset": "iis.access.internal",
+        "!logs_path_iis_access": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/{{app}}/W3SVC10/{% else %}E:\\Logfiles\\{{app}}\\W3SVC10\\{% endif %}u_ex*.log"
+      }
+    },
+    {
+      "id": "www",
+      "type": "winiis",
+      "context": {
+        "app": "Public",
+        "eventDataset": "iis.access.internal",
+        "!logs_path_iis_access": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/{{app}}/W3SVC14/{% else %}E:\\Logfiles\\{{app}}\\W3SVC14\\{% endif %}u_ex*.log"
+      }
     }
   ],
   "context": {
-    "environment": "test"
+    "environment": "test",
+    "organization_name": "infrastructure"
   }
 }

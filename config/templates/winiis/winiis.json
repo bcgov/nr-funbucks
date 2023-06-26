@@ -1,0 +1,11 @@
+{
+  "measurementType": "historic",
+  "context": {
+    "eventDataset": "iis.access",
+    "!logs_path_iis_access": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/{{app}}/W3SVC*/{% else %}E:\\Logfiles\\{{app}}\\W3SVC*\\{% endif %}u_ex*.log"
+  },
+  "files": [
+    { "tmpl": "filter/filters.conf.njk", "type": "filter"},
+    { "tmpl": "input/inputs.conf.njk", "type": "input"}
+  ]
+}
