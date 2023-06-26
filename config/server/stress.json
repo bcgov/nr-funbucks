@@ -21,8 +21,7 @@
       "type": "winiis",
       "context": {
         "app": "GWW",
-        "eventDataset": "iis.access.internal",
-        "!logs_path_iis_access": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/{{app}}/W3SVC10/{% else %}E:\\Logfiles\\{{app}}\\W3SVC10\\{% endif %}u_ex*.log"
+        "eventDataset": "iis.access.internal"      
       }
     },
     {
@@ -30,8 +29,7 @@
       "type": "winiis",
       "context": {
         "app": "Public",
-        "eventDataset": "iis.access.internal",
-        "!logs_path_iis_access": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/{{app}}/W3SVC14/{% else %}E:\\Logfiles\\{{app}}\\W3SVC14\\{% endif %}u_ex*.log"
+        "eventDataset": "iis.access.internal"
       }
     }
   ],
