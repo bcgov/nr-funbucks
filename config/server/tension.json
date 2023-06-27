@@ -1,6 +1,6 @@
 {
-  "address": "stress.dmz",
-  "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
+  "address": "tension.dmz",
+  "proxy": "http://forwardproxy.nrs.bcgov:23128",
   "logsProxyDisabled": "true",
   "os": "windows",
   "vault_cd_user_field": "username_domainless",
@@ -8,19 +8,10 @@
   "vault_cd_path": "groups/appdelivery/oraapp_imborapp",
   "apps": [
     {
-      "id": "as-as-api",
-      "type": "tomcat",
-      "context": {
-        "app": "AS",
-        "component": "as-as-api",
-        "tmplTomcatTestApplicationIndex": "nrm-test-aw-<%=YYYY.MM=%>"
-      }
-    },
-    {
       "id": "gww",
       "type": "winiis",
       "context": {
-        "app": "GWW"
+        "app": "GWW"  
       }
     },
     {
@@ -32,7 +23,7 @@
     }
   ],
   "context": {
-    "environment": "test",
+    "environment": "production",
     "organization_name": "FLNRO MOFR"
   }
 }
