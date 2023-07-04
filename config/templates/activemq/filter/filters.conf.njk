@@ -4,9 +4,9 @@
 #
 [FILTER]
     Name parser
-    Match app.{{typeTag}}.auth
+    Match {{typeTag}}.audit
     Key_Name message
-    Parser parser-filter-regex-auth-{{typeTag}}
+    Parser parser-filter-regex-audit-{{typeTag}}
     Reserve_Data On
     Preserve_Key On
 
@@ -14,11 +14,11 @@
 #
 [FILTER]
     Name modify
-    Match app.{{typeTag}}.auth
+    Match {{typeTag}}.audit
     Rename tomcat_time @timestamp
     Add event.kind event
     Add event.category web
-    Add event.dataset application.log
+    Add event.dataset mq.audit
     Add @metadata.timestampFormat YYYY-MM-DD-HH:mm:ss.SSS{% if tmplTomcatTestApplicationIndex %}
     Add @metadata.index {{ tmplTomcatTestApplicationIndex }}{% endif %}
 
@@ -26,7 +26,7 @@
 #
 [FILTER]
     Name modify
-    Match app.{{typeTag}}.*
+    Match {{typeTag}}.*
     Add labels.project {{ app | lower }}
     Add service.name {{ component | lower }}{% if environment %}
     Add service.environment {{ environment }}{% endif %}{% if organization_id %}
@@ -37,6 +37,7 @@
     Rename message_parsed message
     Rename level log.level    
     Rename provider event.provider
+    Rename scheme url.scheme
     Rename ip source.ip
     Rename port source.port
 
