@@ -20,14 +20,16 @@
       "id": "gww",
       "type": "winiis",
       "context": {
-        "app": "GWW"
+        "app": "GWW",
+        "!logs_path_iis_access": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/{{app}}/W3SVC10/{% else %}E:\\Logfiles\\{{app}}\\W3SVC10\\{% endif %}u_ex*.log"
       }
     },
     {
       "id": "www",
       "type": "winiis",
       "context": {
-        "app": "Public"
+        "app": "Public",
+        "!logs_path_iis_access": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/{{app}}/W3SVC14/{% else %}E:\\Logfiles\\{{app}}\\W3SVC14\\{% endif %}u_ex*.log"
       }
     }
   ],
