@@ -1,7 +1,8 @@
 {
   "measurementType": "historic",
   "context": {
-    "!inputFile": "{{ '/tmp/fluent-bit-logs.db' if outputLocalLambdaEnabled else '/logs/db/fluent-bit-logs.db' }}"
+    "!inputDb": "{{ '/tmp/fluent-bit-logs.db' if outputLocalLambdaEnabled else '/logs/fluent-bit-logs.db' }}",
+    "!inputLogPath": "{{ localLogsPathPrefix | default('/logs/postgres-api.log') }}"
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},
