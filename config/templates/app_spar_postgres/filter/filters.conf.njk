@@ -1,0 +1,10 @@
+{% import "../../macros/lua.njk" as lua %}
+{{ lua.renderAppendTimestamp(typeTag + '.*') }}
+
+[FILTER]
+    Name modify
+    Match {{typeTag}}.*
+    Add service.name spar_postgres_api
+    Add service.type postgres_api{% if organization_id %}
+    Add organization.id {{ organization_id }}{% endif %}{% if organization_name %}
+    Add organization.name {{ organization_name }}{% endif %}
