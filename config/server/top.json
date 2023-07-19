@@ -14,7 +14,7 @@
     {"id": "network", "type": "metric_host_network", "context": {}},
     {
       "id": "wfprd-activemq",
-      "type": "tomcat",
+      "type": "activemq",
       "context": {
         "app": "activemq",
         "component": "activemq",

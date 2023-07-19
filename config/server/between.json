@@ -14,12 +14,11 @@
     {"id": "network", "type": "metric_host_network", "context": {}},
     {
       "id": "wftst-activemq",
-      "type": "tomcat",
+      "type": "activemq",
       "context": {
        "app": "activemq",
        "component": "activemq",
-       "!logs_path_app": "/sw_ux/activemq/current/data/activemq.log",
-       "environment": "wftst"
+       "!logs_path_app": "/sw_ux/activemq/current/data/activemq.log"
       }
     },
     {
@@ -554,6 +553,7 @@
     }
   ],
   "context": {
-    "environment": "wftst"
+    "environment": "wftst",
+    "organization_name": "wildfire"
   }
 }

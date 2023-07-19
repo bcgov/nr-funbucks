@@ -14,7 +14,7 @@
     {"id": "network", "type": "metric_host_network", "context": {}},
     {
       "id": "wfprd-activemq",
-      "type": "tomcat",
+      "type": "activemq",
       "context": {
        "app": "activemq",
        "component": "activemq",
@@ -553,6 +553,7 @@
     }
   ],
   "context": {
-    "environment": "wfprd"
+    "environment": "wfprd",
+    "organization_name": "wildfire"
   }
 }
