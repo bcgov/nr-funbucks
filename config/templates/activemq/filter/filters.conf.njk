@@ -18,15 +18,9 @@
     Rename tomcat_time @timestamp
     Add event.kind event
     Add event.category web
-    Add event.dataset mq.audit
+    Add event.dataset application.log
     Add @metadata.timestampFormat YYYY-MM-DD-HH:mm:ss.SSS{% if tmplTomcatTestApplicationIndex %}
     Add @metadata.index {{ tmplTomcatTestApplicationIndex }}{% endif %}
-
-# Application fields
-#
-[FILTER]
-    Name modify
-    Match {{typeTag}}.*
     Add labels.project {{ app | lower }}
     Add service.name {{ component | lower }}{% if environment %}
     Add service.environment {{ environment }}{% endif %}{% if organization_id %}
@@ -35,9 +29,11 @@
     Add @metadata.keyAsPath true
     Rename message event.original
     Rename message_parsed message
-    Rename level log.level    
-    Rename provider event.provider
-    Rename scheme url.scheme
-    Rename ip source.ip
-    Rename port source.port
+    Rename level log.level
+
+[FILTER]
+    Name    lua
+    Match   {{typeTag}}.audit
+    script  {{typeTag}}/lua/activemq.lua
+    call    parse_network_information
 

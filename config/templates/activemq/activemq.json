@@ -3,11 +3,12 @@
   "context": {
     "activemq_logs_path": "activemq/current/data/",
     "!logs_path_app": "{{ localLogsPathPrefix | default('/sw_ux') }}/{{ activemq_logs_path }}/activemq.log",
-    "appParserFilterRegex": "(?m)^(?<tomcat_time>\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}.\\d{3})\\s\\|\\s(?<level>\\w+)\\s+\\|\\s(?<message_parsed>.*)\\|\\s(?<provider>\\S+)\\s(Transport: (?<scheme>\\S+):\\/\\/\\/)(?<ip>.+):(?<port>\\d+).*"
+    "appParserFilterRegex": "(?m)^(?<tomcat_time>\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}.\\d{3})\\s\\|\\s(?<level>\\w+)\\s+\\|\\s(?<message_parsed>.*)"
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},
     { "tmpl": "input/inputs.conf.njk", "type": "input"},
-    { "tmpl": "parser/parsers.conf.njk", "type": "parser"}
+    { "tmpl": "parser/parsers.conf.njk", "type": "parser"},    
+    { "tmpl": "lua/activemq.lua", "type": "lua"}
   ]
 }
