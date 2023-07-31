@@ -281,7 +281,7 @@ ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin
+  $ nr-funbucks plugins:install myplugin 
 
   $ nr-funbucks plugins:install https://github.com/someuser/someplugin
 
@@ -344,7 +344,7 @@ ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin
+  $ nr-funbucks plugins:install myplugin 
 
   $ nr-funbucks plugins:install https://github.com/someuser/someplugin
 
