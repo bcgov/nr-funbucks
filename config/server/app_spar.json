@@ -10,6 +10,13 @@
       "context": {
         "environment": "production"
       }
+    },
+    {
+      "id": "spar-oracle",
+      "type": "app_spar_oracle",
+      "context": {
+        "environment": "production"
+      }
     }
   ],
   "context": {

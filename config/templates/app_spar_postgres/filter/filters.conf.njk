@@ -9,3 +9,12 @@
     Add @metadata.keyAsPath true{% if organization_id %}
     Add organization.id {{ organization_id }}{% endif %}{% if organization_name %}
     Add organization.name {{ organization_name }}{% endif %}
+
+[FILTER]
+    Name modify
+    Match {{typeTag}}.*
+    Add service.name spar_oracle_api
+    Add service.type oracle_api
+    Add @metadata.keyAsPath true{% if organization_id %}
+    Add organization.id {{ organization_id }}{% endif %}{% if organization_name %}
+    Add organization.name {{ organization_name }}{% endif %}
