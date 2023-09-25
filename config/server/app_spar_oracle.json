@@ -1,0 +1,33 @@
+{
+  "address": "",
+  "proxy": "",
+  "logsProxyDisabled": "true",
+  "os": "openshift",
+  "apps": [
+    {
+      "id": "spar-oracle",
+      "type": "app_spar_oracle",
+      "context": {
+        "environment": "production"
+      }
+    }
+  ],
+  "context": {
+    "fluentLogFileEnabled": false
+  },
+  "oc": {
+    "configmap": {
+      "metadata": {
+        "name": "spar-config",
+        "labels": {
+          "app": "nr-spar-backend"
+        }
+      },
+      "prefix": "{{- if .Values.fluentbit.enable -}}\n",
+      "suffix": "\n{{- end -}}"
+    },
+    "volume": {
+      "indent": 6
+    }
+  }
+}
