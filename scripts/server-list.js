@@ -8,6 +8,6 @@ fs.readdir(testFolder, (err, files) => {
     .filter(file => file.endsWith('.json'))
     .map(file => file.slice(0, -5))
     .forEach(file => {
-    console.log(file);
+      process.stdout.write(file + ", ");
   });
 });
