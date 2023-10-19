@@ -1,5 +1,5 @@
 {
-  "address": "sunburst.dmz",
+  "address": "starburst.dmz",
   "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "logsProxyDisabled": "true",
   "os": "linux",
