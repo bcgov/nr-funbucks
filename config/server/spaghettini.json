@@ -662,7 +662,7 @@
       }
     },
     {
-      "id": "results",
+      "id": "results_poc",
       "type": "tomcat",
       "context": {
         "app": "RESULTS",
