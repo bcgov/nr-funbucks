@@ -1,5 +1,5 @@
 ARG REPO_LOCATION=
-FROM ${REPO_LOCATION}node:18-alpine as builder
+FROM ${REPO_LOCATION}node:20-alpine as builder
 
 # Install packages and build
 WORKDIR /app
@@ -11,7 +11,7 @@ RUN npm ci --no-audit && \
 RUN npm ci --omit=dev --no-audit
 
 # Deployment container
-FROM ${REPO_LOCATION}node:18-alpine
+FROM ${REPO_LOCATION}node:20-alpine
 
 # Create app directory
 WORKDIR /app
