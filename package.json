@@ -29,7 +29,7 @@
     "@oclif/test": "^3.0.2",
     "@types/chai": "^4.3.9",
     "@types/mocha": "^10.0.3",
-    "@types/node": "^20.8.7",
+    "@types/node": "^20.8.10",
     "@types/nunjucks": "^3.2.5",
     "@types/semver": "^7.5.4",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
