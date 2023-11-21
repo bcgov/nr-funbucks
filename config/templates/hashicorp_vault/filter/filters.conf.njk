@@ -23,9 +23,4 @@
     Name    lua
     Match   {{typeTag}}.audit
     script  {{typeTag}}/lua/audit.lua
-    call    cb_json
-[FILTER]
-    Name    lua
-    Match   {{typeTag}}.audit
-    script  {{typeTag}}/lua/audit.lua
     call    path_to_service_target
