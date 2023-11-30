@@ -9,7 +9,7 @@ export interface FbFile {
 export type MEASURE_TYPES = {
   historic: string;
   instant: string;
-}
+};
 
 export interface TypeConfig {
   context: object;
@@ -31,7 +31,7 @@ export interface OpenShiftConfigMapConfig {
   suffix: string;
 }
 
-export interface OpenShiftVolumeConfig{
+export interface OpenShiftVolumeConfig {
   indent: number;
 }
 

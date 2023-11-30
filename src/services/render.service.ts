@@ -3,9 +3,21 @@ import * as path from 'path';
 import * as nunjucks from 'nunjucks';
 import * as semver from 'semver';
 
-import {CONFIG_BASEPATH, OUTPUT_BASEPATH, TEMPLATE_CONFIG_BASEPATH} from '../constants/paths';
+import {
+  CONFIG_BASEPATH,
+  OUTPUT_BASEPATH,
+  TEMPLATE_CONFIG_BASEPATH,
+} from '../constants/paths';
 // eslint-disable-next-line max-len
-import {BaseConfig, FbFile, FB_FILE_TYPES, MEASURE_TYPES, ServerAppConfig, ServerConfig, TypeConfig} from '../util/types';
+import {
+  BaseConfig,
+  FbFile,
+  FB_FILE_TYPES,
+  MEASURE_TYPES,
+  ServerAppConfig,
+  ServerConfig,
+  TypeConfig,
+} from '../util/types';
 
 /**
  * The render service handles most tasks around templating and writing the fluent bit configuration.
@@ -30,14 +42,14 @@ export class RenderService {
    * Keeps count of times a type has been created.
    */
   private typeCnt: {
-    [type: string]: number
+    [type: string]: number;
   } = {};
 
   /**
    * Keeps track of files.
    */
   private typeFiles: {
-    [type: string]: string[]
+    [type: string]: string[];
   } = {};
 
   /**
@@ -46,9 +58,9 @@ export class RenderService {
   private measureTypes: {
     [Property in keyof MEASURE_TYPES]: string[];
   } = {
-      historic: [],
-      instant: [],
-    };
+    historic: [],
+    instant: [],
+  };
 
   /**
    * The set of ids
@@ -71,9 +83,7 @@ export class RenderService {
     return this._parserCount;
   }
 
-  constructor(private agentBasePath: string = '') {
-
-  }
+  constructor(private agentBasePath: string = '') {}
 
   /**
    * Initializes the output directory and reads base config.
@@ -96,7 +106,7 @@ export class RenderService {
    */
   public static clean(): Promise<void> {
     try {
-      fs.rmSync(OUTPUT_BASEPATH, {recursive: true, force: true});
+      fs.rmSync(OUTPUT_BASEPATH, { recursive: true, force: true });
       fs.mkdirSync(OUTPUT_BASEPATH);
     } catch (err) {
       // ignore
@@ -110,7 +120,10 @@ export class RenderService {
    * @returns Promise resolved when base config read.
    */
   public readBaseConfig(local: boolean): Promise<void> {
-    const baseConfigStr = fs.readFileSync(path.resolve(CONFIG_BASEPATH, `base.json`), 'utf8');
+    const baseConfigStr = fs.readFileSync(
+      path.resolve(CONFIG_BASEPATH, `base.json`),
+      'utf8',
+    );
     this.baseConfig = JSON.parse(baseConfigStr);
     if (local) {
       this.baseContextOverride = this.baseConfig.localContextOverride;
@@ -122,7 +135,11 @@ export class RenderService {
    * Write base config. This should be done last.
    * @param override Array of override values
    */
-  public writeBase(serverConfig: ServerConfig, override: string[]) {
+  public writeBase(
+    serverConfig: ServerConfig,
+    override: string[],
+    skipOutput: boolean,
+  ) {
     const context = {
       ...this.baseConfig.context,
       ...this.getServerBaseContextOverride(serverConfig),
@@ -135,28 +152,47 @@ export class RenderService {
     };
 
     for (const file of this.baseConfig.files) {
-      this.writeRenderedTemplate(file.tmpl, this.fileToOutputPath(file), file.type, context);
+      this.writeRenderedTemplate(
+        file.tmpl,
+        this.fileToOutputPath(file),
+        file.type,
+        context,
+        skipOutput,
+      );
     }
 
-    console.log(`Inputs: ${this.inputCount}`);
-    console.log(`Filters: ${this.filterCount}`);
-    console.log(`Parsers: ${this.parserCount}`);
+    if (!skipOutput) {
+      console.log(`Inputs: ${this.inputCount}`);
+      console.log(`Filters: ${this.filterCount}`);
+      console.log(`Parsers: ${this.parserCount}`);
+    }
   }
 
-  public writeApp(app: ServerAppConfig, serverConfig: ServerConfig, override: string[]) {
-    const typeConfigPath = path.resolve(TEMPLATE_CONFIG_BASEPATH, app.type, `${app.type}.json`);
+  public writeApp(
+    app: ServerAppConfig,
+    serverConfig: ServerConfig,
+    override: string[],
+    skipOutput: boolean,
+  ) {
+    const typeConfigPath = path.resolve(
+      TEMPLATE_CONFIG_BASEPATH,
+      app.type,
+      `${app.type}.json`,
+    );
     const typeConfigStr = fs.readFileSync(typeConfigPath, 'utf8');
     const type: TypeConfig = JSON.parse(typeConfigStr);
-    const fluentBitRelease = serverConfig.fluentBitRelease || this.baseConfig.fluentBitRelease;
+    const fluentBitRelease =
+      serverConfig.fluentBitRelease || this.baseConfig.fluentBitRelease;
     // Only write out if semver and OS is statisfied. Default is to accept when no semver or OS specified.
     if (
       fluentBitRelease &&
-      ((type.semver === undefined || semver.satisfies(fluentBitRelease, type.semver)) &&
-       (type.os === undefined || serverConfig.os === undefined ||
+      (type.semver === undefined ||
+        semver.satisfies(fluentBitRelease, type.semver)) &&
+      (type.os === undefined ||
+        serverConfig.os === undefined ||
         type.os.indexOf(serverConfig.os ? serverConfig.os : '') >= 0)
-      )
     ) {
-      this.writeType(app, type, serverConfig, override);
+      this.writeType(app, type, serverConfig, override, skipOutput);
     }
   }
 
@@ -171,9 +207,13 @@ export class RenderService {
     app: ServerAppConfig,
     type: TypeConfig,
     serverConfig: ServerConfig,
-    override: string[]) {
-    const context = {...type.context, ...app.context};
-    this.typeCnt[app.type] = this.typeCnt[app.type] ? this.typeCnt[app.type] + 1 : 1;
+    override: string[],
+    skipOutput: boolean,
+  ) {
+    const context = { ...type.context, ...app.context };
+    this.typeCnt[app.type] = this.typeCnt[app.type]
+      ? this.typeCnt[app.type] + 1
+      : 1;
     const paddedTypeCnt = `${this.typeCnt[app.type]}`.padStart(4, '0');
     const typeTag = app.id ? app.id : `${app.type}_${paddedTypeCnt}`;
     if (this.idSet.has(typeTag)) {
@@ -182,7 +222,7 @@ export class RenderService {
     this.idSet.add(typeTag);
     this.measureTypes[type.measurementType].push(typeTag);
     for (const file of type.files) {
-      const {outPath, outRelativePath} = this.writeRenderedTemplate(
+      const { outPath, outRelativePath } = this.writeRenderedTemplate(
         `${app.type}/${file.tmpl}`,
         `${typeTag}/${this.fileToOutputPath(file)}`,
         file.type,
@@ -193,9 +233,11 @@ export class RenderService {
           ...serverConfig.context,
           ...context,
           ...this.overrideContext(override, typeTag),
-        });
+        },
+        skipOutput,
+      );
 
-      if (file.type === 'script') {
+      if (file.type === 'script' && !skipOutput) {
         fs.chmodSync(outPath, 0o775);
       }
       this.addFileToType(app, file, outRelativePath);
@@ -207,7 +249,7 @@ export class RenderService {
    * @param context The context to render
    * @returns The modified context
    */
-  private execValueTemplate(context: {[key: string]: string}): object {
+  private execValueTemplate(context: { [key: string]: string }): object {
     for (const key of Object.keys(context)) {
       if (key && key.length > 1 && key.startsWith('!')) {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
@@ -226,24 +268,29 @@ export class RenderService {
    */
   private overrideContext(override: string[], typeTag?: string): object {
     return {
-      ...override.filter((s) => s.indexOf('/') !== -1).reduce((acc, cv) => {
-        const slashIndex = cv.indexOf('/');
-        const typeKey = cv.substring(0, slashIndex);
-        const val = cv.substring(slashIndex + 1);
+      ...override
+        .filter((s) => s.indexOf('/') !== -1)
+        .reduce(
+          (acc, cv) => {
+            const slashIndex = cv.indexOf('/');
+            const typeKey = cv.substring(0, slashIndex);
+            const val = cv.substring(slashIndex + 1);
 
-        if (typeKey.indexOf(':') === -1) {
-          acc[typeKey] = val;
-          return acc;
-        }
+            if (typeKey.indexOf(':') === -1) {
+              acc[typeKey] = val;
+              return acc;
+            }
 
-        const colonIndex = typeKey.indexOf(':');
-        const type = typeKey.substring(0, colonIndex);
-        const key = typeKey.substring(colonIndex + 1);
-        if (type === typeTag) {
-          acc[key] = val;
-        }
-        return acc;
-      }, {} as {[type: string]: string}),
+            const colonIndex = typeKey.indexOf(':');
+            const type = typeKey.substring(0, colonIndex);
+            const key = typeKey.substring(colonIndex + 1);
+            if (type === typeTag) {
+              acc[key] = val;
+            }
+            return acc;
+          },
+          {} as { [type: string]: string },
+        ),
     };
   }
 
@@ -255,14 +302,20 @@ export class RenderService {
   private collateFileType(fileType: FB_FILE_TYPES): object {
     return {
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-      [`files_${fileType}`]: this.typeFiles[fileType] ? this.typeFiles[fileType] : [],
+      [`files_${fileType}`]: this.typeFiles[fileType]
+        ? this.typeFiles[fileType]
+        : [],
     };
   }
 
   /**
    * Add file to type library for later collation for templating.
    */
-  private addFileToType(app: ServerAppConfig, file: FbFile, outPath: string): void {
+  private addFileToType(
+    app: ServerAppConfig,
+    file: FbFile,
+    outPath: string,
+  ): void {
     if (!this.typeFiles[file.type]) {
       this.typeFiles[file.type] = [];
     }
@@ -273,36 +326,58 @@ export class RenderService {
    * Renders a template out using Nunjucks.
    * @param templateName The path to the template to render
    * @param outputPath The output path
+   * @param fileType The type of the file being rendered
    * @param context The context to render the template using
+   * @param skipOutput Do not write files
    * @returns The output path
    */
   private writeRenderedTemplate(
     templateName: string,
     outputPath: string,
     fileType: FB_FILE_TYPES,
-    context: object): {outPath: string, outRelativePath: string} {
-    const outPath = path.resolve(OUTPUT_BASEPATH, this.agentBasePath, outputPath);
+    context: object,
+    skipOutput: boolean,
+  ): { outPath: string; outRelativePath: string } {
+    const outPath = path.resolve(
+      OUTPUT_BASEPATH,
+      this.agentBasePath,
+      outputPath,
+    );
     const outRelativePath = path.resolve(OUTPUT_BASEPATH, outputPath);
-    fs.mkdirSync(path.dirname(outPath), {recursive: true});
-    if (this.isTemplateNjkFile(templateName)) {
-      const txt = nunjucks.render(templateName, this.execValueTemplate(context as {[key: string]: string}));
-      this.updateLimitCounts(fileType, txt);
-      fs.writeFileSync(outPath, txt);
-    } else {
-      const txt = fs.readFileSync(path.resolve(TEMPLATE_CONFIG_BASEPATH, templateName), 'utf-8');
-      this.updateLimitCounts(fileType, txt);
-      fs.writeFileSync(outPath, txt);
+    if (!skipOutput) {
+      fs.mkdirSync(path.dirname(outPath), { recursive: true });
     }
-    return {outPath, outRelativePath};
+    if (this.isTemplateNjkFile(templateName)) {
+      const txt = nunjucks.render(
+        templateName,
+        this.execValueTemplate(context as { [key: string]: string }),
+      );
+      this.updateLimitCounts(fileType, txt);
+      if (!skipOutput) {
+        fs.writeFileSync(outPath, txt);
+      }
+    } else {
+      const txt = fs.readFileSync(
+        path.resolve(TEMPLATE_CONFIG_BASEPATH, templateName),
+        'utf-8',
+      );
+      this.updateLimitCounts(fileType, txt);
+      if (!skipOutput) {
+        fs.writeFileSync(outPath, txt);
+      }
+    }
+    return { outPath, outRelativePath };
   }
 
   private updateLimitCounts(fileType: FB_FILE_TYPES, txt: string) {
     if (fileType === 'input') {
-      this._inputCount += (txt.match(/\[input\]/ig) || []).length;
+      this._inputCount += (txt.match(/\[input\]/gi) || []).length;
     } else if (fileType === 'filter') {
-      this._filterCount += (txt.match(/\[filter\]/ig) || []).length;
+      this._filterCount += (txt.match(/\[filter\]/gi) || []).length;
     } else if (fileType === 'parser') {
-      this._parserCount += (txt.match(/\[(multiline_)?parser\]/ig) || []).length;
+      this._parserCount += (
+        txt.match(/\[(multiline_)?parser\]/gi) || []
+      ).length;
     }
   }
 
