@@ -42,8 +42,8 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add monitors/fluentbit-agents.csv
-          git add monitors/monitors.csv
+          git add monitor/fluentbit-agents.csv
+          git add monitor/monitors.json
           git commit -m "Update fluentbit agent and monitor file"
       - name: Push changes
         if: steps.repo.outputs.test == 'dirty'
