@@ -32,7 +32,7 @@ export class MonitorService {
       const agentCount = Number(i.split(DELIMITER)[1]);
       for (let j = 0; j < agentCount; j++) {
         const monitor: Monitor = {
-          name: `nrm_${serverName}_fluent-bit.${j}`,
+          name: `nrm_${serverName}_fluentbit_${j}`,
           server: serverName,
           agent: `fluent-bit.${j}`,
           query_level_trigger_id: crypto
