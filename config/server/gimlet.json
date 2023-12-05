@@ -13,5 +13,6 @@
     {"id": "memory", "type": "metric_host_memory", "context": {}},
     {"id": "network", "type": "metric_host_network", "context": {}}
   ],
+  "fluentBitRelease": "2.2.0",
   "context": {}
 }
