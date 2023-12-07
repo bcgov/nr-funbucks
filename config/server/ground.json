@@ -1,8 +1,8 @@
 {
-  "address": "below.bcgov",
+  "address": "ground.bcgov",
   "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "os": "linux",
-  "os_variant": "rhel7",
+  "os_variant": "rhel9",
   "vault_cd_user_field": "username_lowercase",
   "vault_cd_pass_field": "password",
   "vault_cd_path": "groups/appdelivery/jenkins-isss-cdua",
@@ -13,12 +13,12 @@
     {"id": "memory", "type": "metric_host_memory", "context": {}},
     {"id": "network", "type": "metric_host_network", "context": {}},
     {
-      "id": "wfint-activemq",
+      "id": "wfdlv-activemq",
       "type": "activemq",
       "context": {
        "app": "activemq",
        "component": "activemq",
-      "!logs_path_app": "/sw_ux/activemq/current/data/activemq.log"
+       "!logs_path_app": "/sw_ux/activemq/current/data/activemq.log"
       }
     },
     {
@@ -79,11 +79,12 @@
       }
     },
     {
-      "id": "wfcst-war",
+      "id": "wfcst-war-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfcst",
-        "component": "wfcst-war"
+        "component": "wfcst-war-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfcst-war.log"
       }
     },
     {
@@ -136,11 +137,12 @@
       }
     },
     {
-      "id": "wfhr-earnings-api",
+      "id": "wfhr-earnings-api-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfhr",
-        "component": "wfhr-earnings-api"
+        "component": "wfhr-earnings-api-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfhr-earnings-api.log"
       }
     },
     {
@@ -160,11 +162,12 @@
       }
     },
     {
-      "id": "wfhr-ediaries-ui-war",
+      "id": "wfhr-ediaries-ui-war-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfhr",
-        "component": "wfhr-ediaries-ui-war"
+        "component": "wfhr-ediaries-ui-war-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfhr-ediaries-ui-war.log"
       }
     },
     {
@@ -172,15 +175,17 @@
       "type": "tomcat",
       "context": {
         "app": "wfhr",
-        "component": "wfhr-payroll-api"
+        "component": "wfhr-payroll-api",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfhr-payroll-api.log"
       }
     },
     {
-      "id": "wfhr-payroll-processing-war",
+      "id": "wfhr-payroll-api-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfhr",
-        "component": "wfhr-payroll-processing-war"
+        "component": "wfhr-payroll-api-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfhr-payroll-api.log"
       }
     },
     {
@@ -200,19 +205,21 @@
       }
     },
     {
-      "id": "wfim-dispatch-2k5-api",
+      "id": "wfim-dispatch-2k5-api-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfim",
-        "component": "wfim-dispatch-2k5-api"
+        "component": "wfim-dispatch-2k5-api-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfim-dispatch-2k5-api.log"
       }
     },
     {
-      "id": "wfim-dispatch-2k5-stub-war",
+      "id": "wfim-dispatch-2k5-stub-war-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfim",
-        "component": "wfim-dispatch-2k5-stub-war"
+        "component": "wfim-dispatch-2k5-stub-war-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfim-dispatch-2k5-stub-war.log"
       }
     },
     {
@@ -232,43 +239,48 @@
       }
     },
     {
-      "id": "wfim-incident-manager-war",
+      "id": "wfim-incident-manager-war-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfim",
-        "component": "wfim-incident-manager-war"
+        "component": "wfim-incident-manager-war-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfim-incident-manager-war.log"
       }
     },
     {
-      "id": "wfim-incidents-api",
+      "id": "wfim-incidents-api-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfim",
-        "component": "wfim-incidents-api"
+        "component": "wfim-incidents-api-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfim-incidents-api.log"
       }
     },
     {
-      "id": "wfim-no-more-rofs-war",
+      "id": "wfim-no-more-rofs-war-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfim",
-        "component": "wfim-no-more-rofs-war"
+        "component": "wfim-no-more-rofs-war-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfim-no-more-rofs-war.log"
       }
     },
     {
-      "id": "wfim-report-of-fire-war",
+      "id": "wfim-report-of-fire-war-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfim",
-        "component": "wfim-report-of-fire-war"
+        "component": "wfim-report-of-fire-war-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfim-report-of-fire-war.log"
       }
     },
     {
-      "id": "wfim-war",
+      "id": "wfim-war-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfim",
-        "component": "wfim-war"
+        "component": "wfim-war-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfim-war.log"
       }
     },
     {
@@ -280,27 +292,21 @@
       }
     },
     {
-      "id": "wfone-portal-api",
+      "id": "wfone-portal-api-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfone",
-        "component": "wfone-portal-api"
+        "component": "wfone-portal-api-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfone-portal-api.log"
       }
     },
     {
-      "id": "wfone-portal-war",
+      "id": "wfone-portal-war-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfone",
-        "component": "wfone-portal-war"
-      }
-    },
-    {
-      "id": "wfone-quartzdesk-agent",
-      "type": "tomcat",
-      "context": {
-        "app": "wfone",
-        "component": "wfone-quartzdesk-agent"
+        "component": "wfone-portal-war-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfone-portal-war.log"
       }
     },
     {
@@ -324,6 +330,15 @@
       }
     },
     {
+      "id": "wfone-vendor-portal-api-wfdlv",
+      "type": "tomcat",
+      "context": {
+        "app": "wfone",
+        "component": "wfone-vendor-portal-api-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfone-vendor-portal-api.log"
+      }
+    },
+    {
       "id": "wfone-vendor-portal-war",
       "type": "tomcat",
       "context": {
@@ -332,19 +347,30 @@
       }
     },
     {
-      "id": "wfone-workflow-admin-war",
+      "id": "wfone-vendor-portal-war-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfone",
-        "component": "wfone-workflow-admin-war"
+        "component": "wfone-vendor-portal-war-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfone-vendor-portal-war.log"
       }
     },
     {
-      "id": "wfone-workflow-api",
+      "id": "wfone-workflow-admin-war-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfone",
-        "component": "wfone-workflow-api"
+        "component": "wfone-workflow-admin-war-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfone-workflow-admin-war.log"
+      }
+    },
+    {
+      "id": "wfone-workflow-api-wfdlv",
+      "type": "tomcat",
+      "context": {
+        "app": "wfone",
+        "component": "wfone-workflow-api-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfone-workflow-api.log"
       }
     },
     {
@@ -353,6 +379,15 @@
       "context": {
         "app": "wforg",
         "component": "wforg-org-unit-api"
+      }
+    },
+    {
+      "id": "wforg-org-unit-api-wfdlv",
+      "type": "tomcat",
+      "context": {
+        "app": "wforg",
+        "component": "wforg-org-unit-api-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wforg-org-unit-api.log"
       }
     },
     {
@@ -420,11 +455,12 @@
       }
     },
     {
-      "id": "wfrm-war",
+      "id": "wfrm-war-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfrm",
-        "component": "wfrm-war"
+        "component": "wfrm-war-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfrm-war.log"
       }
     },
     {
@@ -436,27 +472,21 @@
       }
     },
     {
-      "id": "wfss-pointid-api-rest-endpoints",
-      "type": "tomcat",
-      "context": {
-        "app": "wfss",
-        "component": "wfss-pointid-api-rest-endpoints"
-      }
-    },
-    {
-      "id": "wfwm-user-editable-data-api",
+      "id": "wfwm-user-editable-data-api-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfwm",
-        "component": "wfwm-user-editable-data-api"
+        "component": "wfwm-user-editable-data-api-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfwm-user-editable-data-api.log"
       }
     },
     {
-      "id": "wfwm-webmapping-war",
+      "id": "wfwm-webmapping-war-wfdlv",
       "type": "tomcat",
       "context": {
         "app": "wfwm",
-        "component": "wfwm-webmapping-war"
+        "component": "wfwm-webmapping-war-wfdlv",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfwm-webmapping-war.log"
       }
     },
     {
@@ -528,7 +558,8 @@
       "type": "tomcat",
       "context": {
         "app": "rrt",
-        "component": "rrt-war"
+        "component": "rrt-war",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}-{{environment | lower }}/{{ component | lower }}.log"
       }
     },
     {
@@ -536,7 +567,8 @@
       "type": "tomcat",
       "context": {
         "app": "webade",
-        "component": "webade-access-invitation-api"
+        "component": "webade-access-invitation-api",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/{{ component | lower }}-{{environment | lower }}.log"
       }
     },
     {
@@ -560,12 +592,13 @@
       "type": "tomcat",
       "context": {
         "app": "webade",
-        "component": "webade-adam"
+        "component": "webade-adam",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/{{ component | lower }}*.log"
       }
     }
   ],
   "context": {
-    "environment": "wfint",
-    "organization_id": "wildfire"
+    "environment": "wfdlv",
+    "organization_name": "wildfire"
   }
 }
