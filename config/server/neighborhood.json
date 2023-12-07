@@ -18,7 +18,7 @@
       "context": {
         "environment": "wftst",
         "eventDataset": "apache.access.internal",
-        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wftst{% else %}/sw_ux/httpd01/logs/hot{% endif %}/district-httpd01-t1*-access*.log"
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wftst{% else %}/sw_ux/httpd01/logs/hot{% endif %}/neighborhood-httpd01-t1*-access*.log"
       }
     }
   ],

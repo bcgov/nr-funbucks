@@ -17,7 +17,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "wfdlv",
-        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wfdlv{% else %}/sw_ux/httpd01/logs/hot{% endif %}/zone-httpd01-d1*-access*.log"
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wfdlv{% else %}/sw_ux/httpd01/logs/hot{% endif %}/block-httpd01-d1*-access*.log"
       }
     },
     {
@@ -25,7 +25,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "wfint",
-        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wfint{% else %}/sw_ux/httpd01/logs/hot{% endif %}/zone-httpd01-i1*-access*.log"
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wfint{% else %}/sw_ux/httpd01/logs/hot{% endif %}/block-httpd01-i1*-access*.log"
       }
     },
     {
@@ -33,7 +33,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "wftst",
-        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wftst{% else %}/sw_ux/httpd01/logs/hot{% endif %}/zone-httpd01-t1*-access*.log"
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wftst{% else %}/sw_ux/httpd01/logs/hot{% endif %}/block-httpd01-t1*-access*.log"
       }
     }
   ],
