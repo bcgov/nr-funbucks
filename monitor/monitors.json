@@ -1,6 +1,6 @@
 [
   {
-    "name": "nrm_alternate_fluentbit_0",
+    "name": "nrids_agent_fluentbit_alternate_0",
     "server": "alternate",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "4dae5a78051fced81d3a",
@@ -8,7 +8,7 @@
     "automation_queue_action_id": "c640340680c0c07914ec"
   },
   {
-    "name": "nrm_ancillary_fluentbit_0",
+    "name": "nrids_agent_fluentbit_ancillary_0",
     "server": "ancillary",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "0273311a1564c147f5f2",
@@ -16,7 +16,7 @@
     "automation_queue_action_id": "4e5b5565c85849bf2d02"
   },
   {
-    "name": "nrm_anomoly_fluentbit_0",
+    "name": "nrids_agent_fluentbit_anomoly_0",
     "server": "anomoly",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "ceadbbefa9a59f08e010",
@@ -24,7 +24,7 @@
     "automation_queue_action_id": "4bb3023a1bf7ad1ab2dd"
   },
   {
-    "name": "nrm_anomoly_fluentbit_1",
+    "name": "nrids_agent_fluentbit_anomoly_1",
     "server": "anomoly",
     "agent": "fluent-bit.1",
     "query_level_trigger_id": "a936e0bb1078949e324a",
@@ -32,7 +32,7 @@
     "automation_queue_action_id": "0beabe406a4d9e595f95"
   },
   {
-    "name": "nrm_anomoly_fluentbit_2",
+    "name": "nrids_agent_fluentbit_anomoly_2",
     "server": "anomoly",
     "agent": "fluent-bit.2",
     "query_level_trigger_id": "1e010cc1d379533e9ba8",
@@ -40,7 +40,7 @@
     "automation_queue_action_id": "81d35b577fd2b65392e8"
   },
   {
-    "name": "nrm_anomoly_fluentbit_3",
+    "name": "nrids_agent_fluentbit_anomoly_3",
     "server": "anomoly",
     "agent": "fluent-bit.3",
     "query_level_trigger_id": "38cbf36a2aaacd5d811c",
@@ -48,39 +48,39 @@
     "automation_queue_action_id": "c95d34ca319b266065d6"
   },
   {
-    "name": "nrm_below_fluentbit_0",
-    "server": "below",
+    "name": "nrids_agent_fluentbit_beneath_0",
+    "server": "beneath",
     "agent": "fluent-bit.0",
-    "query_level_trigger_id": "ed5fcb0ea40a3c5670b0",
-    "teams_channel_action_id": "93077706d6f4a161f6b5",
-    "automation_queue_action_id": "d630f3b814961a4b9bb2"
+    "query_level_trigger_id": "17338dc7de429252e990",
+    "teams_channel_action_id": "b8f5ca5fca52d476e6c2",
+    "automation_queue_action_id": "638bee69b0c07d87453b"
   },
   {
-    "name": "nrm_below_fluentbit_1",
-    "server": "below",
+    "name": "nrids_agent_fluentbit_beneath_1",
+    "server": "beneath",
     "agent": "fluent-bit.1",
-    "query_level_trigger_id": "91c3163c07683a1bf471",
-    "teams_channel_action_id": "70d914bff9eab67ec0e0",
-    "automation_queue_action_id": "5d31a70e5fd7b9d36f2e"
+    "query_level_trigger_id": "536abe911109639d711f",
+    "teams_channel_action_id": "554f4bcf04893ca789d3",
+    "automation_queue_action_id": "a5afef877e6ab4cc8837"
   },
   {
-    "name": "nrm_below_fluentbit_2",
-    "server": "below",
+    "name": "nrids_agent_fluentbit_beneath_2",
+    "server": "beneath",
     "agent": "fluent-bit.2",
-    "query_level_trigger_id": "dcf7d11eee4dfcefff7a",
-    "teams_channel_action_id": "ecb35ec24e71b70e049c",
-    "automation_queue_action_id": "a93ac9d900c5439b7580"
+    "query_level_trigger_id": "cecd3a013ed406684ccc",
+    "teams_channel_action_id": "2bb807fe19f672c983e0",
+    "automation_queue_action_id": "72be03ca4b6c94e943cd"
   },
   {
-    "name": "nrm_below_fluentbit_3",
-    "server": "below",
+    "name": "nrids_agent_fluentbit_beneath_3",
+    "server": "beneath",
     "agent": "fluent-bit.3",
-    "query_level_trigger_id": "b441548b73d399f45933",
-    "teams_channel_action_id": "8091e2c134f663237ab8",
-    "automation_queue_action_id": "c6604e39e14125e93a9f"
+    "query_level_trigger_id": "1fa6c6230dfc3bc92582",
+    "teams_channel_action_id": "f4b2a053af9444a1629e",
+    "automation_queue_action_id": "fdaefc269d056213b7b0"
   },
   {
-    "name": "nrm_between_fluentbit_0",
+    "name": "nrids_agent_fluentbit_between_0",
     "server": "between",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "3e0af7788d2d44c02da1",
@@ -88,7 +88,7 @@
     "automation_queue_action_id": "66a5d832cfbb38d98a5f"
   },
   {
-    "name": "nrm_between_fluentbit_1",
+    "name": "nrids_agent_fluentbit_between_1",
     "server": "between",
     "agent": "fluent-bit.1",
     "query_level_trigger_id": "b2785e2ff1853e8982d3",
@@ -96,7 +96,7 @@
     "automation_queue_action_id": "40d8f933c698db6a1762"
   },
   {
-    "name": "nrm_between_fluentbit_2",
+    "name": "nrids_agent_fluentbit_between_2",
     "server": "between",
     "agent": "fluent-bit.2",
     "query_level_trigger_id": "12923dc8789d606dfc88",
@@ -104,7 +104,7 @@
     "automation_queue_action_id": "7f1d2ff2a39ebaa79470"
   },
   {
-    "name": "nrm_between_fluentbit_3",
+    "name": "nrids_agent_fluentbit_between_3",
     "server": "between",
     "agent": "fluent-bit.3",
     "query_level_trigger_id": "1226f4c3ec7d86ed0770",
@@ -112,7 +112,7 @@
     "automation_queue_action_id": "a066e59ca94dcbc20792"
   },
   {
-    "name": "nrm_betwixt_fluentbit_0",
+    "name": "nrids_agent_fluentbit_betwixt_0",
     "server": "betwixt",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "8b72466b96360947839d",
@@ -120,7 +120,7 @@
     "automation_queue_action_id": "2e546c72dc438be5249b"
   },
   {
-    "name": "nrm_betwixt_fluentbit_1",
+    "name": "nrids_agent_fluentbit_betwixt_1",
     "server": "betwixt",
     "agent": "fluent-bit.1",
     "query_level_trigger_id": "01d6ed7752be0c093ad2",
@@ -128,7 +128,7 @@
     "automation_queue_action_id": "d8998053b54b34e04231"
   },
   {
-    "name": "nrm_betwixt_fluentbit_2",
+    "name": "nrids_agent_fluentbit_betwixt_2",
     "server": "betwixt",
     "agent": "fluent-bit.2",
     "query_level_trigger_id": "3901c6e4f083c25508bd",
@@ -136,7 +136,7 @@
     "automation_queue_action_id": "10b9750ea5ea2278b480"
   },
   {
-    "name": "nrm_betwixt_fluentbit_3",
+    "name": "nrids_agent_fluentbit_betwixt_3",
     "server": "betwixt",
     "agent": "fluent-bit.3",
     "query_level_trigger_id": "43325f0f5d3f90845c39",
@@ -144,7 +144,7 @@
     "automation_queue_action_id": "dae2870987fa6c756751"
   },
   {
-    "name": "nrm_block_fluentbit_0",
+    "name": "nrids_agent_fluentbit_block_0",
     "server": "block",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "31b7db170745e9e2ec4e",
@@ -152,39 +152,7 @@
     "automation_queue_action_id": "4c451bd966243c839158"
   },
   {
-    "name": "nrm_bottom_fluentbit_0",
-    "server": "bottom",
-    "agent": "fluent-bit.0",
-    "query_level_trigger_id": "535412dc4d667eb02b8e",
-    "teams_channel_action_id": "4d731e2e091e6a2f8f80",
-    "automation_queue_action_id": "926d17c4cf6802f6b1bb"
-  },
-  {
-    "name": "nrm_bottom_fluentbit_1",
-    "server": "bottom",
-    "agent": "fluent-bit.1",
-    "query_level_trigger_id": "db20e7e29356dac90469",
-    "teams_channel_action_id": "80e368c4413fd327d1fe",
-    "automation_queue_action_id": "c2bbf3bd3611f223ebdd"
-  },
-  {
-    "name": "nrm_bottom_fluentbit_2",
-    "server": "bottom",
-    "agent": "fluent-bit.2",
-    "query_level_trigger_id": "213dda24c45eca7bbea1",
-    "teams_channel_action_id": "a1223ac0e4e4646252ca",
-    "automation_queue_action_id": "834719b978929914a1fc"
-  },
-  {
-    "name": "nrm_bottom_fluentbit_3",
-    "server": "bottom",
-    "agent": "fluent-bit.3",
-    "query_level_trigger_id": "324bd2070ca57b3d23c3",
-    "teams_channel_action_id": "7d7c365d87e1afa09328",
-    "automation_queue_action_id": "e831f09032926891f228"
-  },
-  {
-    "name": "nrm_broker_fluentbit_0",
+    "name": "nrids_agent_fluentbit_broker_0",
     "server": "broker",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "b4e298e0716dc8a6cc65",
@@ -192,7 +160,7 @@
     "automation_queue_action_id": "c3396e7fe7da911e5ee6"
   },
   {
-    "name": "nrm_cocacola_fluentbit_0",
+    "name": "nrids_agent_fluentbit_cocacola_0",
     "server": "cocacola",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "cb3c72dac95cdf20af20",
@@ -200,7 +168,7 @@
     "automation_queue_action_id": "34824b292ff0022d182c"
   },
   {
-    "name": "nrm_cocacola_fluentbit_1",
+    "name": "nrids_agent_fluentbit_cocacola_1",
     "server": "cocacola",
     "agent": "fluent-bit.1",
     "query_level_trigger_id": "ba0229ae0ef5ca1e4dec",
@@ -208,7 +176,7 @@
     "automation_queue_action_id": "c1453b3e63a60f650e87"
   },
   {
-    "name": "nrm_cocacola_fluentbit_2",
+    "name": "nrids_agent_fluentbit_cocacola_2",
     "server": "cocacola",
     "agent": "fluent-bit.2",
     "query_level_trigger_id": "84d203844e3f44ce9024",
@@ -216,7 +184,7 @@
     "automation_queue_action_id": "d0906c125827e6a6fc81"
   },
   {
-    "name": "nrm_coincidence_fluentbit_0",
+    "name": "nrids_agent_fluentbit_coincidence_0",
     "server": "coincidence",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "2e1f19e13b34c3dd08b5",
@@ -224,7 +192,7 @@
     "automation_queue_action_id": "57338b882d77082c3bbd"
   },
   {
-    "name": "nrm_colony_fluentbit_0",
+    "name": "nrids_agent_fluentbit_colony_0",
     "server": "colony",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "2219f8f980b5b726eb60",
@@ -232,7 +200,7 @@
     "automation_queue_action_id": "7ba49b53941af236e029"
   },
   {
-    "name": "nrm_convert_fluentbit_0",
+    "name": "nrids_agent_fluentbit_convert_0",
     "server": "convert",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "ca553025c33776a3d24c",
@@ -240,7 +208,7 @@
     "automation_queue_action_id": "1beed038b45ea948061e"
   },
   {
-    "name": "nrm_crest_fluentbit_0",
+    "name": "nrids_agent_fluentbit_crest_0",
     "server": "crest",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "26d98b64f9dba6402bfb",
@@ -248,7 +216,7 @@
     "automation_queue_action_id": "cf5f184d23b45b57151e"
   },
   {
-    "name": "nrm_crest_fluentbit_1",
+    "name": "nrids_agent_fluentbit_crest_1",
     "server": "crest",
     "agent": "fluent-bit.1",
     "query_level_trigger_id": "790cb8ae3ef4f46363c8",
@@ -256,7 +224,7 @@
     "automation_queue_action_id": "ee659ee3f0f5aa914f9b"
   },
   {
-    "name": "nrm_crest_fluentbit_2",
+    "name": "nrids_agent_fluentbit_crest_2",
     "server": "crest",
     "agent": "fluent-bit.2",
     "query_level_trigger_id": "7ec5f6b384d6fec5a3ca",
@@ -264,7 +232,7 @@
     "automation_queue_action_id": "9fa30005955afa199c45"
   },
   {
-    "name": "nrm_crest_fluentbit_3",
+    "name": "nrids_agent_fluentbit_crest_3",
     "server": "crest",
     "agent": "fluent-bit.3",
     "query_level_trigger_id": "f542b365e74aed73c10e",
@@ -272,7 +240,7 @@
     "automation_queue_action_id": "44e47994627a16a4c326"
   },
   {
-    "name": "nrm_cyborg_fluentbit_0",
+    "name": "nrids_agent_fluentbit_cyborg_0",
     "server": "cyborg",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "58ec631f3a762f8b81d9",
@@ -280,7 +248,7 @@
     "automation_queue_action_id": "3b1fbc70fc1d4c3bddb5"
   },
   {
-    "name": "nrm_drpepper_fluentbit_0",
+    "name": "nrids_agent_fluentbit_drpepper_0",
     "server": "drpepper",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "f65a544bd52bcec3e7e4",
@@ -288,7 +256,7 @@
     "automation_queue_action_id": "67263aa69586fd1f859a"
   },
   {
-    "name": "nrm_drpepper_fluentbit_1",
+    "name": "nrids_agent_fluentbit_drpepper_1",
     "server": "drpepper",
     "agent": "fluent-bit.1",
     "query_level_trigger_id": "c83c1fd34913e799f677",
@@ -296,7 +264,7 @@
     "automation_queue_action_id": "925307822f3c5c04e3cb"
   },
   {
-    "name": "nrm_drpepper_fluentbit_2",
+    "name": "nrids_agent_fluentbit_drpepper_2",
     "server": "drpepper",
     "agent": "fluent-bit.2",
     "query_level_trigger_id": "bb1c3c13e212eaaffc09",
@@ -304,7 +272,7 @@
     "automation_queue_action_id": "3e617c3154f72cfde5a2"
   },
   {
-    "name": "nrm_drpepper_fluentbit_3",
+    "name": "nrids_agent_fluentbit_drpepper_3",
     "server": "drpepper",
     "agent": "fluent-bit.3",
     "query_level_trigger_id": "e833e1d32025bc0ebcfe",
@@ -312,7 +280,7 @@
     "automation_queue_action_id": "fd8519fcdfc0e5dc4d1a"
   },
   {
-    "name": "nrm_fresca_fluentbit_0",
+    "name": "nrids_agent_fluentbit_fresca_0",
     "server": "fresca",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "c537fb5960248f4c4893",
@@ -320,7 +288,7 @@
     "automation_queue_action_id": "3daa53381fb4d76ea0af"
   },
   {
-    "name": "nrm_gimlet_fluentbit_0",
+    "name": "nrids_agent_fluentbit_gimlet_0",
     "server": "gimlet",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "9a2a70ecec6541109d9a",
@@ -328,7 +296,39 @@
     "automation_queue_action_id": "59762a2d85df2d4ad1ad"
   },
   {
-    "name": "nrm_gumibears_fluentbit_0",
+    "name": "nrids_agent_fluentbit_ground_0",
+    "server": "ground",
+    "agent": "fluent-bit.0",
+    "query_level_trigger_id": "5782df3f9450900dc785",
+    "teams_channel_action_id": "f42f4220f726581a9921",
+    "automation_queue_action_id": "e594b0945f5851399716"
+  },
+  {
+    "name": "nrids_agent_fluentbit_ground_1",
+    "server": "ground",
+    "agent": "fluent-bit.1",
+    "query_level_trigger_id": "9f6a410f8696f602b598",
+    "teams_channel_action_id": "d572bf1494c641336269",
+    "automation_queue_action_id": "5f1cfcf8111040cdfdb6"
+  },
+  {
+    "name": "nrids_agent_fluentbit_ground_2",
+    "server": "ground",
+    "agent": "fluent-bit.2",
+    "query_level_trigger_id": "6d4a3174a8ca71f8d0cb",
+    "teams_channel_action_id": "90efd6eabb359f1933fe",
+    "automation_queue_action_id": "589b818101592dae7193"
+  },
+  {
+    "name": "nrids_agent_fluentbit_ground_3",
+    "server": "ground",
+    "agent": "fluent-bit.3",
+    "query_level_trigger_id": "a808b1e5c8814c2e602f",
+    "teams_channel_action_id": "5e71eb7cdfde0500510b",
+    "automation_queue_action_id": "4959819203c0603b54b5"
+  },
+  {
+    "name": "nrids_agent_fluentbit_gumibears_0",
     "server": "gumibears",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "b461ae65d6e819161ab0",
@@ -336,7 +336,7 @@
     "automation_queue_action_id": "75d1eb32c5e84db616f4"
   },
   {
-    "name": "nrm_jujubes_fluentbit_0",
+    "name": "nrids_agent_fluentbit_jujubes_0",
     "server": "jujubes",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "7b4fba70c918ccb7bbe0",
@@ -344,39 +344,39 @@
     "automation_queue_action_id": "23a6bed9dbcf1c6f863e"
   },
   {
-    "name": "nrm_middle_fluentbit_0",
-    "server": "middle",
+    "name": "nrids_agent_fluentbit_median_0",
+    "server": "median",
     "agent": "fluent-bit.0",
-    "query_level_trigger_id": "1ed68b44775e287bce28",
-    "teams_channel_action_id": "61ae8361af8de39331bc",
-    "automation_queue_action_id": "941a1d939de6efa6dbed"
+    "query_level_trigger_id": "e27ef339a3c5eaf254cf",
+    "teams_channel_action_id": "8e763e98b6b273fba9d8",
+    "automation_queue_action_id": "cf71fd18e3b419bd4496"
   },
   {
-    "name": "nrm_middle_fluentbit_1",
-    "server": "middle",
+    "name": "nrids_agent_fluentbit_median_1",
+    "server": "median",
     "agent": "fluent-bit.1",
-    "query_level_trigger_id": "cc5d8d770118f683a0a4",
-    "teams_channel_action_id": "eb27056c798e90c0f903",
-    "automation_queue_action_id": "3a68a6f81902d783858f"
+    "query_level_trigger_id": "4cc1e7b61ba54b7db121",
+    "teams_channel_action_id": "f849ec8a26a09762b860",
+    "automation_queue_action_id": "a0785e35c4fb950b4a29"
   },
   {
-    "name": "nrm_middle_fluentbit_2",
-    "server": "middle",
+    "name": "nrids_agent_fluentbit_median_2",
+    "server": "median",
     "agent": "fluent-bit.2",
-    "query_level_trigger_id": "bc10dba00923ab41e141",
-    "teams_channel_action_id": "dc99e4f27a27ca99054a",
-    "automation_queue_action_id": "da7df2cb96c40a618c8d"
+    "query_level_trigger_id": "6d36575fef53cae28c72",
+    "teams_channel_action_id": "d57b2421182ebfa1cb88",
+    "automation_queue_action_id": "8a564fd77181cc6396db"
   },
   {
-    "name": "nrm_middle_fluentbit_3",
-    "server": "middle",
+    "name": "nrids_agent_fluentbit_median_3",
+    "server": "median",
     "agent": "fluent-bit.3",
-    "query_level_trigger_id": "abbcb39773e50f423bb4",
-    "teams_channel_action_id": "e0416987ab1b4cd4bf6d",
-    "automation_queue_action_id": "f039c83112a30c3d5215"
+    "query_level_trigger_id": "12a6f569ae1a24e94a89",
+    "teams_channel_action_id": "e4fd85ec7ae8a6cb41cc",
+    "automation_queue_action_id": "d8d2544f1feb4a202637"
   },
   {
-    "name": "nrm_mojito_fluentbit_0",
+    "name": "nrids_agent_fluentbit_mojito_0",
     "server": "mojito",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "41fef008c90013273481",
@@ -384,7 +384,7 @@
     "automation_queue_action_id": "c36e5ed80113b8852101"
   },
   {
-    "name": "nrm_neighborhood_fluentbit_0",
+    "name": "nrids_agent_fluentbit_neighborhood_0",
     "server": "neighborhood",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "0a483ba94a0c39e21282",
@@ -392,7 +392,7 @@
     "automation_queue_action_id": "f8865339f54650cd6583"
   },
   {
-    "name": "nrm_orangina_fluentbit_0",
+    "name": "nrids_agent_fluentbit_orangina_0",
     "server": "orangina",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "ae36f4644aede2456699",
@@ -400,7 +400,7 @@
     "automation_queue_action_id": "1e0be07a7c10a6d5e3fd"
   },
   {
-    "name": "nrm_pinnacle_fluentbit_0",
+    "name": "nrids_agent_fluentbit_pinnacle_0",
     "server": "pinnacle",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "be6da87b478e737803ce",
@@ -408,7 +408,7 @@
     "automation_queue_action_id": "f8c17a5fae338ae9d22c"
   },
   {
-    "name": "nrm_pinnacle_fluentbit_1",
+    "name": "nrids_agent_fluentbit_pinnacle_1",
     "server": "pinnacle",
     "agent": "fluent-bit.1",
     "query_level_trigger_id": "499d7d36486edaef6971",
@@ -416,7 +416,7 @@
     "automation_queue_action_id": "7247e88b85942ba792cf"
   },
   {
-    "name": "nrm_pinnacle_fluentbit_2",
+    "name": "nrids_agent_fluentbit_pinnacle_2",
     "server": "pinnacle",
     "agent": "fluent-bit.2",
     "query_level_trigger_id": "d9d46bcaf6ae0eee64ae",
@@ -424,7 +424,7 @@
     "automation_queue_action_id": "07e0034820f91a9bf466"
   },
   {
-    "name": "nrm_pinnacle_fluentbit_3",
+    "name": "nrids_agent_fluentbit_pinnacle_3",
     "server": "pinnacle",
     "agent": "fluent-bit.3",
     "query_level_trigger_id": "81520e596e3d9096b555",
@@ -432,7 +432,7 @@
     "automation_queue_action_id": "94210b265efde1c907e9"
   },
   {
-    "name": "nrm_preserve_fluentbit_0",
+    "name": "nrids_agent_fluentbit_preserve_0",
     "server": "preserve",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "ff1957574e152f237a52",
@@ -440,7 +440,7 @@
     "automation_queue_action_id": "3773dda014a4f0079f23"
   },
   {
-    "name": "nrm_refactor_fluentbit_0",
+    "name": "nrids_agent_fluentbit_refactor_0",
     "server": "refactor",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "2891edb9f45f69e62b56",
@@ -448,7 +448,7 @@
     "automation_queue_action_id": "e3d53bfd4f3111880c4b"
   },
   {
-    "name": "nrm_reform_fluentbit_0",
+    "name": "nrids_agent_fluentbit_reform_0",
     "server": "reform",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "8ff7316a4adabbb527ad",
@@ -456,7 +456,7 @@
     "automation_queue_action_id": "8f8d03e23dcfc54803cc"
   },
   {
-    "name": "nrm_shout_fluentbit_0",
+    "name": "nrids_agent_fluentbit_shout_0",
     "server": "shout",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "3e4ef9cb932ee3faf145",
@@ -464,7 +464,7 @@
     "automation_queue_action_id": "b4813a1f9c36786f61dd"
   },
   {
-    "name": "nrm_smarties_fluentbit_0",
+    "name": "nrids_agent_fluentbit_smarties_0",
     "server": "smarties",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "7def25d1be8d883b2c4a",
@@ -472,7 +472,7 @@
     "automation_queue_action_id": "a614e4d601d0e46606a0"
   },
   {
-    "name": "nrm_spaghettini_fluentbit_0",
+    "name": "nrids_agent_fluentbit_spaghettini_0",
     "server": "spaghettini",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "3df40adbc83f1abef095",
@@ -480,7 +480,7 @@
     "automation_queue_action_id": "74c130b83026710f4ca6"
   },
   {
-    "name": "nrm_spaghettini_fluentbit_1",
+    "name": "nrids_agent_fluentbit_spaghettini_1",
     "server": "spaghettini",
     "agent": "fluent-bit.1",
     "query_level_trigger_id": "b0c3740e2f9564172b5c",
@@ -488,7 +488,7 @@
     "automation_queue_action_id": "607b26519d22326f163a"
   },
   {
-    "name": "nrm_spaghettini_fluentbit_2",
+    "name": "nrids_agent_fluentbit_spaghettini_2",
     "server": "spaghettini",
     "agent": "fluent-bit.2",
     "query_level_trigger_id": "627e24722d0990e51564",
@@ -496,7 +496,7 @@
     "automation_queue_action_id": "e64cc1eb16810d7bb265"
   },
   {
-    "name": "nrm_spaghettini_fluentbit_3",
+    "name": "nrids_agent_fluentbit_spaghettini_3",
     "server": "spaghettini",
     "agent": "fluent-bit.3",
     "query_level_trigger_id": "b21d6cc8534095c7f7ff",
@@ -504,7 +504,7 @@
     "automation_queue_action_id": "00625b036174b8cc2825"
   },
   {
-    "name": "nrm_starburst_fluentbit_0",
+    "name": "nrids_agent_fluentbit_starburst_0",
     "server": "starburst",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "f71acfa083551ce77406",
@@ -512,7 +512,7 @@
     "automation_queue_action_id": "ad0a94752d38617deef9"
   },
   {
-    "name": "nrm_syncronicity_fluentbit_0",
+    "name": "nrids_agent_fluentbit_syncronicity_0",
     "server": "syncronicity",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "bab6e23b61c9bbb40af8",
@@ -520,7 +520,7 @@
     "automation_queue_action_id": "41b1544586b08a9f6407"
   },
   {
-    "name": "nrm_terrain_fluentbit_0",
+    "name": "nrids_agent_fluentbit_terrain_0",
     "server": "terrain",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "79205d5213226541acd9",
@@ -528,7 +528,7 @@
     "automation_queue_action_id": "6a9619590c9aa798373b"
   },
   {
-    "name": "nrm_territory_fluentbit_0",
+    "name": "nrids_agent_fluentbit_territory_0",
     "server": "territory",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "d11c6adf8471b4b004cc",
@@ -536,7 +536,7 @@
     "automation_queue_action_id": "7a5674c7b7e1b5db120e"
   },
   {
-    "name": "nrm_top_fluentbit_0",
+    "name": "nrids_agent_fluentbit_top_0",
     "server": "top",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "960c0954c239810eca11",
@@ -544,7 +544,7 @@
     "automation_queue_action_id": "b0fe4575b8cbee00ecf5"
   },
   {
-    "name": "nrm_top_fluentbit_1",
+    "name": "nrids_agent_fluentbit_top_1",
     "server": "top",
     "agent": "fluent-bit.1",
     "query_level_trigger_id": "3eb53a3aab756bb9fa08",
@@ -552,7 +552,7 @@
     "automation_queue_action_id": "678919d75b43f9278bea"
   },
   {
-    "name": "nrm_top_fluentbit_2",
+    "name": "nrids_agent_fluentbit_top_2",
     "server": "top",
     "agent": "fluent-bit.2",
     "query_level_trigger_id": "168e45c23420f3e4cfd8",
@@ -560,7 +560,7 @@
     "automation_queue_action_id": "4e713f56da29adeb7b25"
   },
   {
-    "name": "nrm_top_fluentbit_3",
+    "name": "nrids_agent_fluentbit_top_3",
     "server": "top",
     "agent": "fluent-bit.3",
     "query_level_trigger_id": "20b1ec8a3978af7e6f35",
@@ -568,7 +568,7 @@
     "automation_queue_action_id": "227bc6bfed5da1d08a65"
   },
   {
-    "name": "nrm_tract_fluentbit_0",
+    "name": "nrids_agent_fluentbit_tract_0",
     "server": "tract",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "f63b8e07d06a2d03a45a",
@@ -576,7 +576,7 @@
     "automation_queue_action_id": "29a5739d8106af04c575"
   },
   {
-    "name": "nrm_transform_fluentbit_0",
+    "name": "nrids_agent_fluentbit_transform_0",
     "server": "transform",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "ea61e4d691c6a88ba531",
@@ -584,7 +584,7 @@
     "automation_queue_action_id": "4f614f6509b1502f7dd9"
   },
   {
-    "name": "nrm_translate_fluentbit_0",
+    "name": "nrids_agent_fluentbit_translate_0",
     "server": "translate",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "8e81e4c441d77f980cea",
@@ -592,7 +592,7 @@
     "automation_queue_action_id": "6c91445074accd4aafb3"
   },
   {
-    "name": "nrm_vermicelli_fluentbit_0",
+    "name": "nrids_agent_fluentbit_vermicelli_0",
     "server": "vermicelli",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "8711d998696c9346e0d2",
@@ -600,7 +600,7 @@
     "automation_queue_action_id": "1759304274df0b15cd88"
   },
   {
-    "name": "nrm_vermicelli_fluentbit_1",
+    "name": "nrids_agent_fluentbit_vermicelli_1",
     "server": "vermicelli",
     "agent": "fluent-bit.1",
     "query_level_trigger_id": "c70cd2dd2c55db4be60a",
@@ -608,7 +608,7 @@
     "automation_queue_action_id": "402452d55fbbdbbac42b"
   },
   {
-    "name": "nrm_volatile_fluentbit_0",
+    "name": "nrids_agent_fluentbit_volatile_0",
     "server": "volatile",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "3b469fb290ea3683bb7f",
@@ -616,7 +616,7 @@
     "automation_queue_action_id": "a968c3014dcd51b33f3a"
   },
   {
-    "name": "nrm_whisper_fluentbit_0",
+    "name": "nrids_agent_fluentbit_whisper_0",
     "server": "whisper",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "34cd072ba2504721fc0f",
