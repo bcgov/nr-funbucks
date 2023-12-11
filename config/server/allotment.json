@@ -1,9 +1,8 @@
 {
-  "address": "alternate.dmz",
+  "address": "allotment.bcgov",
   "proxy": "http://forwardproxy.nrs.bcgov:23128",
-  "logsProxyDisabled": "true",
   "os": "linux",
-  "os_variant": "rhel7",
+  "os_variant": "rhel9",
   "vault_cd_user_field": "username_lowercase",
   "vault_cd_pass_field": "password",
   "vault_cd_path": "groups/appdelivery/jenkins-isss-cdua",
@@ -18,6 +17,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "wfprd",
+        "eventDataset": "apache.access.internal",
         "logs_path": "/sw_ux/httpd01/logs/hot/*-access*.log"
       }
     }
