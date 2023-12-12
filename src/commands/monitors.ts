@@ -56,6 +56,19 @@ export default class Monitors extends Command {
       './monitor/monitors.json',
       monitorService.monitorJson(agentList.trimEnd()),
     );
-    console.log('monitors.json created in the output folder');
+    fs.readdir(path.resolve(SERVER_CONFIG_BASEPATH), (err, files) => {
+      let servers = '';
+      files
+        .filter((file) => file !== 'localhost.json')
+        .filter((file) => file.endsWith('.json'))
+        .map((file) => file.slice(0, -5))
+        .forEach((file) => {
+          servers += `'${file}', `;
+        });
+      fs.writeFileSync('./monitor/fluentbitServers.txt', servers.slice(0, -2));
+    });
+    console.log(
+      'monitors.json and fluentbitServers.txt created in the output folder',
+    );
   }
 }
