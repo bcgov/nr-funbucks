@@ -11,64 +11,70 @@ fi
 {% endif %}
 
 if [ "true" == $up ]
+then
+  procStatArray=($(cat /proc/${pid}/stat))
+  topStat=($(top -b -n 2 -d 1 -w 512 -p ${pid} | tail -1 | sed 's/\s\s*/\n/g'))
+  if command -v bc &> /dev/null
   then
-    procStatArray=($(cat /proc/${pid}/stat))
-    topStat=($(top -b -n 2 -d 1 -w 512 -p ${pid} | tail -1 | sed 's/\s\s*/\n/g'))
     topStat[8]=$(echo "scale=6; ${topStat[8]} / 100" | bc)
     topStat[9]=$(echo "scale=6; ${topStat[9]} / 100" | bc)
-    healthCheck=""
-{% if healthCheckEnabled %}
-    port={{healthCheckPort if healthCheckPort | int > 0 else 0}}
-{% if healthCheckPort === 'tomcat' %}
-    if compgen -G "{{appDirectory}}/current/tomcat/port:*" > /dev/null; then
-      port=$(ls -1 {{appDirectory}}/current/tomcat/port:* | sed 's/.*port:\([0-9]*\)$/\1/g')
-    fi
-{% endif %}
-    if [ $port -gt 0 ]; then
-      healthCheckUrl="{{healthCheckScheme}}://{{healthCheckDomain}}:$port{{healthCheckPath}}"
-      statusCode=$(curl -k -I -m 1 -o /dev/null -w "%{http_code}" $healthCheckUrl 2>/dev/null)
-      if [ "$statusCode" == "000" ]; then
-        statusCode=0
-      fi
-
-      healthCheck="\
-      \"http\": { \
-        \"request\": { \
-          \"method\": \"HEAD\" \
-        }, \
-        \"response\": { \
-          \"status_code\": $statusCode \
-        } \
-      }, \
-      \"url\": { \
-        \"original\": \"$healthCheckUrl\" \
-      },"
-    fi
-{% endif %}
-    echo "
-    {
-      ${healthCheck} \
-      \"process\": {\
-        \"pid\": ${pid},\
-        \"name\": \"${topStat[11]}\",\
-        \"status\": {\
-          \"alive\": true,\
-          \"cpu_percentage\": ${topStat[8]},\
-          \"memory_percentage\": ${topStat[9]},\
-          \"VmSize\": ${procStatArray[22]},\
-          \"VmRSS\": ${procStatArray[23]}\
-        }\
-      }\
-    }" | \
-    {{appPathJq}} -c
   else
-    echo "
-    {
-      \"process\": {\
-        \"status\": {\
-          \"alive\": false\
-        }\
+    topStat[8]=$(printf %.6f\\n "${topStat[8]} / 100")
+    topStat[9]=$(printf %.6f\\n "${topStat[9]} / 100")
+  fi
+  healthCheck=""
+{% if healthCheckEnabled %}
+  port={{healthCheckPort if healthCheckPort | int > 0 else 0}}
+{% if healthCheckPort === 'tomcat' %}
+  if compgen -G "{{appDirectory}}/current/tomcat/port:*" > /dev/null; then
+    port=$(ls -1 {{appDirectory}}/current/tomcat/port:* | sed 's/.*port:\([0-9]*\)$/\1/g')
+  fi
+{% endif %}
+  if [ $port -gt 0 ]; then
+    healthCheckUrl="{{healthCheckScheme}}://{{healthCheckDomain}}:$port{{healthCheckPath}}"
+    statusCode=$(curl -k -I -m 1 -o /dev/null -w "%{http_code}" $healthCheckUrl 2>/dev/null)
+    if [ "$statusCode" == "000" ]; then
+      statusCode=0
+    fi
+
+    healthCheck="\
+    \"http\": { \
+      \"request\": { \
+        \"method\": \"HEAD\" \
+      }, \
+      \"response\": { \
+        \"status_code\": $statusCode \
+      } \
+    }, \
+    \"url\": { \
+      \"original\": \"$healthCheckUrl\" \
+    },"
+  fi
+{% endif %}
+  echo "
+  {
+    ${healthCheck} \
+    \"process\": {\
+      \"pid\": ${pid},\
+      \"name\": \"${topStat[11]}\",\
+      \"status\": {\
+        \"alive\": true,\
+        \"cpu_percentage\": ${topStat[8]},\
+        \"memory_percentage\": ${topStat[9]},\
+        \"VmSize\": ${procStatArray[22]},\
+        \"VmRSS\": ${procStatArray[23]}\
       }\
-    }" | \
-    {{appPathJq}} -c
+    }\
+  }" | \
+  {{appPathJq}} -c
+else
+  echo "
+  {
+    \"process\": {\
+      \"status\": {\
+        \"alive\": false\
+      }\
+    }\
+  }" | \
+  {{appPathJq}} -c
 fi
