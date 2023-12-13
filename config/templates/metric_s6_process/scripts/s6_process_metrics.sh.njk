@@ -19,8 +19,8 @@ then
     topStat[8]=$(echo "scale=6; ${topStat[8]} / 100" | bc)
     topStat[9]=$(echo "scale=6; ${topStat[9]} / 100" | bc)
   else
-    topStat[8]=$(printf %.6f\\n "${topStat[8]} / 100")
-    topStat[9]=$(printf %.6f\\n "${topStat[9]} / 100")
+    topStat[8]=$(echo | awk "{printf \"%.6f\n\", ${topStat[8]}/100}")
+    topStat[9]=$(echo | awk "{printf \"%.6f\n\", ${topStat[9]}/100}")
   fi
   healthCheck=""
 {% if healthCheckEnabled %}
