@@ -1,0 +1,33 @@
+{
+  "address": "",
+  "proxy": "",
+  "logsProxyDisabled": "true",
+  "os": "openshift",
+  "apps": [
+    {
+      "id": "results",
+      "type": "app_results",
+      "context": {
+        "environment": "production"
+      }
+    }
+  ],
+  "context": {
+    "fluentLogFileEnabled": false
+  },
+  "oc": {
+    "configmap": {
+      "metadata": {
+        "name": "results-config",
+        "labels": {
+          "app": "nr-results-backend"
+        }
+      },
+      "prefix": "{{- if .Values.fluentbit.enable -}}\n",
+      "suffix": "\n{{- end -}}"
+    },
+    "volume": {
+      "indent": 6
+    }
+  }
+}

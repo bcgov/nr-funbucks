@@ -1,0 +1,12 @@
+{
+  "measurementType": "historic",
+  "context": {
+    "!inputDb": "{{ '/tmp/fluent-bit-logs.db' if outputLocalLambdaEnabled else '/logs/fluent-bit-logs.db' }}",
+    "!inputLogPath": "{{ localLogsPathPrefix | default('/logs/results-api.log') }}"
+  },
+  "files": [
+    { "tmpl": "filter/filters.conf.njk", "type": "filter"},
+    { "tmpl": "input/inputs.conf.njk", "type": "input"},
+    { "tmpl": "parser/parsers.conf.njk", "type": "parser"}
+  ]
+}
