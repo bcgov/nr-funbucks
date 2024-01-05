@@ -1,0 +1,11 @@
+{% import "../../macros/lua.njk" as lua %}
+{{ lua.renderAppendTimestamp(typeTag + '.*') }}
+
+[FILTER]
+    Name modify
+    Match {{typeTag}}.*
+    Add service.name results
+    Add service.type results_api
+    Add @metadata.keyAsPath true{% if organization_id %}
+    Add organization.id {{ organization_id }}{% endif %}{% if organization_name %}
+    Add organization.name {{ organization_name }}{% endif %}
