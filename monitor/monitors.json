@@ -112,6 +112,14 @@
     "automation_queue_action_id": "4c451bd966243c839158"
   },
   {
+    "name": "nrids_agent_fluentbit_butterfinger_0",
+    "server": "butterfinger",
+    "agent": "fluent-bit.0",
+    "query_level_trigger_id": "64d81fcfc81c7d67b4ee",
+    "teams_channel_action_id": "b7267f8b32f9125c4ca2",
+    "automation_queue_action_id": "c13da3c3e1c74447ba28"
+  },
+  {
     "name": "nrids_agent_fluentbit_cocacola_0",
     "server": "cocacola",
     "agent": "fluent-bit.0",
