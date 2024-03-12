@@ -312,12 +312,12 @@
     "automation_queue_action_id": "75d1eb32c5e84db616f4"
   },
   {
-    "name": "nrids_agent_fluentbit_jujubes_0",
-    "server": "jujubes",
+    "name": "nrids_agent_fluentbit_lollipop_0",
+    "server": "lollipop",
     "agent": "fluent-bit.0",
-    "query_level_trigger_id": "7b4fba70c918ccb7bbe0",
-    "teams_channel_action_id": "f15f7f0a0ff0a2ce25da",
-    "automation_queue_action_id": "23a6bed9dbcf1c6f863e"
+    "query_level_trigger_id": "a4a92b0b071db18455f4",
+    "teams_channel_action_id": "9886e5fe2969f8cda459",
+    "automation_queue_action_id": "c759883dbdb2d0c0931c"
   },
   {
     "name": "nrids_agent_fluentbit_median_0",
