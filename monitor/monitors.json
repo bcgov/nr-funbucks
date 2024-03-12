@@ -304,14 +304,6 @@
     "automation_queue_action_id": "4959819203c0603b54b5"
   },
   {
-    "name": "nrids_agent_fluentbit_gumibears_0",
-    "server": "gumibears",
-    "agent": "fluent-bit.0",
-    "query_level_trigger_id": "b461ae65d6e819161ab0",
-    "teams_channel_action_id": "fea28b100e3a2c0de0af",
-    "automation_queue_action_id": "75d1eb32c5e84db616f4"
-  },
-  {
     "name": "nrids_agent_fluentbit_lollipop_0",
     "server": "lollipop",
     "agent": "fluent-bit.0",
