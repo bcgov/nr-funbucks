@@ -264,6 +264,22 @@
     "automation_queue_action_id": "42ec581fc60b2198e750"
   },
   {
+    "name": "nrids_agent_fluentbit_gemelli_0",
+    "server": "gemelli",
+    "agent": "fluent-bit.0",
+    "query_level_trigger_id": "c71eb8bc1da6feb89c37",
+    "teams_channel_action_id": "6edb5d57b0d06647f7b9",
+    "automation_queue_action_id": "cf99b01a608e7b6e4f36"
+  },
+  {
+    "name": "nrids_agent_fluentbit_gemelli_1",
+    "server": "gemelli",
+    "agent": "fluent-bit.1",
+    "query_level_trigger_id": "19e3030b3181d221721f",
+    "teams_channel_action_id": "1a6995fa474caf5041fa",
+    "automation_queue_action_id": "4f72aa238722e696fa2d"
+  },
+  {
     "name": "nrids_agent_fluentbit_gimlet_0",
     "server": "gimlet",
     "agent": "fluent-bit.0",
