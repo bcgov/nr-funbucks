@@ -496,20 +496,20 @@
     "automation_queue_action_id": "8f8d03e23dcfc54803cc"
   },
   {
+    "name": "nrids_agent_fluentbit_rockets_0",
+    "server": "rockets",
+    "agent": "fluent-bit.0",
+    "query_level_trigger_id": "b875b48cb87510eb8fd9",
+    "teams_channel_action_id": "9282373c184f01cac315",
+    "automation_queue_action_id": "2bad1307516f1caa1094"
+  },
+  {
     "name": "nrids_agent_fluentbit_shout_0",
     "server": "shout",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "3e4ef9cb932ee3faf145",
     "teams_channel_action_id": "440b6f6ba02ce85d241f",
     "automation_queue_action_id": "b4813a1f9c36786f61dd"
-  },
-  {
-    "name": "nrids_agent_fluentbit_smarties_0",
-    "server": "smarties",
-    "agent": "fluent-bit.0",
-    "query_level_trigger_id": "7def25d1be8d883b2c4a",
-    "teams_channel_action_id": "f8a92cb14f60f66561cd",
-    "automation_queue_action_id": "a614e4d601d0e46606a0"
   },
   {
     "name": "nrids_agent_fluentbit_starburst_0",
