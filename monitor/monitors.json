@@ -576,22 +576,6 @@
     "automation_queue_action_id": "6c91445074accd4aafb3"
   },
   {
-    "name": "nrids_agent_fluentbit_vermicelli_0",
-    "server": "vermicelli",
-    "agent": "fluent-bit.0",
-    "query_level_trigger_id": "8711d998696c9346e0d2",
-    "teams_channel_action_id": "f5edc6a74a91705d6ef2",
-    "automation_queue_action_id": "1759304274df0b15cd88"
-  },
-  {
-    "name": "nrids_agent_fluentbit_vermicelli_1",
-    "server": "vermicelli",
-    "agent": "fluent-bit.1",
-    "query_level_trigger_id": "c70cd2dd2c55db4be60a",
-    "teams_channel_action_id": "182b0d78f68b8d9ae8da",
-    "automation_queue_action_id": "402452d55fbbdbbac42b"
-  },
-  {
     "name": "nrids_agent_fluentbit_volatile_0",
     "server": "volatile",
     "agent": "fluent-bit.0",
