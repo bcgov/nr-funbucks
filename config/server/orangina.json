@@ -401,7 +401,8 @@
       "type": "tomcat",
       "context": {
         "app": "NRMCFS",
-        "component": "nrmcfs-acs-war"
+        "component": "nrmcfs-acs-war",
+        "!logs_path_app": "/apps_ux/logs/NRMCFS/nrmcfs-acs-war/nrmcfs-cfsweb-acs-war.log"
       }
     },
     {
@@ -417,7 +418,8 @@
       "type": "tomcat",
       "context": {
         "app": "NRMCFS",
-        "component": "nrmcfs-ffs-admin-war"
+        "component": "nrmcfs-ffs-admin-war",
+        "!logs_path_app": "/apps_ux/logs/NRMCFS/nrmcfs-ffs-admin-war/nrmcfs-cfsweb-ffs-admin-war.log"
       }
     },
     {
@@ -425,7 +427,8 @@
       "type": "tomcat",
       "context": {
         "app": "NRMCFS",
-        "component": "nrmcfs-ffs-server-war"
+        "component": "nrmcfs-ffs-server-war",
+        "!logs_path_app": "/apps_ux/logs/NRMCFS/nrmcfs-ffs-server-war/nrmcfs-ffs-war.log"
       }
     },
     {
@@ -433,7 +436,8 @@
       "type": "tomcat",
       "context": {
         "app": "NRMCFS",
-        "component": "nrmcfs-fsbwhse-admin-war"
+        "component": "nrmcfs-fsbwhse-admin-war",
+        "!logs_path_app": "/apps_ux/logs/NRMCFS/nrmcfs-fsbwhse-admin-war/nrmcfs-cfsweb-fsbwhse-admin-war.log"
       }
     },
     {
