@@ -1,0 +1,24 @@
+{
+  "address": "robin.dmz",
+  "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
+  "logsProxyDisabled": "true",
+  "os": "windows",
+  "vault_cd_user_field": "username_domainless",
+  "vault_cd_pass_field": "password",
+  "vault_cd_path": "groups/appdelivery/oraapp_imborapp",
+  "apps": [
+    {
+      "id": "as-as-api",
+      "type": "tomcat",
+      "context": {
+        "app": "AS",
+        "component": "as-as-api",
+        "tmplTomcatTestApplicationIndex": "nrm-test-aw-<%=YYYY.MM=%>"
+      }
+    }
+  ],
+  "context": {
+    "environment": "development",
+    "organization_name": "FLNRO-MOFR"
+  }
+}
