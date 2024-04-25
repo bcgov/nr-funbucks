@@ -152,20 +152,20 @@
     "automation_queue_action_id": "494d72417a99c0003ade"
   },
   {
-    "name": "nrids_agent_fluentbit_coincidence_0",
-    "server": "coincidence",
-    "agent": "fluent-bit.0",
-    "query_level_trigger_id": "2e1f19e13b34c3dd08b5",
-    "teams_channel_action_id": "653c27595e22844c8354",
-    "automation_queue_action_id": "57338b882d77082c3bbd"
-  },
-  {
     "name": "nrids_agent_fluentbit_colony_0",
     "server": "colony",
     "agent": "fluent-bit.0",
     "query_level_trigger_id": "2219f8f980b5b726eb60",
     "teams_channel_action_id": "d497ae5dc31a2f445451",
     "automation_queue_action_id": "7ba49b53941af236e029"
+  },
+  {
+    "name": "nrids_agent_fluentbit_concurrence_0",
+    "server": "concurrence",
+    "agent": "fluent-bit.0",
+    "query_level_trigger_id": "4dc58d787f1acab5f218",
+    "teams_channel_action_id": "f91937e4d94f574f10ad",
+    "automation_queue_action_id": "57560f45ad1c4fe72dad"
   },
   {
     "name": "nrids_agent_fluentbit_convert_0",
