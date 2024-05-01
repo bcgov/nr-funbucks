@@ -79,13 +79,5 @@
   "keywords": [
     "oclif"
   ],
-  "types": "dist/index.d.ts",
-  "bundleDependencies": [
-    "@oclif/core",
-    "@oclif/plugin-help",
-    "@oclif/plugin-plugins",
-    "nunjucks",
-    "semver",
-    "yaml"
-  ]
+  "types": "dist/index.d.ts"
 }
