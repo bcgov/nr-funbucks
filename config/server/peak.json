@@ -224,6 +224,14 @@
       }
     },
     {
+      "id": "wfim-external-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-external-sync-api"
+      }
+    },
+    {
       "id": "wfim-incident-manager-war",
       "type": "tomcat",
       "context": {
