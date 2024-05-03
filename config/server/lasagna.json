@@ -873,6 +873,6 @@
     }}
   ],
   "context": {
-    "environment": "delivery"
+    "environment": "test"
   }
 }
