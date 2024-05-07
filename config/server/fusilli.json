@@ -873,6 +873,7 @@
     }}
   ],
   "context": {
-    "environment": "delivery"
+    "environment": "delivery",
+    "fluentBitRelease": "3.0.3"
   }
 }
