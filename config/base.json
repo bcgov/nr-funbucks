@@ -29,5 +29,5 @@
     { "tmpl": "parsers.conf.njk" },
     { "tmpl": "timestamp.lua" }
   ],
-  "fluentBitRelease": "2.2.2"
+  "fluentBitRelease": "3.0.3"
 }
