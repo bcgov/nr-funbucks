@@ -237,13 +237,13 @@
       "type": "tomcat",
       "context": {
         "app": "FREP",
-        "component": "frep"
+        "component": "frep-war"
       }
     },
     {"id": "metrics_frep", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
+      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}{{ component | upper }}",
       "app": "FREP",
-      "component": "frep",
+      "component": "frep-war",
       "healthCheckEnabled": true,
       "healthCheckPort": "tomcat"
     }},
@@ -726,13 +726,13 @@
       "type": "tomcat",
       "context": {
         "app": "SPAR",
-        "component": "spar"
+        "component": "spar-war"
       }
     },
     {"id": "metrics_spar", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
+      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}{{ component | upper }}",
       "app": "SPAR",
-      "component": "spar",
+      "component": "spar-war",
       "healthCheckEnabled": true,
       "healthCheckPort": "tomcat"
     }},
