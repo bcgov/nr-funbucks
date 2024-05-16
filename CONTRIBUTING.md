@@ -1,53 +1,51 @@
-# Contributing
+# Contributing to nr-funbucks
 
-Document the process to work on funbucks for new server fluentbit configuration
+Thank you for considering contributing to nr-funbucks! We appreciate your interest in helping to improve our project. Please take a moment to review the following guidelines to ensure a smooth contribution process.
 
-# Pre-Requisites:
+## Getting Started
 
-    WSL
-    Git bash and GUI app
-    Visual Studio Code
+To contribute to nr-funbucks, you'll need to fork the repository and clone it to your local machine. Follow these steps:
 
+1. **Fork the repository**: Click the "Fork" button in the upper-right corner of the repository page on GitHub. This will create a copy of the repository in your GitHub account.
 
-# Setup FUNBUCKS repo 
+2. **Clone your fork**: Use Git to clone your fork to your local machine. Replace `<your-username>` with your GitHub username:
 
-1. Clone funbucks : https://github.com/bcgov-nr/nr-funbucks
+```git clone https://github.com/<your-username>/nr-funbucks.git```
 
-    Command: git clone https://github.com/bcgov-nr/nr-funbucks.git
+3. **Create a new branch**: Before making any changes, create a new branch to work on:
 
-2. branch it first
+```git checkout -b my-feature-branch```
 
-    Command: git checkout -b feat/newbranchname
+## Making Changes
 
-3. Do the code change, commit and publish the change repo
+When making changes to the codebase, please follow these guidelines:
 
-    - Add/Modify servername.json file in https://github.com/bcgov-nr/nr-funbucks/tree/main/config/server
-    For example: 
+- Write clear, concise commit messages using the [Conventional Commits](https://www.conventionalcommits.org) format. This helps maintain a clean and organized Git history.
 
-        * Proxy server type: backup.json
-        * Tomcat server type: between.json 
-        * Other application server type: WSO2 translate.json, refactor.json
+- Make sure your code follows the project's coding style and conventions.
 
-    - Modify/Add new line for the server in https://github.com/bcgov-nr/nr-funbucks/blob/main/scripts/fluentbit_agents.csv, the list will pop in the parameter list in Jenkins deployment jobs 
+- Write descriptive and meaningful pull request (PR) titles and descriptions.
 
-    - Add fluentbit monitor job for the new server in the OpenSearch, follow the instruction on [Confluence page : create monitor via Terraform in nr-apm-stack](https://apps.nrs.gov.bc.ca/int/confluence/display/EPSILON/nr-apm-stack)
+## Submitting Changes
 
-4. New pull request(PR) will appear in https://github.com/bcgov-nr/nr-funbucks/pulls
+Once you've made your changes and committed them to your branch, follow these steps to submit a pull request:
 
-    - Command: git remote add stash https://user.name%40gov.bc.ca@bwa.nrs.gov.bc.ca/int/stash/scm/oneteam/oneteam-nr-funbucks.git
-    
-    Confirm there are two remote repo links (origin and stash):
+1. **Push your changes**: Push your changes to your forked repository:
 
-        Command: git remote -v
-        origin  https://github.com/bcgov-nr/nr-funbucks.git (fetch)
-        origin  https://github.com/bcgov-nr/nr-funbucks.git (push)
-        stash   https://bwa.nrs.gov.bc.ca/int/stash/scm/oneteam/oneteam-nr-funbucks.git (fetch)
-        stash   https://bwa.nrs.gov.bc.ca/int/stash/scm/oneteam/oneteam-nr-funbucks.git (push)
+```git push origin my-feature-branch```
 
-5. Sync Github repo to Bitbucket stash repo
+2. **Create a pull request**: Visit the original repository on GitHub and click the "New pull request" button. Choose your branch and fill out the PR description with details about the changes you've made.
 
-    Command: git push stash main
+3. **Review and collaborate**: Your pull request will be reviewed by the maintainers. Be responsive to feedback and address any requested changes.
 
-# Deploy fluentbit to a new server:
-    
-    Run Jenkins job: https://apps.nrs.gov.bc.ca/int/jenkins/job/FLUENTBIT/job/fluentbit-deploy/
+4. **Merge your pull request**: Once approved, your pull request will be merged into the main branch. Congratulations on your contribution!
+
+## Code of Conduct
+
+Please note that by contributing to nr-funbucks, you agree to abide by the [Code of Conduct](CODE_OF_CONDUCT.md). Please be respectful and inclusive in all interactions.
+
+## Questions and Support
+
+If you have any questions or need assistance, feel free to open an issue on the repository or reach out to the maintainers directly.
+
+Thank you for your contributions to nr-funbucks!

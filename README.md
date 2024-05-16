@@ -119,7 +119,7 @@ $ npm install -g nr-funbucks
 $ nr-funbucks COMMAND
 running command...
 $ nr-funbucks (--version)
-nr-funbucks/1.0.0 darwin-x64 node-v16.17.1
+nr-funbucks/1.0.0 darwin-arm64 node-v22.1.0
 $ nr-funbucks --help [COMMAND]
 USAGE
   $ nr-funbucks COMMAND
@@ -129,17 +129,17 @@ USAGE
 # Commands
 <!-- commands -->
 * [`nr-funbucks gen`](#nr-funbucks-gen)
-* [`nr-funbucks help [COMMANDS]`](#nr-funbucks-help-commands)
-* [`nr-funbucks monitors`](#nr-funbucks-monitors)
+* [`nr-funbucks help [COMMAND]`](#nr-funbucks-help-command)
 * [`nr-funbucks oc`](#nr-funbucks-oc)
 * [`nr-funbucks plugins`](#nr-funbucks-plugins)
-* [`nr-funbucks plugins:install PLUGIN...`](#nr-funbucks-pluginsinstall-plugin)
+* [`nr-funbucks plugins add PLUGIN`](#nr-funbucks-plugins-add-plugin)
 * [`nr-funbucks plugins:inspect PLUGIN...`](#nr-funbucks-pluginsinspect-plugin)
-* [`nr-funbucks plugins:install PLUGIN...`](#nr-funbucks-pluginsinstall-plugin-1)
-* [`nr-funbucks plugins:link PLUGIN`](#nr-funbucks-pluginslink-plugin)
-* [`nr-funbucks plugins:uninstall PLUGIN...`](#nr-funbucks-pluginsuninstall-plugin)
-* [`nr-funbucks plugins:uninstall PLUGIN...`](#nr-funbucks-pluginsuninstall-plugin-1)
-* [`nr-funbucks plugins:uninstall PLUGIN...`](#nr-funbucks-pluginsuninstall-plugin-2)
+* [`nr-funbucks plugins install PLUGIN`](#nr-funbucks-plugins-install-plugin)
+* [`nr-funbucks plugins link PATH`](#nr-funbucks-plugins-link-path)
+* [`nr-funbucks plugins remove [PLUGIN]`](#nr-funbucks-plugins-remove-plugin)
+* [`nr-funbucks plugins reset`](#nr-funbucks-plugins-reset)
+* [`nr-funbucks plugins uninstall [PLUGIN]`](#nr-funbucks-plugins-uninstall-plugin)
+* [`nr-funbucks plugins unlink [PLUGIN]`](#nr-funbucks-plugins-unlink-plugin)
 * [`nr-funbucks plugins update`](#nr-funbucks-plugins-update)
 
 ## `nr-funbucks gen`
@@ -165,18 +165,18 @@ EXAMPLES
   $ nr-funbucks gen
 ```
 
-_See code: [dist/commands/gen.ts](https://github.com/mbystedt/hello-world/blob/v1.0.0/dist/commands/gen.ts)_
+_See code: [src/commands/gen.ts](https://github.com/mbystedt/hello-world/blob/v1.0.0/src/commands/gen.ts)_
 
-## `nr-funbucks help [COMMANDS]`
+## `nr-funbucks help [COMMAND]`
 
 Display help for nr-funbucks.
 
 ```
 USAGE
-  $ nr-funbucks help [COMMANDS] [-n]
+  $ nr-funbucks help [COMMAND...] [-n]
 
 ARGUMENTS
-  COMMANDS  Command to show help for.
+  COMMAND...  Command to show help for.
 
 FLAGS
   -n, --nested-commands  Include all nested commands in the output.
@@ -185,27 +185,7 @@ DESCRIPTION
   Display help for nr-funbucks.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.10/src/commands/help.ts)_
-
-## `nr-funbucks monitors`
-
-generate monitor configuration
-
-```
-USAGE
-  $ nr-funbucks monitors [-f <value>]
-
-FLAGS
-  -f, --filePath=<value>  [default: ./scripts/fluentbit_agents.csv] path to server configuration
-
-DESCRIPTION
-  generate monitor configuration
-
-EXAMPLES
-  $ nr-funbucks monitors
-```
-
-_See code: [dist/commands/monitors.ts](https://github.com/mbystedt/hello-world/blob/v1.0.0/dist/commands/monitors.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.0.22/src/commands/help.ts)_
 
 ## `nr-funbucks oc`
 
@@ -225,7 +205,7 @@ EXAMPLES
   $ nr-funbucks oc
 ```
 
-_See code: [dist/commands/oc.ts](https://github.com/mbystedt/hello-world/blob/v1.0.0/dist/commands/oc.ts)_
+_See code: [src/commands/oc.ts](https://github.com/mbystedt/hello-world/blob/v1.0.0/src/commands/oc.ts)_
 
 ## `nr-funbucks plugins`
 
@@ -248,44 +228,53 @@ EXAMPLES
   $ nr-funbucks plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.1.3/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.0.21/src/commands/plugins/index.ts)_
 
-## `nr-funbucks plugins:install PLUGIN...`
+## `nr-funbucks plugins add PLUGIN`
 
-Installs a plugin into the CLI.
+Installs a plugin into nr-funbucks.
 
 ```
 USAGE
-  $ nr-funbucks plugins:install PLUGIN...
+  $ nr-funbucks plugins add PLUGIN... [--json] [-f] [-h] [-s | -v]
 
 ARGUMENTS
-  PLUGIN  Plugin to install.
+  PLUGIN...  Plugin to install.
 
 FLAGS
-  -f, --force    Run yarn install with force flag.
+  -f, --force    Force npm to fetch remote resources even if a local copy exists on disk.
   -h, --help     Show CLI help.
-  -v, --verbose
+  -s, --silent   Silences npm output.
+  -v, --verbose  Show verbose npm output.
+
+GLOBAL FLAGS
+  --json  Format output as json.
 
 DESCRIPTION
-  Installs a plugin into the CLI.
-  Can be installed from npm or a git url.
+  Installs a plugin into nr-funbucks.
+
+  Uses bundled npm executable to install plugins into /Users/mbystedt/.local/share/oex
 
   Installation of a user-installed plugin will override a core plugin.
 
-  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
-  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
-  the CLI without the need to patch and update the whole CLI.
-
+  Use the NR_FUNBUCKS_NPM_LOG_LEVEL environment variable to set the npm loglevel.
+  Use the NR_FUNBUCKS_NPM_REGISTRY environment variable to set the npm registry.
 
 ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin 
+  Install a plugin from npm registry.
 
-  $ nr-funbucks plugins:install https://github.com/someuser/someplugin
+    $ nr-funbucks plugins add myplugin
 
-  $ nr-funbucks plugins:install someuser/someplugin
+  Install a plugin from a github url.
+
+    $ nr-funbucks plugins add https://github.com/someuser/someplugin
+
+  Install a plugin from a github slug.
+
+    $ nr-funbucks plugins add someuser/someplugin
 ```
 
 ## `nr-funbucks plugins:inspect PLUGIN...`
@@ -294,10 +283,10 @@ Displays installation properties of a plugin.
 
 ```
 USAGE
-  $ nr-funbucks plugins:inspect PLUGIN...
+  $ nr-funbucks plugins inspect PLUGIN...
 
 ARGUMENTS
-  PLUGIN  [default: .] Plugin to inspect.
+  PLUGIN...  [default: .] Plugin to inspect.
 
 FLAGS
   -h, --help     Show CLI help.
@@ -310,61 +299,75 @@ DESCRIPTION
   Displays installation properties of a plugin.
 
 EXAMPLES
-  $ nr-funbucks plugins:inspect myplugin
+  $ nr-funbucks plugins inspect myplugin
 ```
 
-## `nr-funbucks plugins:install PLUGIN...`
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.0.21/src/commands/plugins/inspect.ts)_
 
-Installs a plugin into the CLI.
+## `nr-funbucks plugins install PLUGIN`
+
+Installs a plugin into nr-funbucks.
 
 ```
 USAGE
-  $ nr-funbucks plugins:install PLUGIN...
+  $ nr-funbucks plugins install PLUGIN... [--json] [-f] [-h] [-s | -v]
 
 ARGUMENTS
-  PLUGIN  Plugin to install.
+  PLUGIN...  Plugin to install.
 
 FLAGS
-  -f, --force    Run yarn install with force flag.
+  -f, --force    Force npm to fetch remote resources even if a local copy exists on disk.
   -h, --help     Show CLI help.
-  -v, --verbose
+  -s, --silent   Silences npm output.
+  -v, --verbose  Show verbose npm output.
+
+GLOBAL FLAGS
+  --json  Format output as json.
 
 DESCRIPTION
-  Installs a plugin into the CLI.
-  Can be installed from npm or a git url.
+  Installs a plugin into nr-funbucks.
+
+  Uses bundled npm executable to install plugins into /Users/mbystedt/.local/share/oex
 
   Installation of a user-installed plugin will override a core plugin.
 
-  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
-  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
-  the CLI without the need to patch and update the whole CLI.
-
+  Use the NR_FUNBUCKS_NPM_LOG_LEVEL environment variable to set the npm loglevel.
+  Use the NR_FUNBUCKS_NPM_REGISTRY environment variable to set the npm registry.
 
 ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin 
+  Install a plugin from npm registry.
 
-  $ nr-funbucks plugins:install https://github.com/someuser/someplugin
+    $ nr-funbucks plugins install myplugin
 
-  $ nr-funbucks plugins:install someuser/someplugin
+  Install a plugin from a github url.
+
+    $ nr-funbucks plugins install https://github.com/someuser/someplugin
+
+  Install a plugin from a github slug.
+
+    $ nr-funbucks plugins install someuser/someplugin
 ```
 
-## `nr-funbucks plugins:link PLUGIN`
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.0.21/src/commands/plugins/install.ts)_
+
+## `nr-funbucks plugins link PATH`
 
 Links a plugin into the CLI for development.
 
 ```
 USAGE
-  $ nr-funbucks plugins:link PLUGIN
+  $ nr-funbucks plugins link PATH [-h] [--install] [-v]
 
 ARGUMENTS
   PATH  [default: .] path to plugin
 
 FLAGS
-  -h, --help     Show CLI help.
+  -h, --help          Show CLI help.
   -v, --verbose
+      --[no-]install  Install dependencies after linking the plugin.
 
 DESCRIPTION
   Links a plugin into the CLI for development.
@@ -375,19 +378,21 @@ DESCRIPTION
 
 
 EXAMPLES
-  $ nr-funbucks plugins:link myplugin
+  $ nr-funbucks plugins link myplugin
 ```
 
-## `nr-funbucks plugins:uninstall PLUGIN...`
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.0.21/src/commands/plugins/link.ts)_
+
+## `nr-funbucks plugins remove [PLUGIN]`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ nr-funbucks plugins:uninstall PLUGIN...
+  $ nr-funbucks plugins remove [PLUGIN...] [-h] [-v]
 
 ARGUMENTS
-  PLUGIN  plugin to uninstall
+  PLUGIN...  plugin to uninstall
 
 FLAGS
   -h, --help     Show CLI help.
@@ -399,18 +404,36 @@ DESCRIPTION
 ALIASES
   $ nr-funbucks plugins unlink
   $ nr-funbucks plugins remove
+
+EXAMPLES
+  $ nr-funbucks plugins remove myplugin
 ```
 
-## `nr-funbucks plugins:uninstall PLUGIN...`
+## `nr-funbucks plugins reset`
+
+Remove all user-installed and linked plugins.
+
+```
+USAGE
+  $ nr-funbucks plugins reset [--hard] [--reinstall]
+
+FLAGS
+  --hard       Delete node_modules and package manager related files in addition to uninstalling plugins.
+  --reinstall  Reinstall all plugins after uninstalling.
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.0.21/src/commands/plugins/reset.ts)_
+
+## `nr-funbucks plugins uninstall [PLUGIN]`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ nr-funbucks plugins:uninstall PLUGIN...
+  $ nr-funbucks plugins uninstall [PLUGIN...] [-h] [-v]
 
 ARGUMENTS
-  PLUGIN  plugin to uninstall
+  PLUGIN...  plugin to uninstall
 
 FLAGS
   -h, --help     Show CLI help.
@@ -422,18 +445,23 @@ DESCRIPTION
 ALIASES
   $ nr-funbucks plugins unlink
   $ nr-funbucks plugins remove
+
+EXAMPLES
+  $ nr-funbucks plugins uninstall myplugin
 ```
 
-## `nr-funbucks plugins:uninstall PLUGIN...`
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.0.21/src/commands/plugins/uninstall.ts)_
+
+## `nr-funbucks plugins unlink [PLUGIN]`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ nr-funbucks plugins:uninstall PLUGIN...
+  $ nr-funbucks plugins unlink [PLUGIN...] [-h] [-v]
 
 ARGUMENTS
-  PLUGIN  plugin to uninstall
+  PLUGIN...  plugin to uninstall
 
 FLAGS
   -h, --help     Show CLI help.
@@ -445,6 +473,9 @@ DESCRIPTION
 ALIASES
   $ nr-funbucks plugins unlink
   $ nr-funbucks plugins remove
+
+EXAMPLES
+  $ nr-funbucks plugins unlink myplugin
 ```
 
 ## `nr-funbucks plugins update`
@@ -462,12 +493,6 @@ FLAGS
 DESCRIPTION
   Update installed plugins.
 ```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.0.21/src/commands/plugins/update.ts)_
 <!-- commandsstop -->
-
-## `Generate Monitors`
-
-To run:
-
-./bin/dev monitors
-
-monitors.json file created in the output folder
