@@ -7,19 +7,33 @@
   "vault_cd_pass_field": "password",
   "vault_cd_path": "groups/appdelivery/jenkins-isss-cdua",
   "apps": [
-    {"id": "cpu", "type": "metric_host_cpu", "context": { "inputIntervalSec": 10 }},
-    {"id": "disk", "type": "metric_host_disk", "context": {}},
-    {"id": "disk_named", "type": "metric_host_disk_named", "context": {}},
-    {"id": "memory", "type": "metric_host_memory", "context": {}},
-    {"id": "network", "type": "metric_host_network", "context": {}},
-    {"id": "metrics_isss", "type": "metric_s6_process", "context": {
-      "app": "jenkins",
-      "component": "jenkins_isss"
-    }},
-    {"id": "metrics_smt", "type": "metric_s6_process", "context": {
-      "app": "jenkins",
-      "component": "jenkins_smt"
-    }}
+    {
+      "id": "cpu",
+      "type": "metric_host_cpu",
+      "context": {
+        "inputIntervalSec": 10
+      }
+    },
+    {
+      "id": "disk",
+      "type": "metric_host_disk",
+      "context": {}
+    },
+    {
+      "id": "disk_named",
+      "type": "metric_host_disk_named",
+      "context": {}
+    },
+    {
+      "id": "memory",
+      "type": "metric_host_memory",
+      "context": {}
+    },
+    {
+      "id": "network",
+      "type": "metric_host_network",
+      "context": {}
+    }
   ],
   "context": {
     "environment": "test"
