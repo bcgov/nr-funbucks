@@ -66,13 +66,6 @@
         "component": "client"
       }
     },
-    {"id": "metrics_client", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "CLIENT",
-      "component": "client",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "cms-for",
       "type": "tomcat",
