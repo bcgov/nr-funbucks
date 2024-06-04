@@ -7,11 +7,31 @@
   "vault_cd_pass_field": "password",
   "vault_cd_path": "groups/appdelivery/jenkins-isss-cdua",
   "apps": [
-    {"id": "cpu", "type": "metric_host_cpu", "context": {}},
-    {"id": "disk", "type": "metric_host_disk", "context": {}},
-    {"id": "disk_named", "type": "metric_host_disk_named", "context": {}},
-    {"id": "memory", "type": "metric_host_memory", "context": {}},
-    {"id": "network", "type": "metric_host_network", "context": {}},
+    {
+      "id": "cpu",
+      "type": "metric_host_cpu",
+      "context": {}
+    },
+    {
+      "id": "disk",
+      "type": "metric_host_disk",
+      "context": {}
+    },
+    {
+      "id": "disk_named",
+      "type": "metric_host_disk_named",
+      "context": {}
+    },
+    {
+      "id": "memory",
+      "type": "metric_host_memory",
+      "context": {}
+    },
+    {
+      "id": "network",
+      "type": "metric_host_network",
+      "context": {}
+    },
     {
       "id": "apt2",
       "type": "tomcat",
@@ -20,13 +40,6 @@
         "component": "apt2"
       }
     },
-    {"id": "metrics_apt2", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "APT",
-      "component": "apt2",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "cbr",
       "type": "tomcat",
@@ -35,14 +48,6 @@
         "component": "cbr"
       }
     },
-    {"id": "metrics_cbr", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "CBR",
-      "component": "cbr",
-      "healthCheckEnabled": true,
-      "!healthCheckPath": "/ext/{{ component | lower }}/",
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "cims",
       "type": "tomcat",
@@ -52,13 +57,6 @@
         "!logs_path_app": "/apps_ux/logs/CIMS/cims/APP-CIMS.log"
       }
     },
-    {"id": "metrics_cims", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "CIMS",
-      "component": "cims",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "client",
       "type": "tomcat",
@@ -67,13 +65,6 @@
         "component": "client"
       }
     },
-    {"id": "metrics_client", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "CLIENT",
-      "component": "client",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "cms-for",
       "type": "tomcat",
@@ -83,13 +74,6 @@
         "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CMS-FOR.log"
       }
     },
-    {"id": "metrics_cms-for", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "CMS",
-      "component": "cms-for",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "crsra",
       "type": "tomcat",
@@ -99,13 +83,6 @@
         "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CRSRA.log"
       }
     },
-    {"id": "metrics_crsra", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "CRSR",
-      "component": "crsra",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "crsrm",
       "type": "tomcat",
@@ -115,13 +92,6 @@
         "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CRSRM.log"
       }
     },
-    {"id": "metrics_crsrm", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "CRSR",
-      "component": "crsrm",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "csp",
       "type": "tomcat",
@@ -131,13 +101,6 @@
         "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CSP.log"
       }
     },
-    {"id": "metrics_csp", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "CSP",
-      "component": "csp",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "ecas",
       "type": "tomcat",
@@ -148,13 +111,6 @@
         "contAppParserRegex": "/^[ \\t+a-zA-Z{}\\/\\[\\])&<:,-].*/"
       }
     },
-    {"id": "metrics_ecas", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "ECAS",
-      "component": "ecas",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "ecassvc",
       "type": "tomcat",
@@ -164,13 +120,6 @@
         "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ECASSVC.log"
       }
     },
-    {"id": "metrics_ecassvc", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "ECAS",
-      "component": "ecassvc",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "edqa-war",
       "type": "tomcat",
@@ -179,13 +128,6 @@
         "component": "edqa-war"
       }
     },
-    {"id": "metrics_edqa-war", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "EDQA",
-      "component": "edqa-war",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "era",
       "type": "tomcat",
@@ -195,13 +137,6 @@
         "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-ERA.log"
       }
     },
-    {"id": "metrics_era", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "ERA",
-      "component": "era",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "esf",
       "type": "tomcat",
@@ -210,13 +145,6 @@
         "component": "esf"
       }
     },
-    {"id": "metrics_esf", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "ESF",
-      "component": "esf",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "fnirs",
       "type": "tomcat",
@@ -225,13 +153,6 @@
         "component": "fnirs"
       }
     },
-    {"id": "metrics_fnirs", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "FNIRS",
-      "component": "fnirs",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "frep",
       "type": "tomcat",
@@ -240,13 +161,6 @@
         "component": "frep-war"
       }
     },
-    {"id": "metrics_frep", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}{{ component | upper }}",
-      "app": "FREP",
-      "component": "frep-war",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "fsp",
       "type": "tomcat",
@@ -255,13 +169,6 @@
         "component": "fsp"
       }
     },
-    {"id": "metrics_fsp", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "FSP",
-      "component": "fsp",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "fspsvc",
       "type": "tomcat",
@@ -270,13 +177,6 @@
         "component": "fspsvc"
       }
     },
-    {"id": "metrics_fspsvc", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "FSP",
-      "component": "fspsvc",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "fta",
       "type": "tomcat",
@@ -285,13 +185,6 @@
         "component": "fta"
       }
     },
-    {"id": "metrics_fta", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "FTA",
-      "component": "fta",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "ftasvc",
       "type": "tomcat",
@@ -300,13 +193,6 @@
         "component": "ftasvc"
       }
     },
-    {"id": "metrics_ftasvc", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "FTA",
-      "component": "ftasvc",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "ftc",
       "type": "tomcat",
@@ -315,13 +201,6 @@
         "component": "ftc"
       }
     },
-    {"id": "metrics_ftc", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "FTA",
-      "component": "ftc",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "gas2",
       "type": "tomcat",
@@ -330,13 +209,6 @@
         "component": "gas2"
       }
     },
-    {"id": "metrics_gas2", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "GAS",
-      "component": "gas2",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "gys",
       "type": "tomcat",
@@ -345,13 +217,6 @@
         "component": "gys"
       }
     },
-    {"id": "metrics_gys", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "GYS",
-      "component": "gys",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "hrc-war-dlvr",
       "type": "tomcat",
@@ -360,13 +225,6 @@
         "component": "hrc-war-dlvr"
       }
     },
-    {"id": "metrics_hrc-war-dlvr", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "HRC",
-      "component": "hrc-war-dlvr",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "iapp",
       "type": "tomcat",
@@ -375,13 +233,6 @@
         "component": "iapp"
       }
     },
-    {"id": "metrics_iapp", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "IAPP",
-      "component": "iapp",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "iappsvc",
       "type": "tomcat",
@@ -390,13 +241,6 @@
         "component": "iappsvc"
       }
     },
-    {"id": "metrics_iappsvc", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "IAPP",
-      "component": "iappsvc",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "iapp_imf",
       "type": "tomcat",
@@ -405,13 +249,6 @@
         "component": "iapp_imf"
       }
     },
-    {"id": "metrics_iapp_imf", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "IAPP_IMF",
-      "component": "iapp_imf",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "ilcr",
       "type": "tomcat",
@@ -420,14 +257,6 @@
         "component": "ilcr"
       }
     },
-    {"id": "metrics_ilcr", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "ILCR",
-      "component": "ilcr",
-      "healthCheckEnabled": true,
-      "!healthCheckPath": "/ext/{{ component | lower }}/",
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "ilcs",
       "type": "tomcat",
@@ -436,13 +265,6 @@
         "component": "ilcs"
       }
     },
-    {"id": "metrics_ilcs", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "ILCS",
-      "component": "ilcs",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "irs-war",
       "type": "tomcat",
@@ -451,13 +273,6 @@
         "component": "irs-war"
       }
     },
-    {"id": "metrics_irs-war", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "irs",
-      "component": "irs-war",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "isp",
       "type": "tomcat",
@@ -466,13 +281,6 @@
         "component": "isp"
       }
     },
-    {"id": "metrics_isp", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "ISP",
-      "component": "isp",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "lexis",
       "type": "tomcat",
@@ -481,13 +289,6 @@
         "component": "lexis"
       }
     },
-    {"id": "metrics_lexis", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "LEXIS",
-      "component": "lexis",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "lexisvc",
       "type": "tomcat",
@@ -496,13 +297,6 @@
         "component": "lexisvc"
       }
     },
-    {"id": "metrics_lexisvc", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "LEXIS",
-      "component": "lexisvc",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "lexisws",
       "type": "tomcat",
@@ -511,13 +305,6 @@
         "component": "lexisws"
       }
     },
-    {"id": "metrics_lexisws", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "LEXIS",
-      "component": "lexisws",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "ltrack",
       "type": "tomcat",
@@ -526,13 +313,6 @@
         "component": "ltrack"
       }
     },
-    {"id": "metrics_ltrack", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "LTRACK",
-      "component": "ltrack",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "mis",
       "type": "tomcat",
@@ -541,13 +321,6 @@
         "component": "mis"
       }
     },
-    {"id": "metrics_mis", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "MIS",
-      "component": "mis",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "msd",
       "type": "tomcat",
@@ -556,13 +329,6 @@
         "component": "msd"
       }
     },
-    {"id": "metrics_msd", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "MSD",
-      "component": "msd",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "nfisbc",
       "type": "tomcat",
@@ -571,13 +337,6 @@
         "component": "nfisbc"
       }
     },
-    {"id": "metrics_nfisbc", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "NFISBC",
-      "component": "nfisbc",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "notices",
       "type": "tomcat",
@@ -586,13 +345,6 @@
         "component": "notices"
       }
     },
-    {"id": "metrics_notices", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "NOTICES",
-      "component": "notices",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "nrig",
       "type": "tomcat",
@@ -601,13 +353,6 @@
         "component": "nrig"
       }
     },
-    {"id": "metrics_nrig", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "NRIG",
-      "component": "nrig",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "nsa2",
       "type": "tomcat",
@@ -616,13 +361,6 @@
         "component": "nsa2"
       }
     },
-    {"id": "metrics_nsa2", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "NSA",
-      "component": "nsa2",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "rept",
       "type": "tomcat",
@@ -631,13 +369,6 @@
         "component": "rept"
       }
     },
-    {"id": "metrics_rept", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "REPT",
-      "component": "rept",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "results",
       "type": "tomcat",
@@ -646,13 +377,6 @@
         "component": "results"
       }
     },
-    {"id": "metrics_results", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "RESULTS",
-      "component": "results",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "resultsvc",
       "type": "tomcat",
@@ -669,13 +393,6 @@
         "component": "results-war"
       }
     },
-    {"id": "metrics_resultsvc", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "RESULTS",
-      "component": "resultsvc",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "rtm",
       "type": "tomcat",
@@ -684,13 +401,6 @@
         "component": "rtm"
       }
     },
-    {"id": "metrics_rtm", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "RTM",
-      "component": "rtm",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "scs",
       "type": "tomcat",
@@ -699,13 +409,6 @@
         "component": "scs"
       }
     },
-    {"id": "metrics_scs", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "SCS",
-      "component": "scs",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "soss",
       "type": "tomcat",
@@ -714,13 +417,6 @@
         "component": "soss"
       }
     },
-    {"id": "metrics_soss", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "SOSS",
-      "component": "soss",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "spar",
       "type": "tomcat",
@@ -729,13 +425,6 @@
         "component": "spar-war"
       }
     },
-    {"id": "metrics_spar", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}{{ component | upper }}",
-      "app": "SPAR",
-      "component": "spar-war",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "sparsvc",
       "type": "tomcat",
@@ -744,13 +433,6 @@
         "component": "sparsvc"
       }
     },
-    {"id": "metrics_sparsvc", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "SPAR",
-      "component": "sparsvc",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "swisbcg-war",
       "type": "tomcat",
@@ -759,13 +441,6 @@
         "component": "swisbcg-war"
       }
     },
-    {"id": "metrics_swisbcg-war", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "SWISBCG",
-      "component": "swisbcg-war",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "tus",
       "type": "tomcat",
@@ -774,13 +449,6 @@
         "component": "tus"
       }
     },
-    {"id": "metrics_tus", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "TUS",
-      "component": "tus",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "tusws",
       "type": "tomcat",
@@ -789,13 +457,6 @@
         "component": "tusws"
       }
     },
-    {"id": "metrics_tusws", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "TUS",
-      "component": "tusws",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "vrims",
       "type": "tomcat",
@@ -804,13 +465,6 @@
         "component": "vrims"
       }
     },
-    {"id": "metrics_vrims", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "VRIMS",
-      "component": "vrims",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "waste-for",
       "type": "tomcat",
@@ -819,13 +473,6 @@
         "component": "waste-for"
       }
     },
-    {"id": "metrics_waste-for", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "WASTE",
-      "component": "waste-for",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "wastesvc-for",
       "type": "tomcat",
@@ -834,13 +481,6 @@
         "component": "wastesvc-for"
       }
     },
-    {"id": "metrics_wastesvc-for", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "WASTE",
-      "component": "wastesvc-for",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "wastews",
       "type": "tomcat",
@@ -849,13 +489,6 @@
         "component": "wastews"
       }
     },
-    {"id": "metrics_wastews", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "WASTE",
-      "component": "wastews",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "wimsi",
       "type": "tomcat",
@@ -863,14 +496,7 @@
         "app": "WIMSI",
         "component": "wimsi"
       }
-    },
-    {"id": "metrics_wimsi", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "WIMSI",
-      "component": "wimsi",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }}
+    }
   ],
   "context": {
     "environment": "test"
