@@ -67,13 +67,6 @@
         "component": "client"
       }
     },
-    {"id": "metrics_client", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "CLIENT",
-      "component": "client",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "cms-for",
       "type": "tomcat",
@@ -285,13 +278,6 @@
         "component": "fta"
       }
     },
-    {"id": "metrics_fta", "type": "metric_s6_process", "context": {
-      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
-      "app": "FTA",
-      "component": "fta",
-      "healthCheckEnabled": true,
-      "healthCheckPort": "tomcat"
-    }},
     {
       "id": "ftasvc",
       "type": "tomcat",
