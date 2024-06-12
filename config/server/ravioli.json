@@ -374,7 +374,7 @@
       "type": "tomcat",
       "context": {
         "app": "RESULTS",
-        "component": "results"
+        "component": "results-war"
       }
     },
     {
@@ -382,15 +382,7 @@
       "type": "tomcat",
       "context": {
         "app": "RESULTS",
-        "component": "resultsvc"
-      }
-    },
-    {
-      "id": "results_poc",
-      "type": "tomcat",
-      "context": {
-        "app": "RESULTS",
-        "component": "results-war"
+        "component": "resultsvc-war"
       }
     },
     {
