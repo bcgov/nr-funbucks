@@ -398,7 +398,7 @@
       "type": "tomcat",
       "context": {
         "app": "SCS",
-        "component": "scs"
+        "component": "scs-war"
       }
     },
     {
