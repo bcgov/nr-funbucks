@@ -166,7 +166,7 @@
       "type": "tomcat",
       "context": {
         "app": "FSP",
-        "component": "fsp"
+        "component": "fsp-war"
       }
     },
     {
