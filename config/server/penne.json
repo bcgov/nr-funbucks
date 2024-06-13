@@ -36,8 +36,8 @@
       "id": "apt2",
       "type": "tomcat",
       "context": {
-        "app": "APT",
-        "component": "apt2"
+        "app": "APT2",
+        "component": "apt2-war"
       }
     },
     {
@@ -166,7 +166,7 @@
       "type": "tomcat",
       "context": {
         "app": "FSP",
-        "component": "fsp"
+        "component": "fsp-war"
       }
     },
     {

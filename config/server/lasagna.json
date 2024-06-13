@@ -36,7 +36,7 @@
       "id": "apt2",
       "type": "tomcat",
       "context": {
-        "app": "APT",
+        "app": "APT2",
         "component": "apt2-war"
       }
     },
@@ -398,7 +398,7 @@
       "type": "tomcat",
       "context": {
         "app": "SCS",
-        "component": "scs"
+        "component": "scs-war"
       }
     },
     {
