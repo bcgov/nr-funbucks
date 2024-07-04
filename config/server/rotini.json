@@ -198,7 +198,8 @@
       "type": "tomcat",
       "context": {
         "app": "FTA",
-        "component": "ftc"
+        "component": "ftc",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-FTC.log"
       }
     },
     {
