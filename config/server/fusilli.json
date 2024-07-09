@@ -62,7 +62,7 @@
       "type": "tomcat",
       "context": {
         "app": "CLIENT",
-        "component": "client"
+        "component": "client-war"
       }
     },
     {
