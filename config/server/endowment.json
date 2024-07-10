@@ -16,8 +16,9 @@
       "id": "nrdlv-rp",
       "type": "apache_reverse_proxy",
       "context": {
-        "environment": "development",
-        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/dev{% else %}/sw_ux/httpd02/logs/hot{% endif %}/dlvrapps-endowment.bcgov-access*.log"
+        "environment": "delivery",
+        "eventDataset": "apache.access.internal",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/dlv{% else %}/sw_ux/httpd02/logs/hot{% endif %}/dlvrapps-endowment.bcgov-access*.log"
       }
     },
     {
@@ -25,6 +26,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "test",
+        "eventDataset": "apache.access.internal",
         "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/test{% else %}/sw_ux/httpd01/logs/hot{% endif %}/testapps-endowment.bcgov-access*.log"
       }
     }
