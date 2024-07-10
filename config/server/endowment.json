@@ -1,0 +1,35 @@
+{
+  "address": "endowment.bcgov",
+  "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
+  "os": "linux",
+  "os_variant": "rhel9",
+  "vault_cd_user_field": "username_lowercase",
+  "vault_cd_pass_field": "password",
+  "vault_cd_path": "groups/appdelivery/jenkins-isss-cdua",
+  "apps": [
+    {"id": "cpu", "type": "metric_host_cpu", "context": {}},
+    {"id": "disk", "type": "metric_host_disk", "context": {}},
+    {"id": "disk_named", "type": "metric_host_disk_named", "context": {}},
+    {"id": "memory", "type": "metric_host_memory", "context": {}},
+    {"id": "network", "type": "metric_host_network", "context": {}},
+    {
+      "id": "nrdlv-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "delivery",
+        "eventDataset": "apache.access.internal",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/dev{% else %}/sw_ux/httpd02/logs/hot{% endif %}/dlvrapps-endowment.bcgov-access*.log"
+      }
+    },
+    {
+      "id": "nrtest-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "test",
+        "eventDataset": "apache.access.internal",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/test{% else %}/sw_ux/httpd01/logs/hot{% endif %}/testapps-endowment.bcgov-access*.log"
+      }
+    }
+  ],
+  "context": {}
+}
