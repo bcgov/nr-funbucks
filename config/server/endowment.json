@@ -18,7 +18,7 @@
       "context": {
         "environment": "delivery",
         "eventDataset": "apache.access.internal",
-        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/dlv{% else %}/sw_ux/httpd02/logs/hot{% endif %}/dlvrapps-endowment.bcgov-access*.log"
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/dev{% else %}/sw_ux/httpd02/logs/hot{% endif %}/dlvrapps-endowment.bcgov-access*.log"
       }
     },
     {
