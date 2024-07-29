@@ -463,7 +463,7 @@
       "type": "tomcat",
       "context": {
         "app": "WASTE",
-        "component": "waste-for"
+        "component": "waste-war"
       }
     },
     {
