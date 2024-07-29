@@ -334,7 +334,7 @@
       "type": "tomcat",
       "context": {
         "app": "NFISBC",
-        "component": "nfisbc"
+        "component": "nfisbc-war"
       }
     },
     {
@@ -462,7 +462,7 @@
       "type": "tomcat",
       "context": {
         "app": "WASTE",
-        "component": "waste-for"
+        "component": "waste-war"
       }
     },
     {
