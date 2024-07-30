@@ -379,14 +379,6 @@
         }
       },
       {
-        "id": "nrssf-orbeon-api",
-        "type": "tomcat",
-        "context": {
-          "app": "NRSSF",
-          "component": "nrssf-orbeon-api"
-        }
-      },
-      {
         "id": "nrssf-smartforms-api",
         "type": "tomcat",
         "context": {
