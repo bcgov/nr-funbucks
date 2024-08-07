@@ -66,7 +66,6 @@ export class RepackageService {
     });
     fs.writeFileSync(
       path.resolve(REPACKAGE_BASEPATH, 'fluentbit-volume.yaml'),
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       text.replaceAll(/^/gm, indentStr),
     );
   }

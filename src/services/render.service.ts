@@ -8,7 +8,6 @@ import {
   OUTPUT_BASEPATH,
   TEMPLATE_CONFIG_BASEPATH,
 } from '../constants/paths';
-// eslint-disable-next-line max-len
 import {
   BaseConfig,
   FbFile,
@@ -252,7 +251,6 @@ export class RenderService {
   private execValueTemplate(context: { [key: string]: string }): object {
     for (const key of Object.keys(context)) {
       if (key && key.length > 1 && key.startsWith('!')) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         context[key.slice(1)] = nunjucks.renderString(context[key], context);
       }
     }
@@ -301,7 +299,6 @@ export class RenderService {
    */
   private collateFileType(fileType: FB_FILE_TYPES): object {
     return {
-      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       [`files_${fileType}`]: this.typeFiles[fileType]
         ? this.typeFiles[fileType]
         : [],

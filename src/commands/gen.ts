@@ -32,7 +32,6 @@ export default class Gen extends Command {
     }),
     multiple: Flags.boolean({
       char: 'm',
-      // eslint-disable-next-line max-len
       description:
         'multiple configuration output mode. A single Fluent Bit has an upper bound to the number of filters it can handle. Do not combine with oc command.',
     }),
