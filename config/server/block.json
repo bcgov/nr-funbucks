@@ -35,6 +35,32 @@
         "environment": "wftst",
         "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wftst{% else %}/sw_ux/httpd01/logs/hot{% endif %}/block-httpd01-t1*-access*.log"
       }
+    },
+    {
+      "id": "wfss-geoserver-war-wfint",
+      "type": "tomcat",
+      "context": {
+        "environment": "wfint",
+        "app": "wfss",
+        "component": "wfss-geoserver-war",
+        "!logs_path_localhost_access_log": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfint/localhost_access_log.*.log",
+        "!logs_path_localhost": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfint/localhost.*.log",
+        "!logs_path_catalina": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfint/catalina.*.log",
+        "!logs_path_app": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfint/{{ component | lower }}.log"
+      }
+    },
+    {
+      "id": "wfss-geoserver-war-wfdlv",
+      "type": "tomcat",
+      "context": {
+        "environment": "wfdlv",
+        "app": "wfss",
+        "component": "wfss-geoserver-war",
+        "!logs_path_localhost_access_log": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfdlv/localhost_access_log.*.log",
+        "!logs_path_localhost": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfdlv/localhost.*.log",
+        "!logs_path_catalina": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfdlv/catalina.*.log",
+        "!logs_path_app": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfdlv/{{ component | lower }}.log"
+      }
     }
   ],
   "context": {}
