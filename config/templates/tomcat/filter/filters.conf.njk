@@ -85,4 +85,5 @@
     Add @metadata.keyAsPath true
     Rename message event.original
     Rename message_parsed message
-    Rename level log.level
+    Rename level log.level{% if timestampTimezone %}
+    Add @metadata.timestampTimezone {{ timestampTimezone }}{% endif %}

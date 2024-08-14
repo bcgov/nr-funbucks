@@ -46,7 +46,8 @@
         "!logs_path_localhost_access_log": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfint/localhost_access_log.*.log",
         "!logs_path_localhost": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfint/localhost.*.log",
         "!logs_path_catalina": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfint/catalina.*.log",
-        "!logs_path_app": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfint/{{ component | lower }}.log"
+        "!logs_path_app": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfint/{{ component | lower }}.log",
+        "timestampTimezone": "Etc/UTC"
       }
     },
     {
@@ -59,7 +60,8 @@
         "!logs_path_localhost_access_log": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfdlv/localhost_access_log.*.log",
         "!logs_path_localhost": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfdlv/localhost.*.log",
         "!logs_path_catalina": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfdlv/catalina.*.log",
-        "!logs_path_app": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfdlv/{{ component | lower }}.log"
+        "!logs_path_app": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfdlv/{{ component | lower }}.log",
+        "timestampTimezone": "Etc/UTC"
       }
     }
   ],
