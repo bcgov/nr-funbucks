@@ -1,0 +1,17 @@
+{% import "../../macros/lua.njk" as lua %}
+{{ lua.renderLua(typeTag + '.log', typeTag + '/lua/audit.lua', 'construct_log_message') }}
+{{ lua.renderAppendTimestamp(typeTag + '.*') }}
+
+[FILTER]
+    Name modify
+    Match {{typeTag}}.*
+    Add event.kind event
+    Add event.category web
+    Add labels.project {{ app | lower }}
+    Add service.name {{ component | lower }}
+    Add service.type geoserver_audit
+    Add event.dataset geoserver.audit
+    Add @metadata.keyAsPath true{% if organization_id %}
+    Add organization.id {{ organization_id }}{% endif %}{% if organization_name %}
+    Add organization.name {{ organization_name }}{% endif %}{% if environment %}
+    Add service.environment {{ environment }}{% endif %}
