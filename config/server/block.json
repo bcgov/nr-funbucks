@@ -51,6 +51,16 @@
       }
     },
     {
+      "id": "wfss-geoserver-audit-wfint",
+      "type": "app_geoserver_audit",
+      "context": {
+        "environment": "wfint",
+        "app": "wfss",
+        "component": "wfss-geoserver-war",
+        "!inputLogPath": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfint/geoserver_audit_*.log"
+      }
+    },
+    {
       "id": "wfss-geoserver-war-wfdlv",
       "type": "tomcat",
       "context": {
@@ -62,6 +72,16 @@
         "!logs_path_catalina": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfdlv/catalina.*.log",
         "!logs_path_app": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfdlv/{{ component | lower }}.log",
         "timestampTimezone": "Etc/UTC"
+      }
+    },
+    {
+      "id": "wfss-geoserver-audit-wfdlv",
+      "type": "app_geoserver_audit",
+      "context": {
+        "environment": "wfdlv",
+        "app": "wfss",
+        "component": "wfss-geoserver-war",
+        "!inputLogPath": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wfdlv/geoserver_audit_*.log"
       }
     }
   ],
