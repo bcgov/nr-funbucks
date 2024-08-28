@@ -1,7 +1,7 @@
 -- Start audit.lua
 
 function copy_to_new_message(src, dest, record, new_record)
-    if record[src] ~= nil then
+    if record[src] ~= nil and record[src] ~= "" then
         new_record[dest] = record[src]
     end
 end
@@ -16,12 +16,14 @@ function construct_log_message(tag, timestamp, record)
     new_record = {}
     copy_to_new_message("id", "http.request.id", record, new_record)
     copy_to_new_message("Service", "event.provider", record, new_record)
-    -- Drop: Version
-    -- Drop: Operation
-    -- Drop: SubOperation
-    -- Drop: Resources
-    -- Drop: ResourcesProcessingTime
-    -- Drop: LabelsProcessingTime
+    -- etc - start
+    copy_to_new_message("Version", "etc.version", record, new_record)
+    copy_to_new_message("Operation", "etc.operation", record, new_record)
+    copy_to_new_message("SubOperation", "etc.suboperation", record, new_record)
+    copy_to_new_message("Resources", "etc.resources", record, new_record)
+    copy_as_number_to_new_message("ResourcesProcessingTime", "etc.resourcesProcessingTime", record, new_record)
+    copy_as_number_to_new_message("LabelsProcessingTime", "etc.labelsProcessingTime", record, new_record)
+    -- etc - end
     copy_to_new_message("Path", "url.path", record, new_record)
     copy_to_new_message("QueryString", "url.query", record, new_record)
     copy_to_new_message("HttpMethod", "http.request.method", record, new_record)
