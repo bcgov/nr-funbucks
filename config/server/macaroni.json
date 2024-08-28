@@ -97,8 +97,8 @@
       "type": "tomcat",
       "context": {
         "app": "CSP",
-        "component": "csp",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CSP.log"
+        "component": "csp-war",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/csp-war.log"
       }
     },
     {
