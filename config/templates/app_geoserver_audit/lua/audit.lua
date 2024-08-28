@@ -30,8 +30,8 @@ function construct_log_message(tag, timestamp, record)
     copy_as_number_to_new_message("TotalTime", "event.duration", record, new_record)
     copy_to_new_message("RemoteAddr", "source.ip", record, new_record)
     copy_to_new_message("RemoteHost", "source.domain", record, new_record)
-    -- Drop: Host
-    -- Drop: RemoteUser
+    -- Drop: Host (Duplicate of Funbucks info)
+    copy_to_new_message("RemoteUser", "source.user.name", record, new_record)
     copy_to_new_message("ResponseStatus", "http.response.status_code", record, new_record)
     copy_as_number_to_new_message("ResponseLength", "http.response.body.bytes", record, new_record)
     copy_to_new_message("ResponseContentType", "http.response.mime_type", record, new_record)
