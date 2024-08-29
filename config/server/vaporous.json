@@ -2,7 +2,7 @@
   "address": "volatile.bcgov",
   "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "os": "linux",
-  "os_variant": "rhel7",
+  "os_variant": "rhel9",
   "vault_cd_user_field": "username_lowercase",
   "vault_cd_pass_field": "password",
   "vault_cd_path": "groups/appdelivery/jenkins-isss-cdua",
@@ -39,7 +39,7 @@
         "!logs_path_app": "/apps_ux/logs/WFONE/wfjcrs-war/jasperserver_WFJCRS.log",
         "environment": "wfint"
       }
-    }                                                 
+    }
   ],
   "context": {}
 }
