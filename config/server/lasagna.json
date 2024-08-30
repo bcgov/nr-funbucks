@@ -462,6 +462,15 @@
       "type": "tomcat",
       "context": {
         "app": "WASTE",
+        "component": "waste-for",
+        "!logs_path_app": "/apps_ux/logs/WASTE/waste-for/APP-WASTE-FOR.log"
+      }
+    },
+    {
+      "id": "waste-war",
+      "type": "tomcat",
+      "context": {
+        "app": "WASTE",
         "component": "waste-war",
         "!logs_path_app": "/apps_ux/logs/WASTE/waste-war/APP-WASTE-FOR.log"
       }
