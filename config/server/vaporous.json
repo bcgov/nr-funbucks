@@ -1,5 +1,5 @@
 {
-  "address": "volatile.bcgov",
+  "address": "vaporous.bcgov",
   "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "os": "linux",
   "os_variant": "rhel9",
