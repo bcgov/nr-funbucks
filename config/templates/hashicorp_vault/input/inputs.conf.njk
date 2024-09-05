@@ -5,6 +5,7 @@
     Parser {{typeTag}}.json
     Path {{vaultAuditPath}}/vault_audit.log
     Path_Key log_file_path
+    Exclude_Path *.gz,*.zip
     Offset_Key event_sequence
     DB {{inputDbFile}}
     Read_from_Head True
@@ -16,6 +17,7 @@
     Parser {{typeTag}}.json
     Path {{vaultAuditPath}}/vault_err.log
     Path_Key log_file_path
+    Exclude_Path *.gz,*.zip
     Offset_Key event_sequence
     DB {{inputDbFile}}
     Read_from_Head True

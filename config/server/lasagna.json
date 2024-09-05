@@ -463,7 +463,7 @@
       "context": {
         "app": "WASTE",
         "component": "waste-war",
-        "!logs_path_app": "/apps_ux/logs/WASTE/waste-war/APP-WASTE-FOR.log"
+        "!logs_path_app": "/apps_ux/logs/WASTE/waste-war/APP-WASTE-FOR.log*"
       }
     },
     {
