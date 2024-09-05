@@ -1,8 +1,8 @@
 {% import "../../macros/input.njk" as input with context %}
-{{- input.renderTail('app.' + typeTag + '.access', logs_path_localhost_access_log) }}
+{{- input.renderTail('app.' + typeTag + '.access', logs_path_localhost_access_log, logs_path_exclude) }}
 
-{{- input.renderMultilineTail('app.' + typeTag + '.localhost', logs_path_localhost, 'multiline-core-tomcat-regex-' + typeTag) }}
+{{- input.renderMultilineTail('app.' + typeTag + '.localhost', logs_path_localhost, 'multiline-core-tomcat-regex-' + typeTag, logs_path_exclude) }}
 
-{{- input.renderMultilineTail('app.' + typeTag + '.catalina', logs_path_catalina, 'multiline-core-tomcat-regex-' + typeTag) }}
+{{- input.renderMultilineTail('app.' + typeTag + '.catalina', logs_path_catalina, 'multiline-core-tomcat-regex-' + typeTag, logs_path_exclude) }}
 
-{{- input.renderMultilineTail('app.' + typeTag + '.generic', logs_path_app, 'multiline-core-app-regex-' + typeTag) }}
+{{- input.renderMultilineTail('app.' + typeTag + '.generic', logs_path_app, 'multiline-core-app-regex-' + typeTag, logs_path_exclude) }}

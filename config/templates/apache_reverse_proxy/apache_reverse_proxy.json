@@ -1,7 +1,8 @@
 {
   "measurementType": "historic",
   "context": {
-    "eventDataset": "apache.access"
+    "eventDataset": "apache.access",
+    "!logs_path_exclude": "*.gz{% raw %},{% endraw %}*.zip"
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},
