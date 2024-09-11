@@ -190,7 +190,7 @@
       "type": "tomcat",
       "context": {
         "app": "FTA",
-        "component": "ftasvc"
+        "component": "ftasvc-war"
       }
     },
     {
