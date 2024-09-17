@@ -1,8 +1,8 @@
 {
-  "address": "whisper.bcgov",
+  "address": "innuendo.bcgov",
   "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "os": "linux",
-  "os_variant": "rhel7",
+  "os_variant": "rhel9",
   "vault_cd_user_field": "username_lowercase",
   "vault_cd_pass_field": "password",
   "vault_cd_path": "groups/appdelivery/jenkins-isss-cdua",
@@ -17,7 +17,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "isss-int",
-        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrint{% else %}/sw_ux/httpd01/logs/hot{% endif %}/whisper-httpd01-i1*-access*.log"
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrint{% else %}/sw_ux/httpd01/logs/hot{% endif %}/innuendo-httpd01-i1*-access*.log"
       }
     },
     {
@@ -25,7 +25,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "isss-tst",
-        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrtst{% else %}/sw_ux/httpd01/logs/hot{% endif %}/whisper-httpd01-t1*-access*.log"
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrtst{% else %}/sw_ux/httpd01/logs/hot{% endif %}/innuendo-httpd01-t1*-access*.log"
       }
     },
     {
@@ -33,7 +33,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "isss-stg1",
-        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrstg1{% else %}/sw_ux/httpd01/logs/hot{% endif %}/whisper-httpd01-s1*-access*.log"
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrstg1{% else %}/sw_ux/httpd01/logs/hot{% endif %}/innuendo-httpd01-s1*-access*.log"
       }
     },
     {
@@ -41,7 +41,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "isss-stg2",
-        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrstg2{% else %}/sw_ux/httpd01/logs/hot{% endif %}/whisper-httpd01-s2*-access*.log"
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrstg2{% else %}/sw_ux/httpd01/logs/hot{% endif %}/innuendo-httpd01-s2*-access*.log"
       }
     }
   ],
