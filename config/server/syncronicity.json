@@ -5,7 +5,7 @@
   "os_variant": "rhel7",
   "vault_cd_user_field": "username_lowercase",
   "vault_cd_pass_field": "password",
-  "vault_cd_path": "apps/data/prod/jenkins/jenkins-apps/cdua",
+  "vault_cd_path": "apps/prod/jenkins/jenkins-apps/cdua",
   "apps": [
     {
       "id": "jenkins-deploy",
