@@ -4,7 +4,7 @@
   "logsProxyDisabled": "true",
   "os": "windows",
   "vault_cd_user_field": "username_domainless",
-  "vault_cd_pass_field": "password",
+  "vault_cd_pass_field": "PODMAN_CD_PASS",
   "vault_cd_path": "groups/appdelivery/oraapp_imborapp",
   "apps": [
     {
