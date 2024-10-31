@@ -1,8 +1,8 @@
 {
-  "address": "reform.bcgov",
+  "address": "recast.bcgov",
   "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "os": "linux",
-  "os_variant": "rhel7",
+  "os_variant": "rhel9",
   "vault_cd_user_field": "PODMAN_CD_USER",
   "vault_cd_pass_field": "PODMAN_CD_PASS",
   "vault_cd_path": "apps/prod/jenkins/jenkins-apps/cdua",
@@ -10,8 +10,8 @@
     {"id": "cpu", "type": "metric_host_cpu", "context": { "inputIntervalSec": 10 }},
     {"id": "disk", "type": "metric_host_disk", "context": {}},
     {"id": "disk_named", "type": "metric_host_disk_named", "context": {}},
-    {"id": "network", "type": "metric_host_network", "context": {}},
     {"id": "memory", "type": "metric_host_memory", "context": {}},
+    {"id": "network", "type": "metric_host_network", "context": {}},
     {
       "id": "wftst-wso2",
       "type": "wso2",
@@ -29,7 +29,7 @@
       }
     },
     {
-      "id": "wfdlv-jcrs",
+      "id": "wftst-jcrs",
       "type": "tomcat",
       "context": {
         "app": "jasperserver",
