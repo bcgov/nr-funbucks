@@ -1,8 +1,8 @@
 {
-  "address": "refactor.bcgov",
+  "address": "transpose.bcgov",
   "proxy": "http://forwardproxy.nrs.bcgov:23128",
   "os": "linux",
-  "os_variant": "rhel7",
+  "os_variant": "rhel9",
   "vault_cd_user_field": "PODMAN_CD_USER",
   "vault_cd_pass_field": "PODMAN_CD_PASS",
   "vault_cd_path": "apps/prod/jenkins/jenkins-apps/cdua",
