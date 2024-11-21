@@ -58,14 +58,6 @@
       }
     },
     {
-      "id": "client",
-      "type": "tomcat",
-      "context": {
-        "app": "CLIENT",
-        "component": "client-war"
-      }
-    },
-    {
       "id": "cms-for",
       "type": "tomcat",
       "context": {
