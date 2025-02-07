@@ -70,6 +70,38 @@
       }
     },
     {
+      "id": "webade-access-invitation-api",
+      "type": "tomcat",
+      "context": {
+        "app": "webade",
+        "component": "webade-access-invitation-api"
+      }
+    },
+    {
+      "id": "webade-adam",
+      "type": "tomcat",
+      "context": {
+        "app": "webade",
+        "component": "webade-adam"
+      }
+    },
+    {
+      "id": "webade-oauth2-api",
+      "type": "tomcat",
+      "context": {
+        "app": "webade",
+        "component": "webade-oauth2-api"
+      }
+    },
+    {
+      "id": "webade-rest-api",
+      "type": "tomcat",
+      "context": {
+        "app": "webade",
+        "component": "webade-rest-api"
+      }
+    },
+    {
       "id": "wfim-dispatch-2k5-api",
       "type": "tomcat",
       "context": {
@@ -150,47 +182,6 @@
       }
     },
     {
-      "id": "wftst-activemq",
-      "type": "activemq",
-      "context": {
-        "app": "activemq",
-        "component": "activemq",
-        "!logs_path_app": "/sw_ux/activemq/current/data/activemq.log"
-      }
-    },
-    {
-      "id": "webade-access-invitation-api",
-      "type": "tomcat",
-      "context": {
-        "app": "webade",
-        "component": "webade-access-invitation-api"
-      }
-    },
-    {
-      "id": "webade-adam",
-      "type": "tomcat",
-      "context": {
-        "app": "webade",
-        "component": "webade-adam"
-      }
-    },
-    {
-      "id": "webade-oauth2-api",
-      "type": "tomcat",
-      "context": {
-        "app": "webade",
-        "component": "webade-oauth2-api"
-      }
-    },
-    {
-      "id": "webade-rest-api",
-      "type": "tomcat",
-      "context": {
-        "app": "webade",
-        "component": "webade-rest-api"
-      }
-    },
-    {
       "id": "wfwm-user-editable-data-api",
       "type": "tomcat",
       "context": {
@@ -204,6 +195,15 @@
       "context": {
         "app": "wfwm",
         "component": "wfwm-webmapping-war"
+      }
+    },
+    {
+      "id": "wftst-activemq",
+      "type": "activemq",
+      "context": {
+        "app": "activemq",
+        "component": "activemq",
+        "!logs_path_app": "/sw_ux/activemq/current/data/activemq.log"
       }
     },
     {
