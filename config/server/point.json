@@ -79,116 +79,35 @@
       }
     },
     {
-      "id": "wfcst-war",
+      "id": "webade-access-invitation-api",
       "type": "tomcat",
       "context": {
-        "app": "wfcst",
-        "component": "wfcst-war"
+        "app": "webade",
+        "component": "webade-access-invitation-api"
       }
     },
     {
-      "id": "wfdm-document-management-api",
+      "id": "webade-adam",
       "type": "tomcat",
       "context": {
-        "app": "wfdm",
-        "component": "wfdm-document-management-api",
-        "contAppParserRegex": "/^[ \\ta-zA-Z{}\\/\\[\\]].*|^\\d{8}.*|^[a-zA-Z0-9]+\\W$/"
+        "app": "webade",
+        "component": "webade-adam"
       }
     },
     {
-      "id": "wfdm-document-management-war",
+      "id": "webade-oauth2-api",
       "type": "tomcat",
       "context": {
-        "app": "wfdm",
-        "component": "wfdm-document-management-war"
+        "app": "webade",
+        "component": "webade-oauth2-api"
       }
     },
     {
-      "id": "wffin-finance-war",
+      "id": "webade-rest-api",
       "type": "tomcat",
       "context": {
-        "app": "wffin",
-        "component": "wffin-finance-war"
-      }
-    },
-    {
-      "id": "wffin-supplier-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wffin",
-        "component": "wffin-supplier-api"
-      }
-    },
-    {
-      "id": "wfhr-chips-sync-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfhr",
-        "component": "wfhr-chips-sync-api"
-      }
-    },
-    {
-      "id": "wfhr-diary-submission-listener-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfhr",
-        "component": "wfhr-diary-submission-listener-api"
-      }
-    },
-    {
-      "id": "wfhr-earnings-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfhr",
-        "component": "wfhr-earnings-api"
-      }
-    },
-    {
-      "id": "wfhr-earnings-submission-listener-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfhr",
-        "component": "wfhr-earnings-submission-listener-api"
-      }
-    },
-    {
-      "id": "wfhr-earnings-war",
-      "type": "tomcat",
-      "context": {
-        "app": "wfhr",
-        "component": "wfhr-earnings-war"
-      }
-    },
-    {
-      "id": "wfhr-ediaries-ui-war",
-      "type": "tomcat",
-      "context": {
-        "app": "wfhr",
-        "component": "wfhr-ediaries-ui-war"
-      }
-    },
-    {
-      "id": "wfhr-payroll-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfhr",
-        "component": "wfhr-payroll-api"
-      }
-    },
-    {
-      "id": "wfhr-psa-chips-data-stub-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfhr",
-        "component": "wfhr-psa-chips-data-stub-api"
-      }
-    },
-    {
-      "id": "wfhr-wps-payroll-sync-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfhr",
-        "component": "wfhr-wps-payroll-sync-api"
+        "app": "webade",
+        "component": "webade-rest-api"
       }
     },
     {
@@ -269,158 +188,6 @@
       "context": {
         "app": "wfim",
         "component": "wfim-war"
-      }
-    },
-    {
-      "id": "wfnews-wfim-incident-sync-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfnews",
-        "component": "wfnews-wfim-incident-sync-api"
-      }
-    },
-    {
-      "id": "wfone-portal-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfone",
-        "component": "wfone-portal-api"
-      }
-    },
-    {
-      "id": "wfone-portal-war",
-      "type": "tomcat",
-      "context": {
-        "app": "wfone",
-        "component": "wfone-portal-war"
-      }
-    },
-    {
-      "id": "wfone-quartzdesk-agent",
-      "type": "tomcat",
-      "context": {
-        "app": "wfone",
-        "component": "wfone-quartzdesk-agent"
-      }
-    },
-    {
-      "id": "wfone-quartzdesk-war",
-      "type": "tomcat",
-      "context": {
-        "app": "wfone",
-        "component": "wfone-quartzdesk-war"
-      }
-    },
-    {
-      "id": "wfone-vendor-portal-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfone",
-        "component": "wfone-vendor-portal-api"
-      }
-    },
-    {
-      "id": "wfone-vendor-portal-war",
-      "type": "tomcat",
-      "context": {
-        "app": "wfone",
-        "component": "wfone-vendor-portal-war"
-      }
-    },
-    {
-      "id": "wfone-workflow-admin-war",
-      "type": "tomcat",
-      "context": {
-        "app": "wfone",
-        "component": "wfone-workflow-admin-war"
-      }
-    },
-    {
-      "id": "wfone-workflow-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfone",
-        "component": "wfone-workflow-api"
-      }
-    },
-    {
-      "id": "wforg-org-unit-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wforg",
-        "component": "wforg-org-unit-api"
-      }
-    },
-    {
-      "id": "wfrm-contracts-war",
-      "type": "tomcat",
-      "context": {
-        "app": "wfrm",
-        "component": "wfrm-contracts-war"
-      }
-    },
-    {
-      "id": "wfrm-employee-sync-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfrm",
-        "component": "wfrm-employee-sync-api"
-      }
-    },
-    {
-      "id": "wfrm-resource-classification-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfrm",
-        "component": "wfrm-resource-classification-api"
-      }
-    },
-    {
-      "id": "wfrm-resources-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfrm",
-        "component": "wfrm-resources-api"
-      }
-    },
-    {
-      "id": "wfrm-resource-schedule-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfrm",
-        "component": "wfrm-resource-schedule-api"
-      }
-    },
-    {
-      "id": "wfrm-resources-v2-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfrm",
-        "component": "wfrm-resources-v2-api"
-      }
-    },
-    {
-      "id": "wfrm-resources-war",
-      "type": "tomcat",
-      "context": {
-        "app": "wfrm",
-        "component": "wfrm-resources-war"
-      }
-    },
-    {
-      "id": "wfrm-timereports-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfrm",
-        "component": "wfrm-timereports-api"
-      }
-    },
-    {
-      "id": "wfrm-war",
-      "type": "tomcat",
-      "context": {
-        "app": "wfrm",
-        "component": "wfrm-war"
       }
     },
     {
@@ -517,46 +284,6 @@
       "context": {
         "app": "wfwx",
         "component": "wfwx-web-war"
-      }
-    },
-    {
-      "id": "rrt-war",
-      "type": "tomcat",
-      "context": {
-        "app": "rrt",
-        "component": "rrt-war"
-      }
-    },
-    {
-      "id": "webade-access-invitation-api",
-      "type": "tomcat",
-      "context": {
-        "app": "webade",
-        "component": "webade-access-invitation-api"
-      }
-    },
-    {
-      "id": "webade-oauth2-api",
-      "type": "tomcat",
-      "context": {
-        "app": "webade",
-        "component": "webade-oauth2-api"
-      }
-    },
-    {
-      "id": "webade-rest-api",
-      "type": "tomcat",
-      "context": {
-        "app": "webade",
-        "component": "webade-rest-api"
-      }
-    },
-    {
-      "id": "webade-adam",
-      "type": "tomcat",
-      "context": {
-        "app": "webade",
-        "component": "webade-adam"
       }
     }
   ],
