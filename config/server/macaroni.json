@@ -142,7 +142,7 @@
       "type": "tomcat",
       "context": {
         "app": "FNIRS",
-        "component": "fnirs"
+        "component": "fnirs-war"
       }
     },
     {
