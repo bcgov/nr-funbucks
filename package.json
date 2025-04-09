@@ -28,7 +28,6 @@
   "devDependencies": {
     "@oclif/test": "^4.1.12",
     "@types/chai": "^5.2.1",
-    "@types/eslint__js": "^9.14.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.14.0",
     "@types/nunjucks": "^3.2.6",
@@ -81,5 +80,13 @@
   "keywords": [
     "oclif"
   ],
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "bundleDependencies": [
+    "@oclif/core",
+    "@oclif/plugin-help",
+    "@oclif/plugin-plugins",
+    "nunjucks",
+    "semver",
+    "yaml"
+  ]
 }
