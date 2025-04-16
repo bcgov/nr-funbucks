@@ -326,7 +326,7 @@
       "type": "tomcat",
       "context": {
         "app": "NFISBC",
-        "component": "nfisbc"
+        "component": "nfisbc-war"
       }
     },
     {
