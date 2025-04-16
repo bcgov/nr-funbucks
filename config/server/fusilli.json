@@ -302,7 +302,7 @@
       "type": "tomcat",
       "context": {
         "app": "LTRACK",
-        "component": "ltrack"
+        "component": "ltrack-war"
       }
     },
     {
