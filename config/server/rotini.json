@@ -383,7 +383,7 @@
       "type": "tomcat",
       "context": {
         "app": "RTM",
-        "component": "rtm"
+        "component": "rtm-war"
       }
     },
     {
