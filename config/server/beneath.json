@@ -404,6 +404,14 @@
       }
     },
     {
+      "id": "wfrm-resources-summary-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfrm",
+        "component": "wfrm-resources-summary-api"
+      }
+    },
+    {
       "id": "wfrm-resources-v2-api",
       "type": "tomcat",
       "context": {
