@@ -484,6 +484,7 @@
     }
   ],
   "context": {
-    "environment": "test"
+    "environment": "test",
+    "fluentBitRelease": "2.2.2"
   }
 }
