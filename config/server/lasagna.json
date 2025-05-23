@@ -243,11 +243,11 @@
       }
     },
     {
-      "id": "ilcr",
+      "id": "ilcr-war",
       "type": "tomcat",
       "context": {
         "app": "ILCR",
-        "component": "ilcr"
+        "component": "ilcr-war"
       }
     },
     {
