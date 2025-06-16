@@ -364,15 +364,6 @@
       }
     },
     {
-      "id": "ttlsws",
-      "type": "tomcat",
-      "context": {
-        "app": "ttlsws",
-        "component": "ttlsws",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-TTLSWS.log"
-      }
-    },
-    {
       "id": "wimsi",
       "type": "tomcat",
       "context": {
