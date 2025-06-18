@@ -186,14 +186,6 @@
       }
     },
     {
-      "id": "gas2",
-      "type": "tomcat",
-      "context": {
-        "app": "GAS",
-        "component": "gas2"
-      }
-    },
-    {
       "id": "gys",
       "type": "tomcat",
       "context": {
