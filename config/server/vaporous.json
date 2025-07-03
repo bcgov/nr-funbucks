@@ -34,8 +34,8 @@
       "id": "wfint-jcrs",
       "type": "tomcat",
       "context": {
-        "app": "jasperserver",
-        "component": "jaspersoft-bi",
+        "app": "WFONE",
+        "component": "wfjcrs-war",
         "!logs_path_app": "/apps_ux/logs/WFONE/wfjcrs-war/jasperserver.log",
         "environment": "wfint"
       }
