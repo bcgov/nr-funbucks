@@ -36,7 +36,7 @@
       "context": {
         "app": "jasperserver",
         "component": "jaspersoft-bi",
-        "!logs_path_app": "/apps_ux/logs/WFONE/wfjcrs-war/jasperserver_WFJCRS.log",
+        "!logs_path_app": "/apps_ux/logs/WFONE/wfjcrs-war/jasperserver.log",
         "environment": "wfint"
       }
     }
