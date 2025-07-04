@@ -17,8 +17,7 @@
       "type": "wso2",
       "context": {
         "app": "wso2",
-        "component": "api-manager",
-        "environment": "wfint"
+        "component": "api-manager"
       }
     },
     {
@@ -26,8 +25,7 @@
       "type": "fme",
       "context": {
         "app": "fmeserver",
-        "component": "fmeserver",
-        "environment": "wfint"
+        "component": "fmeserver"
       }
     },
     {
@@ -36,10 +34,11 @@
       "context": {
         "app": "WFONE",
         "component": "wfjcrs-war",
-        "!logs_path_app": "/apps_ux/logs/WFONE/wfjcrs-war/jasperserver.log",
-        "environment": "wfint"
+        "!logs_path_app": "/apps_ux/logs/WFONE/wfjcrs-war/jasperserver.log"
       }
     }
   ],
-  "context": {}
+  "context": {
+    "environment": "wfint"
+  }
 }
