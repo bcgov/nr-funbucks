@@ -17,7 +17,8 @@
       "type": "wso2",
       "context": {
         "app": "wso2",
-        "component": "api-manager"
+        "component": "api-manager",
+        "!logs_path_app": "/sw_ux/wso2/wso2am410/repository/logs/wso2carbon.log"
       }
     },
     {
