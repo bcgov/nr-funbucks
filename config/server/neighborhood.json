@@ -20,6 +20,20 @@
         "eventDataset": "apache.access.internal",
         "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wftst{% else %}/sw_ux/httpd01/logs/hot{% endif %}/neighborhood-httpd01-t1*-access*.log"
       }
+    },
+    {
+      "id": "wfss-geoserver-war-wftst",
+      "type": "tomcat",
+      "context": {
+        "environment": "wftst",
+        "app": "wfss",
+        "component": "wfss-geoserver-war",
+        "!logs_path_localhost_access_log": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wftst/localhost_access_log.*.log",
+        "!logs_path_localhost": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wftst/localhost.*.log",
+        "!logs_path_catalina": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wftst/catalina.*.log",
+        "!logs_path_app": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wftst/{{ component | lower }}.log",
+        "timestampTimezone": "Etc/UTC"
+      }
     }
   ],
   "context": {}

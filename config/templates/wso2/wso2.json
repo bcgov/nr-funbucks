@@ -1,7 +1,7 @@
 {
   "measurementType": "historic",
   "context": {
-    "wso2_logs_path": "wso2/wso2am/repository/logs",
+    "wso2_logs_path": "wso2/wso2am410/repository/logs",
     "!logs_path_app": "{{ localLogsPathPrefix | default('/sw_ux') }}/{{ wso2_logs_path }}/wso2carbon.log",
     "!logs_path_exclude": "*.gz{% raw %},{% endraw %}*.zip",
     "appParserFilterRegex": "(?m)^TID:\\s*\\[(?<tid>-\\d+)]\\s*\\[]\\s*\\[(?<tomcat_time>\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}(.\\d{3})?)](\\s+)(?<level>\\w+)[\\s:]*(?<message_parsed>.*)",

@@ -17,6 +17,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "wfdlv",
+        "eventDataset": "apache.access.internal",
         "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wfdlv{% else %}/sw_ux/httpd01/logs/hot{% endif %}/block-httpd01-d1*-access*.log"
       }
     },
@@ -25,6 +26,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "wfint",
+        "eventDataset": "apache.access.internal",
         "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wfint{% else %}/sw_ux/httpd01/logs/hot{% endif %}/block-httpd01-i1*-access*.log"
       }
     },
@@ -33,6 +35,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "wftst",
+        "eventDataset": "apache.access.internal",
         "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/wftst{% else %}/sw_ux/httpd01/logs/hot{% endif %}/block-httpd01-t1*-access*.log"
       }
     },

@@ -32,9 +32,9 @@
       "id": "wfprd-jcrs",
       "type": "tomcat",
       "context": {
-        "app": "jasperserver",
-        "component": "jaspersoft-bi",
-        "!logs_path_app": "/apps_ux/logs/WFONE/wfjcrs-war/jasperserver_WFJCRS.log"
+        "app": "WFONE",
+        "component": "wfjcrs-war",
+        "!logs_path_app": "/apps_ux/logs/WFONE/wfjcrs-war/jasperserver.log"
       }
     }
   ],
