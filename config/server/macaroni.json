@@ -337,11 +337,11 @@
       }
     },
     {
-      "id": "rept",
+      "id": "rept-war",
       "type": "tomcat",
       "context": {
         "app": "REPT",
-        "component": "rept"
+        "component": "rept-war"
       }
     },
     {
