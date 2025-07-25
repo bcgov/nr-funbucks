@@ -256,11 +256,11 @@
       }
     },
     {
-      "id": "lexis",
+      "id": "lexis-war",
       "type": "tomcat",
       "context": {
         "app": "LEXIS",
-        "component": "lexis"
+        "component": "lexis-war"
       }
     },
     {
