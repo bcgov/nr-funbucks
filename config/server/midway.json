@@ -62,14 +62,6 @@
       }
     },
     {
-      "id": "wfhr-chips-sync-api",
-      "type": "tomcat",
-      "context": {
-        "app": "wfhr",
-        "component": "wfhr-chips-sync-api"
-      }
-    },
-    {
       "id": "wfhr-diary-submission-listener-api",
       "type": "tomcat",
       "context": {
