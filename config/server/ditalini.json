@@ -256,14 +256,6 @@
       }
     },
     {
-      "id": "lexis-war",
-      "type": "tomcat",
-      "context": {
-        "app": "LEXIS",
-        "component": "lexis-war"
-      }
-    },
-    {
       "id": "lexisvc",
       "type": "tomcat",
       "context": {
