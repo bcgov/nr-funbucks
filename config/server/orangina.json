@@ -427,7 +427,7 @@
       "type": "tomcat",
       "context": {
         "app": "NRMCFS",
-        "component": "nrmcfs-ffs-server-war",
+        "component": "nrmcfs-ffs-server-war"
       }
     },
     {
