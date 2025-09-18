@@ -14,7 +14,7 @@ export HOST_HOSTNAME="$(hostname -s)"
 export HOST_ID="$(hostname -f)"
 export HOST_NAME="${HOST_HOSTNAME}"
 export HOST_DOMAIN="$(echo ${HOST_HOSTNAME#[[:alpha:]]*.})"
-export FLUENT_VERSION="3.1.6"
+export FLUENT_VERSION="4.0.9"
 export FLUENT_CONF_HOME="/config"
 export FUNBUCKS_HOME="${PWD}/.."
 
@@ -23,6 +23,7 @@ podman run --rm \
     -v "${FUNBUCKS_HOME}/output:/config" \
     -v "${PWD}/data:/data" \
     -v "/proc/stat:/proc/stat:ro" \
+    -v "/tmp:/tmp" \
     -e FLUENT_VERSION=${FLUENT_VERSION} \
     -e HOST_* \
     -e FLUENT_CONF_HOME=${FLUENT_CONF_HOME} \
