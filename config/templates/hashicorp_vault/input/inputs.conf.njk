@@ -1,23 +1,23 @@
 [INPUT]
     Name tail
-    Tag {{typeTag}}.audit
-    Buffer_Max_Size 1024k
-    Parser {{typeTag}}.json
-    Path {{vaultAuditPath}}/vault_audit.log
-    Path_Key log_file_path
-    Exclude_Path *.gz,*.zip
-    Offset_Key event_sequence
-    DB {{inputDbFile}}
-    Read_from_Head False
+    tag {{typeTag}}.audit
+    buffer_max_size 1024k
+    parser {{typeTag}}.json
+    path {{vaultAuditPath}}/vault_audit.log
+    path_key log_file_path
+    exclude_Path *.gz,*.zip
+    offset_key event_sequence
+    db {{inputDbFile}}
+    read_from_head false
 
 [INPUT]
     Name tail
-    Tag {{typeTag}}.log
-    Buffer_Max_Size 1024k
-    Parser {{typeTag}}.json
-    Path {{vaultAuditPath}}/vault_err.log
-    Path_Key log_file_path
-    Exclude_Path *.gz,*.zip
-    Offset_Key event_sequence
-    DB {{inputDbFile}}
-    Read_from_Head False
+    tag {{typeTag}}.log
+    buffer_max_size 1024k
+    parser {{typeTag}}.json
+    path {{vaultAuditPath}}/vault_err.log
+    path_key log_file_path
+    exclude_path *.gz,*.zip
+    offset_key event_sequence
+    db {{inputDbFile}}
+    read_from_head false
