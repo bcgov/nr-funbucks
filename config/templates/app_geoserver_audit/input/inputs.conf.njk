@@ -1,12 +1,12 @@
 [INPUT]
     Name tail
-    Tag {{typeTag}}.log
-    Buffer_Max_Size 1024k
-    Parser {{typeTag}}.json
-    Path {{inputLogPath}}
-    Path_Key log_file_path
-    Exclude_Path *.gz,*.zip
-    Offset_Key event_sequence
-    DB {{inputDb}}
-    Read_from_Head False
-    Refresh_Interval 15
+    tag {{typeTag}}.log
+    buffer_max_size 1024k
+    parser {{typeTag}}.json
+    path {{inputLogPath}}
+    path_key log_file_path
+    exclude_path *.gz,*.zip
+    offset_key event_sequence
+    db {{inputDb}}
+    read_from_head false
+    refresh_interval 15
