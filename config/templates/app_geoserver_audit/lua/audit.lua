@@ -42,7 +42,7 @@ function construct_log_message(tag, timestamp, record)
     copy_as_number_to_new_message("ResponseLength", "http.response.body.bytes", record, new_record)
     copy_to_new_message("ResponseContentType", "http.response.mime_type", record, new_record)
     copy_to_new_message("log_file_path", "log.file.path", record, new_record)
-    copy_to_new_message("event_sequence", "event.original", record, new_record)
+    copy_to_new_message("id", "event.original", record, new_record)
     -- Drop: CacheResult
     -- Drop: MissReason
     -- Drop: Failed (Dervired from http.response.status_code)
