@@ -1,7 +1,6 @@
 {
   "measurementType": "historic",
   "context": {
-    "!inputDb": "{{ '/tmp/fluent-bit-logs.db' if outputLocalLambdaEnabled else '/apps_data/agents/fluent-bit/fluent-bit-logs.db' }}",
     "!inputLogPath": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}/geoserver_audit_*.log"
   },
   "files": [
