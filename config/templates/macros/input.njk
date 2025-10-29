@@ -1,36 +1,36 @@
 {% macro renderTail(tag, path, parser = false, exclude_path) -%}
 [INPUT]
     Name              tail
-    Tag               {{tag}}
-    Path              {{path}}
-    Path_Key          log_file_path
-    Exclude_Path      {{exclude_path}}
-    Offset_Key        event_sequence
-    DB                {{inputDbFile}}
-    Read_from_Head    False
-    Key               message
-    Mem_Buf_Limit     {{ inputTailMemBufLimit }}
-    Ignore_Older      {{ inputTailIgnoreOlder }}
-    Skip_Empty_Lines  On
-    Skip_Long_Lines   On{% if parser %}
-    Parser            {{parser}}
+    tag               {{tag}}
+    path              {{path}}
+    path_key          log_file_path
+    exclude_path      {{exclude_path}}
+    offset_key        event_sequence
+    db                {{inputDbFile}}
+    read_from_head    false
+    key               message
+    mem_buf_limit     {{ inputTailMemBufLimit }}
+    ignore_older      {{ inputTailIgnoreOlder }}
+    skip_empty_lines  on
+    skip_long_lines   on{% if parser %}
+    parser            {{parser}}
 {% endif %}
 {% endmacro %}
 
 {% macro renderMultilineTail(tag, path, parserName, exclude_path) %}
 [INPUT]
     Name              tail
-    Tag               {{tag}}
-    Path              {{path}}
+    tag               {{tag}}
+    path              {{path}}
     multiline.parser  {{parserName}}
-    Path_Key          log_file_path
-    Exclude_Path      {{exclude_path}}
-    Offset_Key        event_sequence
-    Key               message
-    DB                {{inputDbFile}}
-    Read_from_Head    False
-    Mem_Buf_Limit     {{ inputTailMemBufLimit }}
-    Ignore_Older      {{ inputTailIgnoreOlder }}
-    Skip_Empty_Lines  On
-    Skip_Long_Lines   On
+    path_key          log_file_path
+    exclude_path      {{exclude_path}}
+    offset_key        event_sequence
+    key               message
+    db                {{inputDbFile}}
+    read_from_head    false
+    mem_buf_limit     {{ inputTailMemBufLimit }}
+    ignore_older      {{ inputTailIgnoreOlder }}
+    skip_empty_lines  on
+    skip_long_lines   on
 {% endmacro %}
