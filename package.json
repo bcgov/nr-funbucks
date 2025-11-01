@@ -22,7 +22,7 @@
     "@oclif/plugin-help": "^6.2.27",
     "@oclif/plugin-plugins": "^5.4.36",
     "nunjucks": "^3.2.4",
-    "semver": "^7.7.1",
+    "semver": "^7.7.3",
     "yaml": "^2.7.1"
   },
   "devDependencies": {
@@ -31,7 +31,7 @@
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.15.3",
     "@types/nunjucks": "^3.2.6",
-    "@types/semver": "^7.7.0",
+    "@types/semver": "^7.7.1",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
     "@typescript-eslint/parser": "^8.31.1",
     "chai": "^5.2.0",
