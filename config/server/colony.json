@@ -34,6 +34,16 @@
         "!logs_path_app": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wftst/{{ component | lower }}.log",
         "timestampTimezone": "Etc/UTC"
       }
+    },
+    {
+      "id": "wfss-geoserver-audit-wfdlv",
+      "type": "app_geoserver_audit",
+      "context": {
+        "environment": "wftst",
+        "app": "wfss",
+        "component": "wfss-geoserver-war",
+        "!inputLogPath": "{{ localLogsPathPrefix | default('/apps_ux/logs' if os === 'linux' else 'E:/apps_nt/logs') }}/{{ app | upper }}/{{ component | lower }}-wftst/geoserver_audit_*.log"
+      }
     }
   ],
   "context": {}
