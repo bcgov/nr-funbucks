@@ -380,8 +380,7 @@
         "type": "tomcat",
         "context": {
           "app": "NRMCFS",
-          "component": "nrmcfs-ffs-server-war",
-          "!logs_path_app": "/apps_ux/logs/NRMCFS/nrmcfs-ffs-server-war/nrmcfs-ffs-war.log"
+          "component": "nrmcfs-ffs-server-war"
         }
       },
       {
