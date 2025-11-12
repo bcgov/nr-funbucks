@@ -11,7 +11,7 @@
     "startTomcatParserRegex": "/^\\d{2}-\\w{3}-\\d{4}.\\d{2}:\\d{2}:\\d{2}.\\d{3}.*$/",
     "contTomcatParserRegex": "/^[ \\ta-zA-Z\\D\\r].*/",
     "startAppParserRegex": "/^\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}(?:.\\d{3}?).*$/",
-    "contAppParserRegex": "/^[ \\ta-zA-Z\\D\\r].*/"
+    "contAppParserRegex": "/^(?!\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2})[\/< \\ta-zA-Z\\D\\r\\d].*/"
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},

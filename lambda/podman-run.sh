@@ -14,7 +14,7 @@ export HOST_HOSTNAME="$(hostname -s)"
 export HOST_ID="$(hostname -f)"
 export HOST_NAME="${HOST_HOSTNAME}"
 export HOST_DOMAIN="$(echo ${HOST_HOSTNAME#[[:alpha:]]*.})"
-export FLUENT_VERSION="4.0.9"
+export FLUENT_VERSION="4.1.1"
 export FLUENT_CONF_HOME="/config"
 export FUNBUCKS_HOME="${PWD}/.."
 
