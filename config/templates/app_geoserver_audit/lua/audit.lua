@@ -16,6 +16,7 @@ function construct_log_message(tag, timestamp, record)
     new_record = {}
     copy_to_new_message("id", "http.request.id", record, new_record)
     copy_to_new_message("Service", "event.provider", record, new_record)
+    copy_to_new_message("Resource", "event.module", record, new_record)
     -- etc - start
     copy_to_new_message("Version", "etc.version", record, new_record)
     copy_to_new_message("Operation", "etc.operation", record, new_record)
