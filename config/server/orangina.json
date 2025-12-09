@@ -189,14 +189,6 @@
       }
     },
     {
-      "id": "edqa-war",
-      "type": "tomcat",
-      "context": {
-        "app": "EDQA",
-        "component": "edqa-war"
-      }
-    },
-    {
       "id": "eyor-api",
       "type": "tomcat",
       "context": {
@@ -298,14 +290,6 @@
       "context": {
         "app": "FTA",
         "component": "fta-tenures-api"
-      }
-    },
-    {
-      "id": "hrc-war-dlvr",
-      "type": "tomcat",
-      "context": {
-        "app": "HRC",
-        "component": "hrc-war-dlvr"
       }
     },
     {

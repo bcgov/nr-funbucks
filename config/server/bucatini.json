@@ -238,15 +238,6 @@
       }
     },
     {
-      "id": "irs-war",
-      "type": "tomcat",
-      "context": {
-        "app": "irs",
-        "component": "irs-war",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/irs-war.log"
-      }
-    },
-    {
       "id": "mapvunix",
       "type": "tomcat",
       "context": {
@@ -361,15 +352,6 @@
         "app": "seedmap",
         "component": "seedmap",
         "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-SEEDMAP.log"
-      }
-    },
-    {
-      "id": "wimsi",
-      "type": "tomcat",
-      "context": {
-        "app": "wimsi",
-        "component": "wimsi",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-WIMSI.log"
       }
     }
   ],
