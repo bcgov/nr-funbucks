@@ -5,4 +5,13 @@
     Format        regex
     Regex         {{appParserFilterRegex|safe}}
     Time_Key      tomcat_time
-    
+
+# App (activemq) multiline core parser
+#
+[MULTILINE_PARSER]
+    name          multiline-core-audit-regex-{{typeTag}}
+    type          regex
+    flush_timeout 1000
+    key_content message
+    rule      "start_state"   "{{startAppParserRegex|safe}}"  "cont"
+    rule      "cont"          "{{contAppParserRegex|safe}}"    "cont"

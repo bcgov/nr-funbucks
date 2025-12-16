@@ -33,18 +33,16 @@
 [FILTER]
     Name modify
     Match {{typeTag}}.audit
-    Condition Key_Exists ip    
+    Condition Key_Exists ip
     Set event.dataset mq.audit
     Rename ip source.ip
     Rename port source.port
-    Rename scheme url.scheme    
+    Rename scheme url.scheme
     Rename message_parsed message
 
 [FILTER]
     Name modify
     Match {{typeTag}}.audit
-    Condition Key_Exists message_parsed_second    
+    Condition Key_Exists message_parsed_second
     Set event.dataset application.log
     Rename message_parsed_second message
-
-

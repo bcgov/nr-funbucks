@@ -4,7 +4,9 @@
     "activemq_logs_path": "activemq/current/data/",
     "!logs_path_app": "{{ localLogsPathPrefix | default('/sw_ux') }}/{{ activemq_logs_path }}/activemq.log",
     "!logs_path_exclude": "*.gz{% raw %},{% endraw %}*.zip",
-    "appParserFilterRegex": "(?m)^(?<tomcat_time>\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}.\\d{3})\\s\\|\\s(?<level>\\w+)\\s+\\|\\s(((?<message_parsed>.*)Transport: (?<scheme>\\S+):\\/\\/\\/(?<ip>.+):(?<port>\\d+).*)|(?<message_parsed_second>.*))"
+    "appParserFilterRegex": "(?m)^(?<tomcat_time>\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}.\\d{3})\\s\\|\\s(?<level>\\w+)\\s+\\|\\s(((?<message_parsed>.*)Transport: (?<scheme>\\S+):\\/\\/\\/(?<ip>\\d+.\\d+.\\d+.\\d+):(?<port>\\d+).*)|(?<message_parsed_second>.*))",
+    "startAppParserRegex": "/^\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}(?:.\\d{3}?).*$/",
+    "contAppParserRegex": "/^(?!\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2})[\/< \\ta-zA-Z\\D\\r\\d].*/"
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},
