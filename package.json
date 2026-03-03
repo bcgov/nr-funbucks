@@ -18,9 +18,9 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
-    "@oclif/core": "^4.8.0",
+    "@oclif/core": "^4.8.3",
     "@oclif/plugin-help": "^6.2.37",
-    "@oclif/plugin-plugins": "^5.4.55",
+    "@oclif/plugin-plugins": "^5.4.56",
     "nunjucks": "^3.2.4",
     "semver": "^7.7.4",
     "yaml": "^2.8.2"
@@ -29,23 +29,23 @@
     "@oclif/test": "^4.1.16",
     "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^24.10.11",
+    "@types/node": "^25.3.3",
     "@types/nunjucks": "^3.2.6",
     "@types/semver": "^7.7.1",
     "chai": "^6.2.2",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.2",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-jest": "^29.12.2",
+    "eslint-plugin-jest": "^29.15.0",
     "eslint-plugin-prettier": "^5.5.5",
     "jest": "^30.2.0",
     "mocha": "^11.7.5",
-    "oclif": "^4.22.73",
+    "oclif": "^4.22.81",
     "shx": "^0.4.0",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.54.0"
+    "typescript-eslint": "^8.56.1"
   },
   "oclif": {
     "bin": "nr-funbucks",
