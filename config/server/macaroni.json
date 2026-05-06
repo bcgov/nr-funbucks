@@ -201,6 +201,14 @@
         "app": "SPAR",
         "component": "spar-war"
       }
+    },
+    {
+      "id": "rept-backend",
+      "type": "tomcat",
+      "context": {
+        "app": "REPT",
+        "component": "rept-backend"
+      }
     }
   ],
   "context": {

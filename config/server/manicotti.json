@@ -209,6 +209,14 @@
         "component": "waste-war",
         "!logs_path_app": "/apps_ux/logs/WASTE/waste-war/APP-WASTE-FOR.log*"
       }
+    },
+    {
+      "id": "rept-backend",
+      "type": "tomcat",
+      "context": {
+        "app": "REPT",
+        "component": "rept-backend"
+      }
     }
   ],
   "context": {
