@@ -43,18 +43,185 @@ $ ./bin/dev oc -s knox
 ```
 The [output_pack](./output_pack/) folder will now contain a ConfigMap and Volume for pasting into a Kubernetes deployment config.
 
-## Running a configuration against the local lambda (nr-apm-stack/event-stream-processing)
+## Local Testing Workflow
 
-1. Generate your server's configuration using the local (-l) flag and (-a) flag
-2. Place any documents in ./lambda/data. You will need to lay the files out relative to the log directory like they would be on the server. Check the generated files (inputs.conf) in ./output if you are confused.
-3. Ensure the local lambda is running. See: [nr-apm-stack repository readme](https://github.com/BCDevOps/nr-apm-stack/blob/master/event-stream-processing/README.md)
-4. Run ```./lambda/podman-run.sh```
+Funbucks integrates with [nr-apm-stack/event-stream-processing](https://github.com/bcgov-nr/nr-apm-stack/tree/main/event-stream-processing) to provide end-to-end testing of Fluent Bit configurations. You can test if a configuration correctly processes log files before deploying to production.
+
+### Quick Start
+
+```bash
+# Terminal 1: Start the mock Lambda server (processes logs)
+cd ../nr-apm-stack/event-stream-processing
+npm run start
+
+# Terminal 2: Generate and test configuration
+cd nr-funbucks
+./bin/dev gen -l -s localhost -a metric_host_cpu
+./lambda/podman-run.sh
+```
+
+### Step-by-Step Testing Workflow
+
+#### Step 1: Start the Local Lambda Server
+
+The local server acts as a mock AWS Lambda that processes logs. Choose one approach:
+
+**Option A: Direct Node.js server (recommended for development)**
+
+```bash
+cd ../nr-apm-stack/event-stream-processing
+npm run start
+```
+
+This starts an HTTP server on `localhost:3000` that:
+- Receives JSON logs from Fluent Bit
+- Processes them through the same logic as production AWS Lambda
+- Returns processed output for verification
+
+**Option B: AWS SAM (if testing Lambda-specific behavior)**
+
+```bash
+cd ../nr-apm-stack/event-stream-processing
+sam build
+sam local generate-event kinesis get-records --data "$(jq -c samples/access-logs.json)" | \
+  sam local invoke -e - --skip-pull-image \
+  --parameter-overrides LambdaHandler="index.kinesisStreamDummyHandler" LogLevel="debug"
+```
+
+#### Step 2: Generate Fluent Bit Configuration
+
+```bash
+./bin/dev gen -l -s localhost -a metric_host_cpu
+```
+
+This generates configuration in the `output/` directory:
+- `fluent-bit.conf` - Main configuration file
+- `inputs.conf` - Log input sources (reads from `/data`)
+- `outputs.conf` - Output destinations (configured to send to `localhost:3000`)
+- `parsers.conf` - Log parsing rules
+- `filters.conf` - Log processing filters
+
+**Using the `-l` flag** ensures output is sent to localhost HTTP instead of production endpoints.
+
+#### Step 3: Prepare Test Data
+
+Place test log files in `./lambda/data/` structured as they would appear on the actual server:
+
+```
+lambda/data/
+├── var/log/httpd/
+│   └── access_log
+├── var/log/tomcat/
+│   └── catalina.log
+└── var/log/app/
+    └── custom.log
+```
+
+Sample log files are available in `../nr-apm-stack/event-stream-processing/samples/`:
+- `access-logs.json` - HTTP access logs (ECS format)
+- `audit-logs.json` - Audit logs
+- `fail-log.json` - Error/failure logs
+- `access-jsonrpc.json` - JSON-RPC logs
+
+Copy the relevant sample into `lambda/data/` matching the log paths that Fluent Bit expects to read.
+
+#### Step 4: Run Fluent Bit in Container
+
+```bash
+./lambda/podman-run.sh
+```
+
+This script:
+- Runs the official `fluent/fluent-bit` container
+- Mounts generated configs from `output/` directory
+- Mounts test data from `lambda/data/` directory
+- Executes `fluent-bit -c /config/fluent-bit.conf`
+- Sends logs to the running local server on `localhost:3000`
+
+#### Step 5: Verify Output
+
+Monitor the local server terminal for processed log output. If logs are being processed correctly:
+- No errors in the Fluent Bit container output
+- Server terminal shows incoming requests
+- Processing logic executed without exceptions
+
+### Testing Without Containers
+
+For quick validation without running Fluent Bit in a container:
+
+```bash
+# Start the local server
+cd ../nr-apm-stack/event-stream-processing
+npm run start
+
+# Send test data directly
+cd ../nr-funbucks
+curl -X POST -H "Content-Type: application/json" \
+  -d @../nr-apm-stack/event-stream-processing/samples/access-logs.json \
+  "http://localhost:3000?print=true"
+```
+
+The `?print=true` parameter makes the response print to console for easy inspection.
 
 ### Why should I use the -a flag for local testing?
 
-Mostly, it would be too noisy. Some input plugins are not supported by the container as well.
+The `-a` (application) flag limits generated configuration to a single application, which is recommended for local testing for two reasons:
 
-For servers with a large number of applications, the generated configuration may contain too many filters and other objects for a single Fluentbit agent to handle. In this case, you would need to use the '-a' or application flag to limit the generation for the configuration to a specific application for local testing.
+1. **Reduces noise** - Fewer filters and processing steps makes output easier to debug
+2. **Performance** - Some input plugins are not supported by the container. Fluent Bit also has upper limits on the number of filters it can handle per agent.
+
+For servers with many applications, use the `-a` flag to focus testing on one application at a time:
+
+```bash
+./bin/dev gen -l -s midway -a rrt-war
+./lambda/podman-run.sh
+```
+
+### Common Testing Scenarios
+
+**Test a single application on a server:**
+```bash
+./bin/dev gen -l -s knox -a vault
+./lambda/podman-run.sh
+```
+
+**Test with different Fluent Bit version:**
+Update `fluentBitRelease` in `config/server/localhost.json`, then regenerate and run.
+
+**Test filter parameters by overriding context:**
+```bash
+./bin/dev gen -l -s localhost -c deploy_1:inputPath//custom/path -c outputAwsKinesisEnabled/true
+./lambda/podman-run.sh
+```
+
+**Test on different operating systems:**
+Generate configurations for different server configs with different `os` values:
+```bash
+./bin/dev gen -l -s midway  # Linux server
+./bin/dev gen -l -s windows-server  # Windows server (if config exists)
+```
+
+### Troubleshooting
+
+**Fluent Bit container won't start:**
+- Verify `output/fluent-bit.conf` was generated successfully
+- Check that `output/inputs.conf` paths match files in `lambda/data/`
+- Ensure Podman is running: `podman ps`
+
+**No logs appearing on server:**
+- Verify local server is running on `localhost:3000`
+- Check Fluent Bit container logs: `podman logs <container-id>`
+- Confirm test data files exist in `lambda/data/` with correct directory structure
+- Compare paths in generated `inputs.conf` with actual file locations
+
+**Configuration generation failed:**
+- Verify server config exists in `config/server/<server-name>.json`
+- Check application id matches existing app in server config (use `-a` flag)
+- Validate JSON syntax in server configuration files
+
+**Too many filters error:**
+- Use `-a` flag to limit to single application
+- Or use `-m` (multiple) flag for multi-config output mode
 
 ## How to add or modify the configuration
 ### Server configuration
