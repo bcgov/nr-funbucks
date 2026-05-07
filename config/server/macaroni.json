@@ -147,6 +147,14 @@
       }
     },
     {
+      "id": "rept3",
+      "type": "tomcat",
+      "context": {
+        "app": "REPT",
+        "component": "rept-backend"
+      }
+    },
+    {
       "id": "rept-war",
       "type": "tomcat",
       "context": {
