@@ -34,6 +34,14 @@
       "context": {}
     },
     {
+      "id": "adamfor-web",
+      "type": "tomcat",
+      "context": {
+        "app": "adamfor",
+        "component": "adamfor-web"
+      }
+    },
+    {
       "id": "apt2",
       "type": "tomcat",
       "context": {
