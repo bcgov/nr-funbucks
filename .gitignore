@@ -11,3 +11,4 @@ oclif.manifest.json
 /lambda/data
 !/lambda/data/.keep
 .DS_Store
+*.tsbuildinfo
