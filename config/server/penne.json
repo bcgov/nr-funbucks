@@ -147,14 +147,6 @@
       }
     },
     {
-      "id": "rept",
-      "type": "tomcat",
-      "context": {
-        "app": "REPT",
-        "component": "rept"
-      }
-    },
-    {
       "id": "results",
       "type": "tomcat",
       "context": {
