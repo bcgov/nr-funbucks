@@ -4,6 +4,8 @@
     Log_File        {{fluentLogFile}}
 {%- endif %}
     Parsers_File    parsers.conf
+    scheduler.base  {{fluentSchedulerBase}}
+    scheduler.cap   {{fluentSchedulerCap}}
 
 {% for input in files_input -%}
 @INCLUDE {{input}}

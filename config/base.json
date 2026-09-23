@@ -7,6 +7,8 @@
     "!inputDbFile": "{{ 'E:' if os === 'windows'}}/apps_data/agents/fluent-bit/fluent-bit-logs.db",
     "inputTailMemBufLimit": "5MB",
     "inputTailIgnoreOlder": "7d",
+    "fluentSchedulerBase": 30,
+    "fluentSchedulerCap": 300,
     "outputAwsKinesisRetryLimit": 3,
     "outputAwsKinesisEnabled": true,
     "outputStdoutEnabled": false
