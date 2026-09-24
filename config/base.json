@@ -10,6 +10,7 @@
     "fluentSchedulerBase": 30,
     "fluentSchedulerCap": 300,
     "outputAwsKinesisRetryLimit": 3,
+    "outputAwsKinesisIoTimeout": "30s",
     "outputAwsKinesisEnabled": true,
     "outputStdoutEnabled": false
   },
