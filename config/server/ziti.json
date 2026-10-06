@@ -1,0 +1,208 @@
+{
+  "address": "ziti.bcgov",
+  "proxy": "http://forwardproxy.nrs.bcgov:23128",
+  "os": "linux",
+  "os_variant": "rhel9",
+  "vault_cd_user_field": "PODMAN_CD_USER",
+  "vault_cd_pass_field": "PODMAN_CD_PASS",
+  "vault_cd_path": "apps/prod/jenkins/jenkins-apps/cdua",
+  "apps": [
+    {
+      "id": "cpu",
+      "type": "metric_host_cpu",
+      "context": {}
+    },
+    {
+      "id": "disk",
+      "type": "metric_host_disk",
+      "context": {}
+    },
+    {
+      "id": "disk_named",
+      "type": "metric_host_disk_named",
+      "context": {}
+    },
+    {
+      "id": "memory",
+      "type": "metric_host_memory",
+      "context": {}
+    },
+    {
+      "id": "network",
+      "type": "metric_host_network",
+      "context": {}
+    },
+    {
+      "id": "adamfor-web",
+      "type": "tomcat",
+      "context": {
+        "app": "adamfor",
+        "component": "adamfor-web"
+      }
+    },
+    {
+      "id": "apt2",
+      "type": "tomcat",
+      "context": {
+        "app": "APT2",
+        "component": "apt2-war"
+      }
+    },
+    {
+      "id": "csp",
+      "type": "tomcat",
+      "context": {
+        "app": "CSP",
+        "component": "csp",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/APP-CSP.log"
+      }
+    },
+    {
+      "id": "fnirs",
+      "type": "tomcat",
+      "context": {
+        "app": "FNIRS",
+        "component": "fnirs-war"
+      }
+    },
+    {
+      "id": "frep",
+      "type": "tomcat",
+      "context": {
+        "app": "FREP",
+        "component": "frep-war"
+      }
+    },
+    {
+      "id": "fsp",
+      "type": "tomcat",
+      "context": {
+        "app": "FSP",
+        "component": "fsp-war"
+      }
+    },
+    {
+      "id": "fta",
+      "type": "tomcat",
+      "context": {
+        "app": "FTA",
+        "component": "fta"
+      }
+    },
+    {
+      "id": "ftasvc",
+      "type": "tomcat",
+      "context": {
+        "app": "FTA",
+        "component": "ftasvc"
+      }
+    },
+    {
+      "id": "ftc",
+      "type": "tomcat",
+      "context": {
+        "app": "FTA",
+        "component": "ftc"
+      }
+    },
+    {
+      "id": "ilcr",
+      "type": "tomcat",
+      "context": {
+        "app": "ILCR",
+        "component": "ilcr"
+      }
+    },
+    {
+      "id": "isp",
+      "type": "tomcat",
+      "context": {
+        "app": "ISP",
+        "component": "isp"
+      }
+    },
+    {
+      "id": "ltrack",
+      "type": "tomcat",
+      "context": {
+        "app": "LTRACK",
+        "component": "ltrack-war"
+      }
+    },
+    {
+      "id": "msd",
+      "type": "tomcat",
+      "context": {
+        "app": "MSD",
+        "component": "msd"
+      }
+    },
+    {
+      "id": "nfisbc",
+      "type": "tomcat",
+      "context": {
+        "app": "NFISBC",
+        "component": "nfisbc-war"
+      }
+    },
+    {
+      "id": "results",
+      "type": "tomcat",
+      "context": {
+        "app": "RESULTS",
+        "component": "results"
+      }
+    },
+    {
+      "id": "resultsvc",
+      "type": "tomcat",
+      "context": {
+        "app": "RESULTS",
+        "component": "resultsvc"
+      }
+    },
+    {
+      "id": "results_poc",
+      "type": "tomcat",
+      "context": {
+        "app": "RESULTS",
+        "component": "results-war"
+      }
+    },
+    {
+      "id": "rtm",
+      "type": "tomcat",
+      "context": {
+        "app": "RTM",
+        "component": "rtm-war"
+      }
+    },
+    {
+      "id": "scs",
+      "type": "tomcat",
+      "context": {
+        "app": "SCS",
+        "component": "scs"
+      }
+    },
+    {
+      "id": "spar",
+      "type": "tomcat",
+      "context": {
+        "app": "SPAR",
+        "component": "spar-war"
+      }
+    },
+    {
+      "id": "swisbcg-war",
+      "type": "tomcat",
+      "context": {
+        "app": "SWISBCG",
+        "component": "swisbcg-war"
+      }
+    }
+  ],
+  "context": {
+    "environment": "production"
+  }
+}
