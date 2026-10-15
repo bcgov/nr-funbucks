@@ -1,9 +1,9 @@
 ---
 name: funbucks-config
-description: Add or update nr-funbucks server, app, or template configuration with minimal targeted validation
+description: "Add or update nr-funbucks server, app, or template configuration with minimal targeted validation"
+disable-model-invocation: true
 argument-hint: Describe the server, app, template, or config change to make
 ---
-
 Use this prompt when the task is to add or update nr-funbucks configuration in `config/`.
 
 Scope:
