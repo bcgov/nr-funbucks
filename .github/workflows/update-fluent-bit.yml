@@ -1,0 +1,84 @@
+name: Update Fluent Bit base release
+
+on:
+  schedule:
+    - cron: "0 15 * * 1"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: update-fluent-bit
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Check latest release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      PIN_FILE: config/base.json
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Resolve latest release
+        id: update
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          CURRENT=$(jq -r '.fluentBitRelease' "$PIN_FILE")
+          [[ "$CURRENT" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "Could not read current version"; exit 1; }
+
+          # gh release view without a tag returns the latest non-draft, non-prerelease release
+          TAG=$(gh release view --repo fluent/fluent-bit --json tagName --jq .tagName)
+          TARGET="${TAG#v}"
+          [[ "$TARGET" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "Unexpected release tag: $TAG"; exit 1; }
+
+          if [[ "$TARGET" == "$CURRENT" || "$(printf '%s\n%s\n' "$CURRENT" "$TARGET" | sort -V | tail -n1)" == "$CURRENT" ]]; then
+            echo "Pinned ${CURRENT} is current (latest release ${TARGET}); no update needed." >> "$GITHUB_STEP_SUMMARY"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          TARGET="$TARGET" perl -pi -e 's/^(\s*"fluentBitRelease":\s*")[^"]*(")/$1$ENV{TARGET}$2/' "$PIN_FILE"
+          git diff --check
+          {
+            echo "changed=true"
+            echo "current=${CURRENT}"
+            echo "target=${TARGET}"
+            echo "major=$([[ "${TARGET%%.*}" != "${CURRENT%%.*}" ]] && echo true || echo false)"
+            echo "release_url=https://github.com/fluent/fluent-bit/releases/tag/v${TARGET}"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create or update pull request
+        id: pull-request
+        if: steps.update.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          branch: automation/fluent-bit-update
+          delete-branch: true
+          add-paths: config/base.json
+          commit-message: "Update Fluent Bit to ${{ steps.update.outputs.target }}"
+          title: "Update Fluent Bit to ${{ steps.update.outputs.target }}"
+          body: |
+            Updates the pinned Fluent Bit base release in `config/base.json`.
+
+            - Previous version: `${{ steps.update.outputs.current }}`
+            - New version: `${{ steps.update.outputs.target }}`
+            - Release notes: ${{ steps.update.outputs.release_url }}
+            - Major version change: `${{ steps.update.outputs.major }}`
+
+            Review the release notes for breaking changes before merging. Merging is manual. CI does not run automatically on PRs opened with `GITHUB_TOKEN`; close and reopen to trigger it.
+
+      - name: Report pull request
+        if: steps.update.outputs.changed == 'true'
+        env:
+          PULL_REQUEST_URL: ${{ steps.pull-request.outputs.pull-request-url }}
+        run: |
+          echo "Pull request: ${PULL_REQUEST_URL:-none created or updated}" >> "$GITHUB_STEP_SUMMARY"
