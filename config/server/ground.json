@@ -401,6 +401,14 @@
       }
     },
     {
+      "id": "wfrm-certification-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfrm",
+        "component": "wfrm-certification-sync-api"
+      }
+    },
+    {
       "id": "wfrm-contracts-war",
       "type": "tomcat",
       "context": {
@@ -479,6 +487,14 @@
         "app": "wfrm",
         "component": "wfrm-war-wfdlv",
         "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/wfrm-war.log"
+      }
+    },
+    {
+      "id": "wfshiftiq-employee-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfshiftiq",
+        "component": "wfshiftiq-employee-sync-api"
       }
     },
     {

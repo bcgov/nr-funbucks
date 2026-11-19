@@ -366,6 +366,14 @@
       }
     },
     {
+      "id": "wfrm-certification-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfrm",
+        "component": "wfrm-certification-sync-api"
+      }
+    },
+    {
       "id": "wfrm-contracts-war",
       "type": "tomcat",
       "context": {
@@ -459,6 +467,14 @@
       "context": {
         "app": "wfss",
         "component": "wfss-pointid-api-rest-endpoints"
+      }
+    },
+    {
+      "id": "wfshiftiq-employee-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfshiftiq",
+        "component": "wfshiftiq-employee-sync-api"
       }
     },
     {
